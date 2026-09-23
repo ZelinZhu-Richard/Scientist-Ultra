@@ -16,7 +16,7 @@ finite work supersedes the older freeze/next-batch ordering below:
 | Harness interpretation / root — DONE | Existing private evidence and ledger only; read-only runner review | Report delivered; timeout cause/outcomes/cleanup unknown. Repair or further diagnostic remains awaiting owner triage. |
 | Permutation correctness / root + non-author reviewer — DONE | `statistics.py`, new test module and comparison-v2 documentation | Reproduced defect; exact rational oracle,18 focused tests both runtimes and complete non-author review accepted; published71b3ddb. Historical results preserved. |
 | CLI consistency / root — DONE at conservative scope | `pyproject.toml`, supported-entry documentation, six startup/exit-contract tests | Unsupported console declaration removed; guarded launcher unchanged; published84f045c. Fresh source smoke proves help and truthful refusal, not successful initialized onboarding. |
-| One local workflow / root — design DONE, implementation BLOCKED | Runbook D-081 proposal independently reviewed; no admission implementation approved | Approved issuer, trusted legacy/new routing, publication semantics and E0 compatibility remain unresolved. Owner receives conditional adapter scope and acceptance criteria. Actual configurable workflow still needs execution evidence; no canned substitute. |
+| Local onboarding / root — D082 design and non-author review DONE, implementation AWAITING_OWNER_TRIAGE | One local-mode packet in existing runbook; no production code or experiments | Proposed init/status/check-config only; E0 unchanged. Explicit approval needed for implementation and stronger upgraded-CLI legacy restriction. Host assessment complete; no issuer search. Actual configurable research remains separately incomplete. |
 | Verify / publish / root | Existing evidence/docs/handoff and coherent commits on current review branch | Focused checks during development, exact affected-evidence reconciliation, coherent source freeze and applicable final checks. Outgoing-content audit before each push; remote SHA verified; main unchanged, no final release. |
 
 Numerical source changes invalidate claims that previous V9 full-source captures
@@ -27,13 +27,37 @@ Original final lifecycle/recovery/reproduction/architecture/Git requirements
 remain pending, not waived. New consequential findings outside D-080 go to
 owner triage under D-079. No broad refactor, security campaign or harness rewrite.
 
-Next unrelated dependency: run the already queued installed `test_vnext_operations`
-18-method selection once under the unchanged guarded capture path and7200-second
-bound, serially. Preserve exact303-source identity and results. If it fails or
-times out, retain completed/unknown outcomes and return any new substantial
-diagnostic/repair to owner triage; do not repeat unchanged execution. Later
-cross-runtime/full integration, supported lifecycle, architecture packet,
+Installed `test_vnext_operations` now passes the same18 distinct IDs on
+Python3.14.6 and3.11.15, with source/raw/worker closures `81afed5d` and `dd1c58a6`.
+Exact303-source identity and input fingerprints match. Do not repeat this
+completed selection. At the safe documentation publication boundary, continue
+the existing192-module/3294-ID Python3.11 selection at current D080 source (not
+exact-source pairing with historical V9 Python3.14). Any failure/timeout retains
+completed/unknown outcomes; new substantial diagnostics or repairs require
+owner triage, not an unchanged retry. Supported lifecycle, architecture packet,
 qualified baseline history and final audit remain finite original obligations.
+
+### Finite remaining sequence — existing checks, not new scope
+
+Root owns integration and evidence closure for each row. A failed, incomplete or
+blocked exit is recorded as such; it is not a passing completion. No new repair
+or substantial diagnostic follows without the applicable owner authorization.
+
+| Remaining item | Dependency | Observable exit |
+| --- | --- | --- |
+| Operations18 cross-runtime — DONE | Both original captures terminal; unchanged303 inputs | Same18 IDs/input fingerprint, raw/worker/loaded joins closed;18 distinct, not36. Evidence remains scoped and non-scientific. |
+| D082 documentation checkpoint — PREPARED, not pushed | No active capture depends on Git/workspace state; exact outgoing-content and history review | Coherent documentation-only commit on existing review branch, non-force push and remote SHA verification; main unchanged. No admission implementation implied. |
+| Remaining192 modules /3294 IDs, Python3.11 — NOT_STARTED | Current attempt closed; serial scheduling; frozen source and unchanged original permitted selection | First current-source capture and reviewed retained-data closure. Older V9 Python3.14 evidence stays a different source identity, not an exact-source pair. Do not begin against source known to be about to change. |
+| Current synthetic lifecycle — NOT_STARTED | Source stable and preceding shared-root captures terminal | Existing guarded vNext3-command and legacy8-command ladders retain exact run IDs, statuses, registry/ledger verification, architecture-control reproduction, packaging and post-package verification. Private historical admission is not fresh-user onboarding; expected reproduction exit1 remains distinct from failure or scientific reproduction. |
+| Architecture packet and4 structural validators — PENDING | Applicable test/lifecycle evidence closed or explicitly unresolved | Current15-criterion provisional packet with exact evidence and ADR0002 references; historical ADR0001 unchanged. Stopped criterion remains BLOCKED, no proxy assessment or invented15/15. Structural success alone is not behavioral acceptance. |
+| Qualified recovered-baseline history — PENDING | Stable preserved workspace, existing verified47-file candidate and publication checks | Transparent recovered-source import and authorized `v0.1.0-recovered-baseline` tag; preserve published ancestry/main and document actual branch structure. Reuse146 reconstructed-test evidence only at its exact scope; do not reconstruct again or claim original364 recovered. |
+| Final capability/docs/Git report and canonical audit — PENDING | All permitted preceding work reconciled; original blockers retained | Requirement-by-requirement evidence report, final Git facts and exact public-source identity; canonical audit after the last audited input mutation. No final-release, E4 or full Goal-completion claim while required work remains. |
+
+The question-driven research workflow remains INCOMPLETE. D082 implementation
+and its compatibility choice await owner triage; this affects admission work,
+not the unrelated rows above. Gates67 TIMEOUT, isolation verification limits,
+external access/data/custody, safety stops and historical uncertainty remain
+separate unresolved entries in the existing ledger; this checklist waives none.
 
 ## Preserved V9 verification checkpoint
 

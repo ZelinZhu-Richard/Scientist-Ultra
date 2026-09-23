@@ -24,8 +24,9 @@ run, artifact store or resource authority is created. A caller-supplied brief
 does not bypass that prerequisite. This is a verified refusal, NOT successful
 onboarding. The existing section1 only validates a receipt already issued for
 the admitted workspace. It is not a recipe for manufacturing one. A supported
-fresh app-bound issuer requires separately reviewed authority design; owner
-triage is pending. Do not copy the development receipt or edit its path.
+fresh app-bound issuer is not supplied here. That assessment is complete; the
+owner instead selected a non-host LOCAL_DEVELOPMENT design, reviewed below and
+not implemented. Do not copy the development receipt or edit its path.
 
 The legacy exit contract is unchanged:
 
@@ -56,7 +57,8 @@ Fresh-workspace admission currently blocks this command BEFORE brief ingestion,
 source/data registration, prospective planning or worker dispatch. No data was
 consumed, baseline/candidate run, uncertainty calculated or research report
 generated. The public tests record that failure instead of returning canned
-results. The concrete next prerequisite is legitimate fresh app-bound admission.
+results. The selected next proposal is truthful local-development admission,
+not a replacement host receipt; implementation requires separate approval.
 After admission, the existing `start --brief` only registers supplied text and
 initializes a run; it does not itself translate arbitrary questions/configuration
 into executable research. The requested full configurable workflow remains
@@ -71,7 +73,204 @@ custody, scientific and human-only E4 requirements continue to govern execution.
 
 ## Scope and non-negotiable labels
 
-### Fresh-admission design proposal — D-081, not implemented
+### Standalone local-development decision packet — D-082, DESIGN ONLY
+
+This supersedes D081's proposed host-issuer next action, not its source findings.
+The host assessment is complete; no issuer search or conditional host adapter
+will proceed. Owner authorized this design and independent review, not code or
+admission experiments. Source basis remains `1090bdd` / functional freeze
+`8f5b3669`; none of the following new commands exists yet.
+
+**Recommended minimum.** Add an explicit `local-development` command namespace
+through the existing captured launcher. Initially allow only initialization,
+admission inspection and validation of the existing local resource configuration.
+This deliberately does NOT enable research execution. It establishes a truthful
+standalone entry point without changing E0 or inventing host authority. The
+question/configuration-driven research workflow remains a separate incomplete
+requirement, not satisfied by these technical operations.
+
+**Local contract.** A create-once private `state/LOCAL_DEVELOPMENT.json` has ONLY
+these proposed fields: `schema_version: LOCAL_DEVELOPMENT_V1`,
+`mode: LOCAL_DEVELOPMENT`, `host_app_attestation: NOT_PROVIDED`,
+`canonical_project_root` (string), `root_device`/`root_inode` (nonnegative integers,
+not booleans), `source_inventory_sha256` (64 lowercase hex),
+`local_checks` (exact map of `selected_narrow_root`, `captured_source_match`,
+`no_authority_conflict`, each `PASS` after its actual check), and
+`allowed_operations: [init, status, check-config]`. Unknown keys/versions or
+changed allowlists refuse; stored permissions cannot extend source-defined
+permissions. The source digest is the existing `_source_inventory` aggregate:
+sorted path/size/hash entries for package Python files plus the guarded launcher,
+validated against the actual capture. No timestamp, nonce or configuration hash
+enters the equality-critical record. These are local observations, not an
+authenticated user/host identity or protection against a
+user controlling the interpreter/filesystem. A hash is not an issuer signature.
+Never include `app_session_bootstrap`, `bootstrap_checks`, historical receipt
+hashes or approval claims. The record grants no platform permission, network,
+spending, protected data, custody, scientific promotion, publication or E4.
+Paths/identities stay private; displayed status uses relative root and scope.
+
+**Proposed fresh-checkout sequence** (already trusted Python >=3.11; explicitly
+selected narrow checkout named `ScientistOne`, cwd equals that checkout):
+
+```sh
+python3 -I -S -B scripts/scientist_one_cli.py --root . local-development init
+python3 -I -S -B scripts/scientist_one_cli.py --root . local-development status
+python3 -I -S -B scripts/scientist_one_cli.py --root . local-development check-config
+```
+
+The user selects the directory; captured repository code checks current identity
+and records only those facts. No host actor is asserted. `check-config` reads
+only confined `configs/resource_limits.json` with existing byte/JSON bounds,
+calls existing `ResourceConfig.from_mapping`, and returns the input digest,
+defaults-expanded `to_dict()` settings and validation outcome from the SAME read
+buffer. Existing `resources.py` import observes CPU count; omitted worker count
+inherits that default, which the output discloses. No additional hardware
+profiling, subprocess/process probes, `ResourceController`, resource acquisition,
+worker dispatch, research calibration, run creation or provider call is allowed.
+Existing parser semantics remain: unknown keys refuse; `schema_version` need
+only be a nonempty string, not a known version. This is distinct from the new
+record's exact-version check. Users may edit config and recheck it; input identity
+is captured for each invocation, not declared permanently approved by init.
+Outputs use the existing CLI JSON/exit convention: PASS0, other result1,
+usage/admission/exception2. No result is a scientific finding.
+
+**Command / authority matrix for the proposed new version:**
+
+| Command | Fresh local-development workspace | Required authority / common limits |
+| --- | --- | --- |
+| `--help` | Allowed without a record | Existing captured startup; no initialization |
+| `local-development init` | Explicit selection; absent record or exact valid repeat only | Current confined root/source identity; create-once publication |
+| `local-development status` | Valid local record required; missing/invalid returns error without creation | Revalidate binding and exact schema; no legacy run traversal |
+| `local-development check-config` | Allowed with valid local record | Same checks plus bounded existing configuration parser; no resource lease |
+| Existing `preflight`, `calibrate`, `start`, `demo`, `research-os-fixture` (including restart) | NOT authorized by local mode | Existing broader operations are not implicitly inherited |
+| Existing `status [run]`, `resume`, `verify`, `reproduce`, `package` | NOT authorized by local mode | May traverse/mutate legacy or vNext run authorities; no alias to local status |
+| Host-admitted execution | Unavailable in this proposed version until a separate genuine authority contract is approved | Local record cannot satisfy it; no failed-host fallback |
+| Launcher `test-suite`, `audit-project`, internal captured-test selector | Not authorized by this product record | Existing independently controlled verification paths unchanged; local mode grants no new test/audit or stopped-scope permission |
+| Network, paid/cloud work, protected data, custody, promotion, submission/E4 | Never granted | Their independent platform/scientific/human gates remain |
+
+Common checks retain real `-I -S -B` captured startup and loaded/live-source
+attestation, narrow canonical root/cwd identity, confined regular single-link
+records, bounded strict JSON, and existing confined atomic publication helpers.
+No manually injected capability flags, alternate launcher or platform bypass.
+The allowlist must be enforced before constructing the existing broad
+orchestrator; parser selection alone must not grant its methods.
+
+**Precise E0 treatment.** No existing E0 field or predicate changes. Today
+`orchestrator._safe_root` requires `app_session_bootstrap == PASS` plus matching
+`canonical_project_root`. `_handler_calibrate` creates logical artifact
+`bootstrap_receipt` with kind `CONFINED_BOOTSTRAP_RECEIPT_REFERENCE`, schema1.0,
+`app_session_bootstrap`, `bootstrap_checks`, redacted root `.`,
+`source_receipt_sha256` and `external_absolute_paths_recorded: false`; together
+with `calibration_report` it requests `E0:CALIBRATE` / R0. The frozen
+`CALIBRATE → CHARTER` transition requires both artifacts and E0.
+`StateController._validate_semantic_artifact` requires bootstrap PASS and a
+nonempty all-PASS check list; calibration must equal fresh deterministic replay.
+None of those checks authenticates a host issuer. Local initialization produces
+NEITHER artifact, evaluator receipt nor state transition. Its status explicitly
+says host E0 evidence NOT_PROVIDED / NOT_EVALUATED, never PASS. Other E0 usages
+(e.g. SYSTEM_FIXTURE technical checks) are not all host attestations and are
+unchanged. Enabling a legacy research workflow would require a separately
+approved versioned authority/transition design; renaming this record is invalid.
+
+**Compatibility decision requiring explicit approval.** The current reader
+cannot distinguish an old authentic context from newly written legacy-shaped
+PASS/path JSON. No filename, timestamp, command flag or copied digest fixes
+that. Recommended fail-closed tradeoff: in the *proposed upgraded public CLI*,
+reject the existing broad command route regardless of a legacy-shaped receipt;
+do not offer a `--trust-legacy` escape. Local init also refuses any existing
+`APP_SESSION_BOOTSTRAP.json` or legacy run authority instead of migrating it.
+This is an explicit CLI compatibility restriction, NOT implemented or already
+approved. Existing frozen-source verification continues unchanged before any
+future integration. Preserve all historical bytes, results and historical
+readers; do not retroactively authenticate them or alter E0. Users retaining
+historical workspaces cannot migrate/execute them through this minimum new
+local path. If preserving broad historical execution in the upgraded CLI is
+required, this minimum cannot honestly promise authenticated historical/fresh
+routing; that compatibility requirement needs a separate owner decision. No new
+trust service or hidden grandfathered hash is proposed.
+
+**Record lifecycle.** Every local command checks the finite conflicting paths:
+`state/APP_SESSION_BOOTSTRAP.json`, `runs`, `artifacts`, `reports`, and
+`.scientist-one-build/{checkpoints,custody,resource-authority}`. ANY entry at
+these names (even empty, malformed or linked) refuses; unreadable/unsafe parents
+refuse. This is conservative namespace isolation, not historical authentication.
+Absence permits only explicit init; all other local
+commands refuse. Exact valid repeat rechecks current root/source/schema and
+returns without replacing bytes or changing run state. A copied root binding,
+directory replacement, changed captured source, malformed/unknown schema,
+partial final record, symlink/hardlink, unexpected authority-bearing fields,
+or simultaneous local/legacy records refuses without repair or downgrade.
+Initialization may create only its missing confined `state` parent and the
+record through existing `atomic_write_json(overwrite=False, immutable=True)`;
+no research/runtime directories. Validate before publication and revalidate
+root/source/conflicts and final record afterward. A post-publication refusal
+may leave a complete record, not admission success. Pre-publication failure
+grants nothing. Existing helper-owned temporary cleanup remains unchanged.
+Any pre-existing name matching `.LOCAL_DEVELOPMENT.json.*.partial` in `state`
+refuses, with or without a final record; unrelated temporary names are not
+scanned as admission evidence. The helper's transient two-link interval or
+concurrent initialization may safely refuse; no liveness inference/automatic
+retry. Adapter never removes leftovers or repairs final records. A later exact
+repeat succeeds only when all checks are clean; record bytes/mtime stay intact.
+Ambiguity requires a reported recovery decision, not lock removal. No
+automatic migration/rebinding/update command is part of the minimum. Changed
+configuration can be checked afresh; changed captured source requires a fresh
+explicitly selected workspace until an upgrade policy is separately approved.
+
+**Smallest implementation envelope for the next approval:** `cli.py` routing;
+small common-root/local-record functions in `orchestrator.py` without granting
+the broad constructor local authority; reuse unchanged `security.py` publication
+and `resources.py` parsing; one focused captured-startup test module, existing
+onboarding test expectations explicitly versioned for the CLI restriction,
+runbook/README/ignore-policy updates. No launcher/capability protocol, E0,
+state-machine, scientific ledger/registry, worker/provider or custody changes.
+Record handling is product configuration, not a second approval service.
+
+**Acceptance after approval, NOT executed now:** genuine fresh source checkout
+with no private receipts; all three proposed commands; same-input repeat with
+unchanged record bytes/mtime and no run creation; copied/stale/unknown/partial/
+conflicting records detected in pre-publication checks fail before writes;
+post-publication revalidation refusal may leave a complete record, never success;
+deterministic publication-failure cases
+using existing supported helpers (no stopped native probes); historical bytes
+unchanged; newly legacy-shaped JSON cannot enable the upgraded broad route;
+all out-of-allowlist commands refuse; no bootstrap/E0/ledger/claim authority is
+created; configuration parser accepts/rejects its existing schema and binds
+each input digest; source tamper/cwd mismatch and existing guarded-startup
+controls remain fail-closed. Run focused new/affected CLI controls on both
+supported runtimes, not unchanged numerical or broad suites merely for design.
+An approved CLI restriction invalidates previous broad CLI/lifecycle acceptance
+for that future version and must be explicitly reported, not inherited as PASS.
+
+**Next decision:** approve this three-command technical-only implementation
+INCLUDING the stated legacy CLI restriction, or require historical execution
+compatibility first. No external issuer/credentials are needed for this local
+minimum. Actual configurable research remains unfinished and requires its own
+scientifically valid command/authority path, not a bootstrap alias.
+
+**Non-author review:** reused admission reviewer supports this technical scope
+and E0 separation; actual runtime/configuration UNVERIFIED. Root incorporated
+the CPU-default/parser semantics, exact record/conflict namespace and existing
+publication cleanup/concurrency qualifications. No production bug or exploit was
+reproduced. The smaller alternative is additive local isolation with the old
+route explicitly UNAUTHENTICATED and blocked whenever local records exist; it
+does NOT prevent new legacy-only JSON enabling old commands. Reviewer and root
+agree it cannot claim equivalent protection. Root recommends the stronger
+restriction above; the compatibility choice remains the sole owner decision.
+No admission experiments or production edits occurred. Implementation UNAPPROVED.
+
+Source anchors: `cli.py:164`; `orchestrator.py:1503,1610,1706,2222,9546`;
+`state_machine.py:215,648`; `resources.py:33,74,90,132`;
+`security.py:331,385,571`. These refer to the source basis above. Private review
+retains both draft identities; final wording adds the reviewer's distinction
+between pre-publication refusal and refusal after a completed publication.
+
+### Historical host-admission assessment — D-081, completed; adapter not selected
+
+The owner selected the separate D082 local-development proposal above. This
+preceding assessment is retained as evidence, not an instruction to search for
+an issuer or implement its conditional adapter. Its former next actions are
+superseded; historical receipt bytes and scientific semantics remain unchanged.
 
 Source basis: published `84f045c`, functional freeze `8f5b3669`; no admission
 code has changed. This is a bounded proposal, not a second specification or

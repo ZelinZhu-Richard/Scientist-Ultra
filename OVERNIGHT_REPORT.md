@@ -19,12 +19,15 @@ for the next commit/push; private captures and bootstrap state remain excluded.
 The authorized gates67 diagnostic is terminal TIMEOUT, not still running:
 7200.020898582879s, 106 timing markers, no complete worker result. All 67 test
 outcomes and the cause/cleanup status remain UNKNOWN. No retry or repair follows.
-Fresh-source guarded help succeeds, but status stops at missing app-bound
-bootstrap admission before run creation. The owner now authorizes a bounded
-fresh-admission design and independent read-only review only; both are complete
-in the runbook. Approved host issuer, trusted legacy/new routing and E0
-compatibility remain unresolved; implementation still requires approval.
-No private receipt or synthetic success substitutes for it.
+Fresh-source guarded help succeeds, but status stops at missing bootstrap
+admission before run creation. D081 host assessment is complete; the owner
+selected a separate non-host LOCAL_DEVELOPMENT design. Its D082 runbook packet
+and independent review are complete, not implemented. Proposed init/status/
+check-config grant no host or scientific authority and leave E0 unchanged.
+The stronger proposal would disable broad legacy CLI dispatch in the upgraded
+version; that compatibility tradeoff and implementation await explicit approval.
+The smaller additive alternative retains unauthenticated legacy acceptance and
+cannot claim equivalent protection. No receipt or capability was fabricated.
 
 The CLI follow-up removes the unsupported installed console declaration, without
 changing CLI or launcher guards. Six fresh-source checks pass on both runtimes;
@@ -37,8 +40,9 @@ execution or report is claimed for the blocked configurable workflow.
 
 The CLI checkpoint `84f045c845ef50fa685ec6818deebeee3f085c9e` is also pushed and
 verified by remote-ref query and fetch; its metadata/test blobs are present.
-The source checkpoint has a clean tracked tree/index and tracks the existing
-review branch. This handoff is a documentation-only successor. Both pushes
+That source checkpoint was clean and tracks the existing review branch.
+Prior published documentation HEAD is `1090bdd`; this successor records the
+reviewed D082 proposal and terminal operations evidence. Both earlier pushes
 passed exact outgoing-content/history checks; no specific new disclosure
 blocker was found. Private raw captures remain local, limiting reproduction
 of the recorded private runs from GitHub alone.
@@ -48,12 +52,17 @@ Current functional freeze contains303 inputs: the previous V9 population of300
 metadata coverage. Freeze/focused-evidence closure SHA-256:
 `8f5b36693b67312a181c3fa0f87491623b48a2b85f1ec12e90027890767db973`.
 
-Next: retain this source freeze; continue the previously queued operations18
-check, then reconcile the remaining permitted integration/lifecycle checks.
-Do not rerun gates67 or repair its harness. Admission design/review is returned
-to the owner with its unresolved dependencies; no related authority changes
-are authorized. A local-development alternative must be separately scoped and
-must not inherit host, platform or scientific authority.
+Current operations18 is terminal PASS on Python3.14.6 and3.11.15:18 identical
+distinct IDs, zero failures/errors/skips/expected failures/unexpected successes
+on each runtime. Enclosing evidence closures are `81afed5d` and `dd1c58a6`;
+source freeze and input fingerprints match. Harness durations were4022.308s
+and3326.017s respectively, each below the unchanged7200-second child bound.
+Internal phase timing is UNKNOWN; no cleanup or scientific-approval inference.
+This is18 cross-runtime tests, not36; older private runs are not additive.
+Retain the source freeze, then continue the planned192-module Python3.11
+selection and supported lifecycle checks. Do not
+rerun gates67 or repair its harness. D082 is design-only; the configurable
+question-driven research workflow is not completed by technical initialization.
 Original operations/lifecycle/reproduction/package, architecture, qualified
 history and final checks remain open. V9 tests below retain their exact-source
 scope and are not automatically current after this correction. External/safety
