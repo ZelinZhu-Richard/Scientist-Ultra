@@ -1,7 +1,36 @@
 # Research OS vNext Final Verification
 
-Status: **V9 FUNCTIONAL SOURCE FROZEN; FINAL VERIFICATION INCOMPLETE**
+Status: **BOUNDED NUMERICAL FOLLOW-UP INTEGRATED; FINAL VERIFICATION INCOMPLETE**
 Capability ceiling: **`AUTONOMOUS_EXPLORATION_READY`**
+
+The ceiling remains provisional, based on earlier bounded synthetic fixtures,
+not a fresh-user deployment claim. The owner-approved permutation correction
+has 18 focused installed tests passing on both Python 3.14.6 and 3.11.15,
+after a private candidate passed the same selection and non-author review.
+These are the same IDs across runtimes/copies, not additive test counts.
+Independent Fraction means verify comparison semantics. The preimage run
+retains 8 failures and 1 error across 18 tests (one failure deliberately expects
+the new method label); the scaled example specifically returned 1.0, not 1/35.
+Source SHA-256: `d19f8cf87b08cf79c30d005f91d5745c6ca874216b7b73848d8aa38fa31ec420`.
+New test SHA-256: `55f30b1c25897ce0a3688512f127d4e5739fe2a6190592f04464c919e0c70ab9`.
+Installation removed only an extra final blank line from the reviewed test
+candidate; the complete source patch and test behavior are unchanged.
+
+No historical result is migrated. Only `analyze_two_group` directly calls this
+helper in repository source; its method description now identifies comparison
+v2. Original full-source V9 attestations below do not validate the changed tree.
+The safety-stopped scientific-core module was not rerun or bypassed; focused
+numerical tests establish no authority/protocol/security or real-study result.
+
+The single approved gates67 phase diagnostic is now terminal TIMEOUT at
+7200.020898582879 monotonic seconds. Its 106 markers include 52 closed spans,
+but no complete captured worker payload, so individual outcomes remain UNKNOWN.
+Nested times overlap. Source-level output retention occurs after return/timeout,
+not as live durable progress; cleanup and root cause remain unknown. Original
+and interim evidence is retained. Further investigation/repair/retry requires
+owner triage. CLI/fresh-workflow acceptance and final verification remain open.
+
+## Preserved V9 exact-source evidence
 
 September 23, 2026 checkpoint, incorporating the Python 3.14 terminal observation at 16:19:20 UTC: V9 is installed and frozen with 300 functional inputs.
 The same 125 selected IDs pass on Python 3.14.6 and 3.11.15 at enclosing scope;

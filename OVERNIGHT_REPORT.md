@@ -4,6 +4,35 @@ DEVELOPMENT / REVIEW — NOT FINAL RELEASE OR SCIENTIFIC APPROVAL
 
 ## Development / review checkpoint September 23, 2026
 
+Current: the bounded permutation correction is integrated after non-author
+review, with 18 focused numerical tests passing on both Python 3.14.6 and
+3.11.15. New comparisons use exact represented-value ties and retain all tail,
+enumeration and seeded Monte Carlo conventions. The scaled example returns
+1/35. New analysis descriptions identify comparison v2; historical results stay
+unchanged. These are component results, not refreshed full-system acceptance.
+
+Last remotely verified branch: `review/vnext-checkpoint` at
+`5e011a363e3b001dd132102b3708ce579ceca66d`; this numerical follow-up is not yet
+published. Main remains `bba9ec5`. Only reviewed development source is eligible
+for the next commit/push; private captures and bootstrap state remain excluded.
+
+The authorized gates67 diagnostic is terminal TIMEOUT, not still running:
+7200.020898582879s, 106 timing markers, no complete worker result. All 67 test
+outcomes and the cause/cleanup status remain UNKNOWN. No retry or repair follows.
+Fresh-source guarded help succeeds, but status stops at missing app-bound
+bootstrap admission before run creation. Legitimate fresh issuance is awaiting
+owner triage; no private receipt or synthetic success substitutes for it.
+
+Next: publish the numerical correction after outgoing-content checks; reconcile
+CLI packaging and document/test the actually supported startup/legacy exit
+contract; progress the configurable workflow only through admitted boundaries.
+Original operations/lifecycle/reproduction/package, architecture, qualified
+history and final checks remain open. V9 tests below retain their exact-source
+scope and are not automatically current after this correction. External/safety
+and historical limitations below remain unresolved.
+
+## Preserved V9 checkpoint
+
 September 23, 2026 checkpoint, incorporating the Python 3.14 terminal observation at 16:19:20 UTC. This section supersedes older running/pending statements without
 rewriting their original outcomes. This remains DEVELOPMENT / REVIEW, not a
 completed Goal or final release.

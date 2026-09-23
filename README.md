@@ -15,7 +15,24 @@ of stalled or failed owned work. Passing component tests and the synthetic fixtu
 do not close these gaps. See [current verification scope](docs/VNEXT_FINAL_VERIFICATION.md)
 for passing selections, original failures and unresolved safety/external gates.
 
-## Current V9 development checkpoint
+## Current bounded follow-up
+
+The permutation-test numerical correction is integrated after independent
+non-author review: exact represented-value comparisons replace the fixed
+`1e-15` tolerance. The reported scaled example now returns `1/35`. Eighteen
+focused numerical tests pass on Python 3.14.6 and 3.11.15. See
+[comparison semantics and limits](docs/SCIENTIFIC_VALIDITY_MODEL.md#permutation-comparison-semantics-v2).
+These results do not revalidate the whole system after the source change.
+
+Fresh-workspace research execution is blocked at app-bound bootstrap admission;
+no private receipt is supplied by this repository. CLI packaging/onboarding
+reconciliation and the requested configurable workflow remain unfinished.
+The single authorized gates67 diagnostic ended in a 7,200-second timeout with
+no complete test-result payload; its cause remains unknown. No retry is queued.
+
+## Verified V9 checkpoint — historical source
+
+The following measurements apply to V9, not the numerical follow-up above.
 
 September 23, 2026 checkpoint, incorporating the Python 3.14 terminal observation at 16:19:20 UTC: V9 is installed and frozen with 300 functional inputs.
 The same 125 selected IDs pass on Python 3.14.6 and 3.11.15 at enclosing scope;

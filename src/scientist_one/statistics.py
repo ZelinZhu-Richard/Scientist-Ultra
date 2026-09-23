@@ -360,7 +360,14 @@ def permutation_test_mean_difference(
     Callers must validate domain exchangeability before selecting this generic
     label permutation.  Exact enumeration is used when the family is small;
     otherwise a fixed-seed Monte Carlo estimate with the plus-one correction is
-    returned.
+    returned. Tails include exact ties in the rational values represented by
+    the validated floats; two-sided means absolute mean difference, not twice
+    a one-sided tail. No unit-dependent tolerance is used (comparison v2).
+
+    Exact positive rescaling of the represented inputs preserves the result.
+    Floating multiplication that rounds, overflows or underflows can change
+    those inputs and is not guaranteed invariant. This arithmetic guarantee
+    does not extend the numeric range of the other effect/uncertainty routines.
     """
 
     treatment_values = _finite_values(treatment, "treatment")
@@ -373,27 +380,34 @@ def permutation_test_mean_difference(
         raise StatisticalValidationError("seed must be an integer")
     if isinstance(exact_limit, bool) or not isinstance(exact_limit, int) or exact_limit < 1:
         raise StatisticalValidationError("exact_limit must be a positive integer")
-    combined = treatment_values + control_values
+    ratios = [value.as_integer_ratio() for value in treatment_values + control_values]
+    # Binary float denominators are powers of two, so their maximum is a common
+    # denominator. Integer scores retain exact represented-value ties, including
+    # cancellation and subnormals, without rounding intermediate means.
+    denominator = max(divisor for _, divisor in ratios)
+    combined = [numerator * (denominator // divisor) for numerator, divisor in ratios]
     treatment_count = len(treatment_values)
-    observed = mean_difference(treatment_values, control_values)
+    total_count = len(combined)
+    total = sum(combined)
+    # Each score is mean_difference * denominator * n_treatment * n_control;
+    # that factor is positive and constant across all assignments.
+    observed = total_count * sum(combined[:treatment_count]) - treatment_count * total
 
-    def at_least_as_extreme(value: float) -> bool:
-        tolerance = 1e-15
+    def at_least_as_extreme(value: int) -> bool:
         if alternative == "two-sided":
-            return abs(value) >= abs(observed) - tolerance
+            return abs(value) >= abs(observed)
         if alternative == "greater":
-            return value >= observed - tolerance
-        return value <= observed + tolerance
+            return value >= observed
+        return value <= observed
 
     permutation_count = math.comb(len(combined), treatment_count)
     if permutation_count <= exact_limit:
         extreme = 0
         indexes = range(len(combined))
         for treatment_indexes in itertools.combinations(indexes, treatment_count):
-            selected = set(treatment_indexes)
-            permuted_treatment = [combined[index] for index in indexes if index in selected]
-            permuted_control = [combined[index] for index in indexes if index not in selected]
-            if at_least_as_extreme(mean_difference(permuted_treatment, permuted_control)):
+            selected_sum = sum(combined[index] for index in treatment_indexes)
+            value = total_count * selected_sum - treatment_count * total
+            if at_least_as_extreme(value):
                 extreme += 1
         return extreme / permutation_count
     generator = random.Random(seed)
@@ -401,7 +415,7 @@ def permutation_test_mean_difference(
     shuffled = list(combined)
     for _ in range(resamples):
         generator.shuffle(shuffled)
-        value = mean_difference(shuffled[:treatment_count], shuffled[treatment_count:])
+        value = total_count * sum(shuffled[:treatment_count]) - treatment_count * total
         if at_least_as_extreme(value):
             extreme += 1
     return (extreme + 1) / (resamples + 1)
@@ -494,7 +508,7 @@ def analyze_two_group(
         ci_upper=upper,
         uncertainty_method=f"percentile bootstrap over independent units ({bootstrap_resamples} resamples)",
         p_value=p_value,
-        test_method="exchangeable-unit label permutation",
+        test_method="exchangeable-unit label permutation; binary64-exact-comparison/v2",
         treatment_independent_units=len(treatment_values),
         control_independent_units=len(control_values),
     )

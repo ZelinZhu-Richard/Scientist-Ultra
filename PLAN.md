@@ -1,5 +1,30 @@
 # Scientist-One vNext Execution Plan
 
+## Current bounded milestone — owner D-080, September 23
+
+V9 source `b57087f` and handoff `5e011a3` are published; `main` is unchanged.
+The one gates67 diagnostic is terminal TIMEOUT, not an active run. Its earlier
+INCOMPLETE observation and all raw evidence remain. No automatic repair/retry.
+The following finite work supersedes the older freeze/next-batch ordering below:
+
+| Work / owner | Intended patch boundary | Dependency and observable exit / affected checks |
+| --- | --- | --- |
+| Harness interpretation / root | Existing private evidence and ledger only; read-only runner review | Explain timer/output/terminal paths from source and actual markers; no execution, repair, process probes or cancellation change. Return next decision to owner. |
+| Permutation correctness / root + non-author reviewer | `statistics.py` permutation implementation and method-version description; one dedicated test module; relevant statistical documentation | Reproduce 70-assignment example through guarded captured tests, compare to independent rational oracle, verify scale/tie/tail/MC/validation cases; non-author full-patch review before acceptance. Preserve other statistical routines and historical results. |
+| CLI consistency / root | `pyproject.toml`, supported-entry documentation, focused startup/exit-contract tests; launcher only if existing authority is demonstrably preserved | Trace real captured entry and fresh admission. Prefer removing unsupported console declaration over changing guards. Fresh source-checkout smoke without private receipts; disclose first blocked authority rather than forging it. |
+| One local workflow / root | Existing brief/config/local execution/report owners, safe example and focused tests only if existing admission permits | User question and permitted input/config, prospective baseline/hypothesis, actual worker results and evidence-linked limitations/reproduction. Report protected fresh-onboarding dependency before changing it. No new provider, authority, ledger or template-only autonomy claim. |
+| Verify / publish / root | Existing evidence/docs/handoff and coherent commits on current review branch | Focused checks during development, exact affected-evidence reconciliation, coherent source freeze and applicable final checks. Outgoing-content audit before each push; remote SHA verified; main unchanged, no final release. |
+
+Numerical source changes invalidate claims that previous V9 full-source captures
+are validation of the new source; those captures remain valid historical V9
+evidence. Trace actual callers before selecting affected integration checks;
+do not rerun safety-stopped `test_scientific_core` or historical studies.
+Original final lifecycle/recovery/reproduction/architecture/Git requirements
+remain pending, not waived. New consequential findings outside D-080 go to
+owner triage under D-079. No broad refactor, security campaign or harness rewrite.
+
+## Preserved V9 verification checkpoint
+
 September 23, 2026 checkpoint, incorporating the Python 3.14 terminal observation at 16:19:20 UTC: V9 is installed and frozen with 300 functional inputs.
 The same 125 selected IDs pass on Python 3.14.6 and 3.11.15 at enclosing scope;
 a disjoint 3,294-ID selection passes on Python 3.14.6 only. This is 3,419 distinct

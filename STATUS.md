@@ -2,6 +2,18 @@
 
 **DEVELOPMENT / REVIEW, not final acceptance.**
 
+Current bounded follow-up: the independently reviewed permutation correction
+and its 18 focused tests are integrated and pass on Python 3.14.6 and 3.11.15.
+Historical results are unchanged; new analysis results name comparison v2.
+This changes the source identity: V9 full-source captures below are retained
+V9 evidence, not verification of this follow-up. CLI packaging and fresh-user
+workflow work are in progress; fresh research execution is blocked by the
+missing app-bound workspace bootstrap issuer, awaiting owner triage. No receipt
+is copied or invented. The approved gates67 diagnostic is terminal TIMEOUT,
+with all 67 individual outcomes unknown; no repair/retry is authorized.
+
+## Preserved V9 verification
+
 September 23, 2026 checkpoint, incorporating the Python 3.14 terminal observation at 16:19:20 UTC: V9 is installed and frozen with 300 functional inputs.
 The same 125 selected IDs pass on Python 3.14.6 and 3.11.15 at enclosing scope;
 a disjoint 3,294-ID selection passes on Python 3.14.6 only. This is 3,419 distinct

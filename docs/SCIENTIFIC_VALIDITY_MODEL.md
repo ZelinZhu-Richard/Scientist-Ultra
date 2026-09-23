@@ -2,6 +2,38 @@
 
 ## Authority and scope
 
+### Permutation comparison semantics (v2)
+
+`statistics.permutation_test_mean_difference` counts assignments whose mean
+difference is at least as extreme as the observed difference. `greater` and
+`less` are signed tails; `two-sided` uses the absolute statistic, not twice a
+one-sided tail. Ties are included. Comparison v2 converts the validated floats
+to exact integers over a common binary denominator, then compares exact
+mean-difference numerators. It does not merge unequal statistics using a fixed
+absolute tolerance. For `[1,2,3,4]` versus four zeros, both unscaled and scaled
+by `1e-16`, exact enumeration returns `1/35`, not the old scaled result `1.0`.
+
+Positive rescaling that preserves represented values exactly preserves these
+comparisons. Floating multiplication may round, overflow or underflow and
+change the observations; arbitrary rescaling is not guaranteed invariant.
+This correction does not change the range or semantics of other effect-size,
+bootstrap or variance routines. Exact enumeration, indexed multiplicities,
+seeded Monte Carlo shuffling and its `(extreme + 1)/(resamples + 1)` correction
+remain. Exact comparison arithmetic does not imply exhaustive Monte Carlo
+sampling, domain exchangeability or scientific eligibility.
+
+The only in-repository direct caller is `analyze_two_group`; its new
+`test_method` is `exchangeable-unit label permutation; binary64-exact-comparison/v2`.
+Historical result bytes, method descriptions, evaluator receipts and study
+interpretations are not rewritten. External callers must retain their source
+revision and distinguish this interpretation from the earlier `1e-15` rule.
+The independently reviewed `tests/test_permutation_precision.py` uses rational
+group means as an oracle, separately from production integer-score arithmetic.
+Its 18 distinct numerical tests pass on Python 3.14.6 and 3.11.15; this is
+cross-runtime component evidence, not 36 distinct tests or full regression.
+
+### Structured-state authority
+
 Scientist-One vNext treats the typed, canonical research state as the scientific source of truth. `ArtifactRegistry` and `EventLedger` remain the persistence and provenance authorities for that state. Markdown reports, paper candidates, tables, figures, and summaries are derived views; they cannot add evidence, approvals, eligibility, or conclusions that are absent from the structured state.
 
 The integrated Research OS fixture exercises the vNext control path with captured provider and literature responses, a checked research brief, a frozen evaluation contract, real local subprocesses, discovery branches, a claim graph, challenger review, soundness assessment, and paper-readiness verification. Its study is nevertheless synthetic and every result-bearing fixture artifact is marked `scientific_evidence_eligible=false`. A system-fixture integrity pass establishes that the bounded plumbing and validators worked. It does not establish real-world novelty, empirical importance, external validity, independent review, or publication readiness.
