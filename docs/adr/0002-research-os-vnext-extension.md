@@ -101,3 +101,73 @@ The vNext gap is a research intelligence plane: controlled literature acquisitio
 - The implemented fixture correctly produces complete 15-dimension and 14-category review authorities while preserving their `UNTESTED`/unresolved statuses, derives terminal `MORE_EXPERIMENTS_REQUIRED`, and blocks soundness promotion, paper generation, venue readiness, confirmation use, and E4. It does not create a scientific release candidate.
 - Until OS isolation and the required real external, domain, confirmatory, and independent validation exist, the honest capability is `AUTONOMOUS_EXPLORATION_READY`, with unavailable capabilities explicitly `UNTESTED`, `BLOCKED_LOCAL`, or `BLOCKED_EXTERNAL`—not `REAL_EXPERIMENT_PIPELINE_READY`, `RESEARCH_GRADE`, `SUBMISSION_PIPELINE_READY`, empirical superiority, or publication readiness.
 - Final post-vNext captured-suite, architecture-control, audit, end-to-end, and failure-injection measurements and frozen digests remain pending until the tree is frozen and the final evidence run completes. Historical baseline counts are not current-tree results.
+
+## September 23, 2026 V9 measured-evidence and retained-limitations checkpoint
+
+The Context above records the August decision's historical claim of reproduced
+364/364 and15/15; those numbers are not current V9 measurements or recovered
+original executable evidence. The separately qualified recovered146 suite and
+the architecture configuration's greenfield ABSENT comparison are different
+populations. Preserve ADR0001 and the dated baseline rather than relabeling them.
+
+V9 is installed and its 300 functional inputs are frozen: the independently
+reviewed 16-file union comprises nine replacements and seven additions, with
+284 unchanged neighbors. Installation proof SHA-256:
+`58c469e5796559217a3877f732cd2d56530d7c027f4994a46093c507f0277976`.
+
+The same 125 distinct selected IDs pass on Python 3.14.6 and 3.11.15, with
+enclosing closure
+`80ab70ebc68277032e797b40e108f025d12a2493b8eb7e7bb42056e8bf8b0943`.
+The separate 192-module selection is terminal with exit 0 and 3,294 successes
+on Python 3.14.6 only; its single-runtime enclosing closure is
+`1475c93cce4b0c6ee519cfb357ba49740bceeb3f74d8b479d79b9efcf2911955`.
+These disjoint selections cover 3,419 distinct current IDs on Python 3.14;
+only the 125-ID selection is currently paired. The remaining192 Python 3.11
+selection is NOT_STARTED. Both closures leave nested/helper behavior
+NOT_ASSESSED; none of these counts is a full-suite, historical, scientific,
+security or release PASS.
+
+These observations support only their captured local scopes. They do not newly
+reverify every Decision or constitute an all-criteria architecture disposition.
+The current architecture packet and four structural validator methods remain
+pending. Four validator passes, if later obtained, would check packet bindings,
+not independently execute the15 behavioral criteria. The mandatory safety-stopped
+criterion remains BLOCKED and prevents an all-mandatory-PASS/final packet; no
+proxy evidence or historical PASS may clear it. Other criterion dispositions
+must be selected from their exact closed support, not defaulted from this ADR.
+
+The Standard source scan is sealed PARTIAL, with 43 review products and three
+LOW findings. Accepted corrections are installed and have scoped test evidence;
+this is not full security PASS or clearance of omitted/stopped scopes.
+
+Gates67 retains its original paired and diagnostic 7,200-second timeouts
+without complete outcomes; isolation38 retains 37 successes and one inner
+900-second timeout error per runtime. Causes remain UNKNOWN. The retained
+lint33 result is non-PASS. Original failures and separate private checks remain
+preserved, not relabeled or added to installed counts. Operations18, fresh
+installed lifecycle/reproduction/package, the current architecture packet and
+its four validator methods, and the final audit remain pending. Architecture
+packet validation is not proof that all 15 behavioral criteria pass.
+
+The sole registry/ledger authorities, outcome-neutral history, evidence-first
+paper boundary, scientific/operational separation and human-only E4 decisions
+remain. Synthetic execution/reproduction stays NON_EVIDENTIARY; the scientific
+15-dimension/14-category gates are distinct from the15 architecture criteria.
+No new positive scientific Result, independent custody, real external validation,
+scientific release candidate or capability promotion follows. LOCAL_MAC scientific
+isolation and other existing local/external limitations remain unfinished.
+
+The exact safeguard-stopped assess-patch-risk and substitutes, prompt-injection
+criterion, scholarly event-key/capture-alias, direct-coordinator legacy-selector/
+native-J retained session/thread/fork/FD lifetime, execution/read-restriction
+repair, trusted-collector and actual OS-crash collection scopes remain stopped,
+not PASS. No alternate reviewer, route, runtime or diagnosis clears them.
+Protected data, confidentiality boundaries, custodian requirements, spending
+limits, scientific gates and human-only E4 remain mandatory. No credential,
+private provider/run payload, protected dataset or unrelated process/descriptor
+inspection is authorized here.
+
+D-079 requires owner reporting/triage before any new consequential repair or
+expensive campaign, with no delegated repair. Conditional diagnostic permission
+and current verification/Git ordering are recorded in the current handoff; this
+ADR adds no implementation or execution authorization.

@@ -6,7 +6,56 @@ The original table below is a retained static source-review mapping, not a
 current execution report. Its old line numbers are historical navigation hints;
 use the named owners/tests and current evidence reconciliation below.
 
-## September20 captured-evidence reconciliation
+## September 23 V9 execution status — incomplete
+
+September 23, 2026 checkpoint, incorporating the Python 3.14 terminal observation at 16:19:20 UTC: V9 is installed and frozen with 300 functional inputs.
+The same 125 selected IDs pass on Python 3.14.6 and 3.11.15 at enclosing scope;
+a disjoint 3,294-ID selection passes on Python 3.14.6 only. This is 3,419 distinct
+selected current IDs on Python 3.14, with only 125 currently paired; remaining192
+on Python 3.11 is NOT_STARTED. Nested/helper behavior remains NOT_ASSESSED by
+the enclosing closures. These are not whole-suite, security, scientific or
+release acceptance.
+
+Exact source identities and both enclosing closure digests are in
+[final verification](VNEXT_FINAL_VERIFICATION.md). The original20-row table
+remains a retained static source/test mapping, not20 current runtime passes.
+Separate wrappers, component tests and direct integrations have different
+coverage; enclosing success does not establish unassessed nested execution.
+
+The original `tests/test_scientific_core.py` methods named in row16 remain
+outside the current final selection because that whole module is excluded:
+`test_omitted_evidence_use_cannot_grant_scientific_writer_eligibility`,
+`test_default_writer_view_excludes_eligible_nonscientific_claims`, and
+`test_serialized_claim_class_flip_cannot_reuse_support_receipts`.
+The original `tests/test_gates_paper.py` methods in rows5,9,16 and the
+paper/Soundness cross-cutting rows are also outside the ordinary selection;
+gates67 retains paired/diagnostic7,200-second timeouts and UNKNOWN cause.
+These are different exclusion reasons, not a claim that every gate is stopped.
+Existing safe wrapper/companion modules are their own enclosing scopes, never
+whole-module substitutes or extra original IDs. No current result here closes
+the excluded originals or authorizes wrapper expansion/retesting.
+
+The Standard source scan is sealed PARTIAL, with 43 review products and three
+LOW findings. Accepted corrections are installed and have scoped test evidence;
+this is not full security PASS or clearance of omitted/stopped scopes.
+
+The exact safeguard-stopped assess-patch-risk and substitutes, prompt-injection
+criterion, scholarly event-key/capture-alias, direct-coordinator legacy-selector/
+native-J retained session/thread/fork/FD lifetime, execution/read-restriction
+repair, trusted-collector and actual OS-crash collection scopes remain stopped,
+not PASS. No alternate reviewer, route, runtime or diagnosis clears them.
+Protected data, confidentiality boundaries, custodian requirements, spending
+limits, scientific gates and human-only E4 remain mandatory. No credential,
+private provider/run payload, protected dataset or unrelated process/descriptor
+inspection is authorized here.
+
+## September20 captured-evidence reconciliation — historical
+
+The following paragraph/table preserve the September20 evidence record. Their
+“current,” “running,” “pending,” “uninstalled” and runtime statements refer to
+that date, not V9. Old counts/digests/outcomes are unchanged and are not transferred
+to changed current bytes or added to V9 selections.
+
 
 The current paired selection contains 1,340 distinct passing IDs on each actual
 runtime (Python 3.14.6/3.11.15), reconciled from retained captured reports, not a
@@ -43,7 +92,7 @@ Status semantics:
 
 - `PASS` means the inspected tree contains both a fail-closed implementation boundary and a direct test that injects the named failure. It does **not** mean this review executed that test.
 - `PENDING` means either the implementation boundary or a direct injection test is absent.
-- Full captured-suite execution remains unresolved. Scoped current counts/digests above do not upgrade the original static labels into runtime or scientific clearance. Analogous coverage is never used to upgrade a row to `PASS`.
+- Full captured-suite execution remains unresolved. Historical counts and current bounded enclosing results do not upgrade static labels into runtime or scientific clearance. Excluded/timed-out originals remain outside current evidence; analogous tests and separate wrappers never upgrade an original method or whole module to executed `PASS`.
 
 | # | Exact meta-spec failure class | Implementation boundary | Direct failure-injection test name(s) | Static traceability |
 |---:|---|---|---|---|
@@ -70,6 +119,10 @@ Status semantics:
 
 ## Cross-cutting authority injections
 
+This is also a retained static mapping. PASS and scoped-review wording below
+are not new V9 runtime/security acceptance. No stopped mechanism is assessed or
+authorized by this table; excluded original tests remain excluded.
+
 These controls do not add failure classes to the exact 20-row meta-spec matrix. They test custody and promotion edges that can otherwise launder one of those failures through a hash-valid but semantically false authority.
 
 | Authority edge | Fail-closed behavior | Direct injection or readback evidence | Static traceability |
@@ -85,6 +138,11 @@ These controls do not add failure classes to the exact 20-row meta-spec matrix. 
 
 ## Integration-depth notes
 
+The following descriptions belong to the retained static review, not newly
+measured V9 execution. “Current”/“now” and line references below describe that
+historical inspection. Current enclosing scopes do not prove nested integration,
+production-launcher coverage, scientific eligibility or whole-module completion.
+
 The two bold tests above are the current failure injections that mutate the copied real child program and then traverse the actual `LocalMacBackend`, output manifest, registry, ledger, deterministic analyzer, and failed operation receipt. Their adversarial outputs remain internally hash-consistent; failure occurs at semantic recomputation rather than at a superficial hash check (`tests/test_research_os_e2e.py:412-513`).
 
 The other 18 rows have direct component-level injections, not merely analogous tests. This satisfies static traceability to the required failure class, but it does not claim the same integration depth as the two subprocess cases.
@@ -95,9 +153,29 @@ Claim evidence-use is a cross-cutting hardening boundary, not a twenty-first fai
 
 Operation receipts are also cross-cutting, not a twenty-first failure class. Atomic reservation and immutable `IN_PROGRESS`/`FAILED`/`COMPLETE` receipts make partial attempts visible (`src/scientist_one/research_os.py:4465-4507`). A completed receipt is not trusted on its face: status/verify independently rehydrate registry bytes, ledger/head and run identity, full ledger-to-registry closure, summary/final-event binding, and canonical research state while keeping `scientific_evidence_established=False` (`src/scientist_one/orchestrator.py:1418-1763`). Direct tests cover incomplete/failed visibility, completed rehydration, and receipt-count tampering (`tests/test_vnext_operations.py:82-201`).
 
-## Remaining verification work
+## Remaining evidence reconciliation — no expanded execution authorization
 
-- Run the final frozen captured test mode and record its own result/digests; this review deliberately did not execute code and does not supply final counts.
-- Keep the generic `LocalMacBackend` authority boundary aligned with the missing-sandbox policy. It now requires a successful manifest, caller evidence class, and a backend-private OS-isolation attestation; no current path creates that attestation (`src/scientist_one/experiments.py:1461-1492`, `src/scientist_one/experiments.py:1555-1563`). `test_local_backend_scrubs_environment_bounds_logs_and_collects_manifest` directly requests `SCIENTIFIC_RESULT_ELIGIBLE` and still asserts `scientific_evidence=False` (`tests/test_discovery_experiments.py:455-493`). A future sandbox implementation needs its own content-binding and tamper tests before this boundary can yield scientific evidence.
-- Add a captured-launcher E2E for `research-os-fixture` if production startup, admitted-root locking, and the full fixture need one inseparable regression. Current coverage composes general captured-launcher tests, a guarded-dispatch unit test, and direct fixture E2E tests.
-- Consider an abrupt-process-death recovery test. Exception paths produce immutable `FAILED` receipts and duplicate run IDs are refused, but an uncatchable termination can leave `IN_PROGRESS`; the safe policy is to preserve that run and start a new ID.
+- Record remaining192 Python3.11 only when its authorized execution and retained
+  closure actually exist. Preserve the closed single-runtime3,294 and paired125
+  scopes, exact source identities, original IDs and enclosing/nested limits.
+  No historical/full-suite/scientific PASS may be inferred from their union.
+- Reconcile each required row to exact completed captured IDs and scope,
+  distinguishing original methods from separate wrapper outcomes, historical
+  results, exclusions and timeouts. Do not expand selection or manufacture
+  nested verification to fill a documentation cell.
+- Keep the historical missing-sandbox and captured-launcher integration gaps
+  explicit. Old suggestions to add a sandbox or new launcher E2E are unperformed
+  design suggestions, not implemented coverage or authorization from this update.
+- The former abrupt-process-death test suggestion is withdrawn as next-work
+  direction. Actual OS-crash collection, stopped native lifetime/collector and
+  execution/read-restriction work remain stopped, not pending authorized tests.
+  Exception-path fixtures do not prove OS-crash behavior.
+- Under D-079, report consequential findings before repair or an expensive new
+  campaign; no delegated repair. Only the single reviewed private observability-
+  only gates67 diagnostic, with all67 methods and unchanged7,200-second bound,
+  is conditionally approved after active regression is terminal and a safe V9
+  push/remote verification completes, if ready. No automatic rerun or repair
+  follows; owner triage is next. This does not reopen stopped mechanisms.
+- Synchronize exact closed outcomes, row-level scope and unresolved obligations
+  before the final last-mutation audit. Preserve the original20-row static table,
+  historical counts, adverse outcomes, external limits and absent human E4.

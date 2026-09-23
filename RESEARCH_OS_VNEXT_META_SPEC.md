@@ -111,6 +111,14 @@ already explicitly recorded.
 Keep blocked requirements and their dependent actions blocked.
 Continue unrelated authorized work.
 
+Owner-triage exception (September 23, 2026; D-079 in `.run/DECISIONS.md`):
+for newly discovered consequential security/confidentiality or lifecycle issues,
+invariant changes, migrations/redesigns, or unresolved failures needing a
+substantial new verification campaign, perform only bounded permitted read-only
+triage, report the evidence and options to the owner, and await explicit approval
+for the affected repair or expanded diagnostic. Continue already-authorized V9
+and unrelated work; this does not waive any scientific, safety, or E4 gate.
+
 Never bypass platform safeguards, scientific gates, confidentiality
 boundaries, spending limits, or human-only approval requirements.
 

@@ -15,6 +15,33 @@ of stalled or failed owned work. Passing component tests and the synthetic fixtu
 do not close these gaps. See [current verification scope](docs/VNEXT_FINAL_VERIFICATION.md)
 for passing selections, original failures and unresolved safety/external gates.
 
+## Current V9 development checkpoint
+
+September 23, 2026 checkpoint, incorporating the Python 3.14 terminal observation at 16:19:20 UTC: V9 is installed and frozen with 300 functional inputs.
+The same 125 selected IDs pass on Python 3.14.6 and 3.11.15 at enclosing scope;
+a disjoint 3,294-ID selection passes on Python 3.14.6 only. This is 3,419 distinct
+selected current IDs on Python 3.14, with only 125 currently paired; remaining192
+on Python 3.11 is NOT_STARTED. Nested/helper behavior remains NOT_ASSESSED by
+the enclosing closures. These are not whole-suite, security, scientific or
+release acceptance.
+
+The Standard source scan is sealed PARTIAL, with 43 review products and three
+LOW findings. Accepted corrections are installed and have scoped test evidence;
+this is not full security PASS or clearance of omitted/stopped scopes.
+
+The prior verified V8 checkpoint is `f6b3d92` on
+`review/vnext-checkpoint`. Publication identities and observed Git status for
+the accepted V9 delta are recorded in the checkpoint handoff. Qualified
+recovered-baseline import/tag and final feature-history integration remain
+pending; `main` stays at the owner's README-only bootstrap. V9 is a development
+checkpoint, not a final release.
+
+Exact portable evidence digests and remaining gates are in the
+[checkpoint handoff](OVERNIGHT_REPORT.md#development--review-checkpoint-september-23-2026).
+Private captures are not included in a fresh public clone. Known timeouts and
+lint failures remain unresolved; scoped success does not complete unfinished
+local features or synthesize E4.
+
 ## Authority and security boundary
 
 - `ArtifactRegistry` and `EventLedger` remain the sole artifact and event authorities. vNext does not create a parallel provenance system.

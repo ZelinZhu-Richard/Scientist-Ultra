@@ -1,26 +1,166 @@
 """Integrity of native persisted stops is distinct from permission to resume."""
 
 from dataclasses import replace
+import os
 from pathlib import Path
+import re
+import sys
 import unittest
 from unittest import mock
 
 from scientist_one.recovery import ResumeAction
 from scientist_one.ledger import EventLedger
-from scientist_one.orchestrator import OrchestrationError
+from scientist_one.orchestrator import OrchestrationError, ScientistOneOrchestrator
 from scientist_one.resources import ResourceAction, ResourceController
 from tests import test_cli as fixtures
 
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+_RUN_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$")
+_CLEANUP_REASONS = frozenset({
+    "START_RETURN_ID_UNAVAILABLE", "RETURNED_RUN_ID_INVALID",
+    "DUPLICATE_RETURNED_RUN_ID",
+})
+_CLEANUP_METADATA_LIMIT = 512
+
+
 class TerminalStopVerificationTests(unittest.TestCase):
     def setUp(self):
-        self.fixture = fixtures.OrchestratorTests()
-        self.fixture.setUp()
-        self.addCleanup(self.fixture.tearDown)
-        self.orchestrator = self.fixture.orchestrator
+        self._owned_run_ids = []
+        self._cleanup_incomplete = False
+        self.addCleanup(self._archive_owned_runs)
+        self.orchestrator = ScientistOneOrchestrator(PROJECT_ROOT)
+
+    @staticmethod
+    def _safe_run_id(run_id):
+        return type(run_id) is str and _RUN_ID_RE.fullmatch(run_id) is not None
+
+    def _emit_cleanup_incomplete(self, reason):
+        self._cleanup_incomplete = True
+        try:
+            if reason not in _CLEANUP_REASONS:
+                return
+            message = (
+                "TERMINAL_STOP_CLEANUP_INCOMPLETE schema=V2 reason="
+                + reason + "\n"
+            )
+            if len(message.encode("utf-8")) > _CLEANUP_METADATA_LIMIT:
+                return
+            sys.stderr.write(message)
+            sys.stderr.flush()
+        except Exception:
+            # Best effort only; control-flow exceptions must still propagate.
+            return
+
+    def start_run(self):
+        try:
+            result = self.orchestrator.start()
+        except Exception:
+            self._emit_cleanup_incomplete("START_RETURN_ID_UNAVAILABLE")
+            raise
+        run_id = result.get("run_id") if type(result) is dict else None
+        if not self._safe_run_id(run_id):
+            self._emit_cleanup_incomplete("RETURNED_RUN_ID_INVALID")
+            raise AssertionError("orchestrator.start returned an unsafe run ID")
+        if run_id in self._owned_run_ids:
+            self._emit_cleanup_incomplete("DUPLICATE_RETURNED_RUN_ID")
+            raise AssertionError("orchestrator.start returned a duplicate run ID")
+        self._owned_run_ids.append(run_id)
+        return run_id
+
+    @staticmethod
+    def _present(path):
+        return path.exists() or path.is_symlink()
+
+    @staticmethod
+    def _require_directory(path):
+        if path.is_symlink() or not path.is_dir():
+            raise AssertionError("unsafe archival parent or directory")
+
+    @staticmethod
+    def _require_absent(path):
+        if path.exists() or path.is_symlink():
+            raise AssertionError("archival destination or reserved subtree conflict")
+
+    @staticmethod
+    def _require_authority_kind(path, kind):
+        valid = path.is_file() if kind == "file" else path.is_dir()
+        if path.is_symlink() or not valid:
+            raise AssertionError("unsafe owned archival authority path")
+
+    def _archive_owned_runs(self):
+        # A failed start exposes no ID: never discover or adopt its partial run.
+        if not self._owned_run_ids:
+            return
+        try:
+            root = PROJECT_ROOT
+            if not root.is_absolute() or root.resolve(strict=True) != root:
+                raise AssertionError("archival root is not its exact canonical path")
+            build = root / ".scientist-one-build"
+            runs = root / "runs"
+            custody_root = build / "custody"
+            resource_root = build / "resource-authority"
+            archive = build / "test-runs"
+            parents = (root, build, runs, custody_root, resource_root)
+            for parent in parents:
+                self._require_directory(parent)
+            if self._present(archive):
+                self._require_directory(archive)
+            ids = tuple(self._owned_run_ids)
+            if (any(not self._safe_run_id(run_id) for run_id in ids)
+                    or len(set(ids)) != len(ids)):
+                raise AssertionError("unsafe or duplicate owned run ID")
+            plans = []
+            # Preflight every known ID before moving any of them.
+            for run_id in ids:
+                source, destination = runs / run_id, archive / run_id
+                self._require_directory(source)
+                self._require_absent(source / "external-authority")
+                self._require_absent(destination)
+                ancillary = []
+                for path, name, kind in (
+                    (custody_root / (run_id + ".jsonl"), "custody.jsonl", "file"),
+                    (resource_root / run_id, "resource", "dir"),
+                ):
+                    present = self._present(path)
+                    if present:
+                        self._require_authority_kind(path, kind)
+                    ancillary.append((path, name, kind, present))
+                plans.append((source, destination, tuple(ancillary)))
+            if not self._present(archive):
+                archive.mkdir()
+            self._require_directory(archive)
+            for source, destination, ancillary in plans:
+                for parent in (*parents, archive):
+                    self._require_directory(parent)
+                self._require_directory(source)
+                self._require_absent(source / "external-authority")
+                self._require_absent(destination)
+                os.replace(source, destination)
+                external = destination / "external-authority"
+                self._require_absent(external)
+                if any(present for _, _, _, present in ancillary):
+                    external.mkdir()
+                for path, name, kind, present in ancillary:
+                    for parent in (*parents, archive, destination):
+                        self._require_directory(parent)
+                    if self._present(path) != present:
+                        raise AssertionError("archival authority changed after preflight")
+                    if not present:
+                        continue
+                    self._require_authority_kind(path, kind)
+                    self._require_directory(external)
+                    target = external / name
+                    self._require_absent(target)
+                    os.replace(path, target)
+            # External checkpoint directories are deliberately retained in place.
+        except Exception:
+            self._cleanup_incomplete = True
+            # Earlier successful moves stay put. No rollback, retry or PASS.
+            raise
 
     def stopped(self, destination):
-        run_id = self.orchestrator.start()["run_id"]
+        run_id = self.start_run()
         manifest = self.orchestrator.load_manifest(run_id)
         self.orchestrator._queue_terminal(
             manifest, destination, "Explicit terminal-integrity test fixture",
@@ -65,7 +205,7 @@ class TerminalStopVerificationTests(unittest.TestCase):
                 self.assertEqual(self.snapshot(run_id), before)
 
     def test_stopped_run_cannot_reproduce_completed_architecture_control(self):
-        run_id = self.orchestrator.start()["run_id"]
+        run_id = self.start_run()
 
         def continue_decision(controller, *args, **kwargs):
             return replace(

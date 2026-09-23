@@ -1,16 +1,25 @@
 # Git history reconstruction
 
-Status: **in progress; qualified recovered-baseline import authorized, no import commit or tag yet**.
+Status: **published V8 review checkpoint preserved; local V9 installed;
+qualified recovered-baseline import/tag and final history integration pending**.
 
-September23 owner amendment: a truthful current-development checkpoint on
-`review/vnext-checkpoint` may precede this historical import and final validation.
-It preserves the README bootstrap and does not change `main`. One transparent
-import of the interdependent current implementation/tests avoids inventing
-unverified intermediate feature states or chronology; a documentation follow-up
-may record its exact identity. This is not the recovered baseline and receives
-no baseline tag. The reconstruction plan below remains pending final work,
-subject to reconciliation with actual branch ancestry without rewriting public
-history. Every public checkpoint still requires exact disclosure/history review.
+The prior verified V8 checkpoint is `f6b3d92` on
+`review/vnext-checkpoint`. Publication identities and observed Git status for
+the accepted V9 delta are recorded in the checkpoint handoff. Qualified
+recovered-baseline import/tag and final feature-history integration remain
+pending; `main` stays at the owner's README-only bootstrap. V9 is a development
+checkpoint, not a final release.
+
+The earlier implementation import `ca2bca940cd22ca785d50ccca5982af4b0512ee7`
+was a transparent aggregate import, not fabricated historical feature chronology.
+It preserves the owner's README bootstrap and receives no baseline tag.
+The exact V9 functional delta has scoped disclosure review without an identified
+new blocker. Its 16 source/test files form one accepted integration boundary;
+no fully verified intermediate commits or contemporaneous development history
+are invented. The handoff records publication evidence only after actual
+candidate/index/history checks and remote verification. Reconcile the plan
+below with published ancestry without rewriting it. A candidate inventory is
+not itself a measured remote tree.
 
 On September21 the owner selected `v0.1.0-recovered-baseline` instead of the originally requested `v0.1.0-trusted-kernel`. The import will preserve the hash-recovered pre-vNext source, explicitly reconstructed tests and known limitations. It will not claim that partial resource/recovery guarantees or the safety-stopped review passed. This labeling decision does not relax public-readiness checks or current vNext requirements, and does not change historical baseline measurements.
 
@@ -112,15 +121,14 @@ These hashes identify private evidence, not downloadable public proof. Selected
 passing workers do not establish an entirely passing historical or current suite;
 original failed and unselected cases remain explicit.
 
-The intended feature history therefore uses one transparent aggregate import
-of that physically preserved vNext state, followed by the coordinated resource
-durability/continuation corrections and their directly relevant tests, then final
-verification/documentation. This is a reconstruction plan, not an existing commit
-list. Shared-owner and lazy-import dependencies make speculative subsystem splits
-misleading without independent intermediate-state evidence. The21-file V5 and
-15-file V8 corrections have exact preserved preimages; their combined final state
-requires its own runtime evidence and cannot inherit the pre-correction2,022 PASS.
-Do not commit an intermediate known-failing correction merely to add a commit.
+The earlier intended feature sequence was a reconstruction plan, not an existing
+commit list. Preserve the subsequently published V8 checkpoint in actual ancestry.
+V5, V8 and V9 correction boundaries have retained preimages and identities, but
+that does not establish separately passing historical intermediate states.
+V9's scoped installed evidence cannot inherit the pre-correction2,022 result.
+Reconcile final feature history with the qualified recovered baseline and actual
+published checkpoint, retaining reconstruction labels and directly relevant tests.
+Do not commit a known-failing intermediate merely to increase the commit count.
 
 The recovered baseline has11 baseline-only paths: `RECONSTRUCTION_SUMMARY.md`,
 `manifest.json`, `run_portable_candidate.py` and eight
@@ -136,7 +144,7 @@ private files is authorized. This disposition has not yet been applied.
 
 ## Public-release and completion gates
 
-Conservative ignore defaults and the [public-release policy](PUBLIC_RELEASE_POLICY.md) are prepared. Actual effective-ignore verification and the complete audit remain pending. Local files are preserved; these defaults do not change the scientific audit inventory or grant release clearance.
+Conservative ignore defaults and the [public-release policy](PUBLIC_RELEASE_POLICY.md) remain in force. The published V8 checkpoint has its recorded scoped review. V9 functional-delta disclosure review reuses unchanged evidence and identifies no new blocker at that scope, but synchronized claims, final candidate hashes/modes, effective ignores, actual index/tree, reachable history and publication refs still require review. Private originals remain excluded and preserved. Software-source publication is not scientific or final-release acceptance.
 
 The original project audit rejected a synthetic compressed Git object as invalid text. A Git-aware adapter and captured audit-publication integration have since passed a frozen 135-test affected matrix and independent scoped review. They retain raw Git metadata in the snapshot and verify supported decoded objects/history before granting exact binary exceptions; `.git` is not blanket-excluded. See [Git-audit scope and limitations](GIT_AUDIT_BOUNDARY.md). These were isolated synthetic Git fixtures, not project history or a public-readiness audit. Actual project refs, staged content, reachable history and final snapshot freshness still require verification after initialization.
 

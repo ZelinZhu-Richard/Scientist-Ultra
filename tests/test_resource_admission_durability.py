@@ -1339,7 +1339,49 @@ class ResourceAdmissionDurabilityTests(unittest.TestCase):
         value["checkpoint_id"] = value["event_id"] + "-" + value["ledger_head_hash"][:12]
         self.rehash_mapping(value, "checkpoint_hash")
         (directory / (value["checkpoint_id"] + ".json")).write_bytes(_canonical_bytes(value))
-        self.assert_historical_inert()
+        # Only resume has the explicit out-of-band checkpoint-refusal channel.
+        # It must not authenticate the historical stop, repair, or admit work.
+        before = state_bytes(self.root)
+        operation = mock.Mock(side_effect=AssertionError("historical stop admitted callback"))
+        with ExitStack() as stack:
+            forbid_observation(stack)
+            forbid_negative_mutation(stack)
+            forbid_historical_live_reads(stack)
+            for action in (self.orchestrator.status, self.orchestrator.advance_once):
+                with self.assertRaises(OrchestrationError):
+                    action(self.run_id)
+                self.assertEqual(state_bytes(self.root), before)
+            refused = self.orchestrator.resume(self.run_id)
+            self.assertEqual(state_bytes(self.root), before)
+            recovery = refused["recovery"]
+            self.assertEqual(len(recovery["reasons"]), 1)
+            self.assertTrue(recovery["reasons"][0].startswith("RECOVERY_VALIDATION_FAILED:"))
+            self.assertEqual(recovery, {
+                "action": "STOP_SECURITY", "reasons": recovery["reasons"],
+                "ledger_valid": True, "ledger_event_count": manifest["event_count"],
+                "ledger_head_hash": manifest["ledger_head_hash"],
+                "artifacts_valid": True, "artifact_issues": [], "quarantined": [],
+                "checkpoint": None, "derived_state": "STOP_SECURITY",
+                "confirmatory_touched": False, "confirmatory_completed": False,
+                "new_study_protocol_accepted": False, "replay_event_count": 0,
+            })
+            self.assertEqual(refused, {
+                "status": "STOP_SECURITY", "run_id": self.run_id,
+                "current_state": "STOP_SECURITY", "terminal_state": "STOP_SECURITY",
+                "outcome": "STOP_SECURITY", "mode": manifest.get("mode"),
+                "artifact_count": len(manifest["artifacts"]),
+                "event_count": manifest["event_count"], "resumable": False,
+                "persisted": False,
+                "authority_channel": "EXTERNAL_CHECKPOINT_RECOVERY_REFUSAL",
+                "recovery": recovery,
+            })
+            self.assertEqual(self.orchestrator.resume(self.run_id), refused)
+            self.assertEqual(state_bytes(self.root), before)
+            with self.assertRaises(OrchestrationError):
+                self.call_pilot(operation)
+            self.assertEqual(state_bytes(self.root), before)
+        operation.assert_not_called()
+        self.assertEqual(state_bytes(self.root), before)
 
     def test_pilot_historical_truncated_ledger_never_quarantines(self):
         self.historical_pilot_stop()

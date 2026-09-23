@@ -19070,7 +19070,10 @@ class ResearchStateRepository:
             raise ValidationError(
                 "rejected Claim semantic judgment is malformed"
             ) from exc
-        if judgment.subject_id != record.object_id:
+        if (
+            judgment.subject_kind is not JudgmentSubjectKind.CLAIM_QUALIFIER
+            and judgment.subject_id != record.object_id
+        ):
             raise ValidationError(
                 "rejected Claim semantic judgment names another claim"
             )

@@ -4,82 +4,137 @@ DEVELOPMENT / REVIEW — NOT FINAL RELEASE OR SCIENTIFIC APPROVAL
 
 ## Development / review checkpoint September 23, 2026
 
-This section supersedes older running/pending statements below. The installed
-V8 implementation is a coherent development snapshot, not a completed Goal.
-No interrupted private patch is included. FARS assessment and its bounded A01
-output-completion change are already integrated; they are not being restarted.
+September 23, 2026 checkpoint, incorporating the Python 3.14 terminal observation at 16:19:20 UTC. This section supersedes older running/pending statements without
+rewriting their original outcomes. This remains DEVELOPMENT / REVIEW, not a
+completed Goal or final release.
 
-- Published branch: `review/vnext-checkpoint`, preserving the owner's README-only
-  bootstrap `bba9ec5b652e78b5f4bfda6a101d640f0e07869e`. `main` stays unchanged.
-- Implementation commit: `ca2bca940cd22ca785d50ccca5982af4b0512ee7`,
-  `chore(checkpoint): import current vnext development state`. Remote refs and
-  GitHub's complete tree response verified this SHA, all 343 files, 73 source
-  files and 209 test/helper files on September 23. Upstream is
-  `origin/review/vnext-checkpoint`; the working tree was clean after that push.
-  This handoff is a subsequent documentation-only change; its commit is not a
-  different implementation/test freeze. No recovered-baseline tag was created.
-- Git state at recovery: one modified tracked README plus untracked implementation,
-  tests and documentation; no staged files, no implementation commit or tag.
-- Commit rationale: transparent import of the interdependent current source and
-  tests, not fabricated historical feature chronology. The qualified recovered
-  baseline import/tag remains separate and pending; do not tag this vNext tree
-  `v0.1.0-recovered-baseline` or `v0.1.0-trusted-kernel`.
+V9 is installed and its 300 functional inputs are frozen: the independently
+reviewed 16-file union comprises nine replacements and seven additions, with
+284 unchanged neighbors. Installation proof SHA-256:
+`58c469e5796559217a3877f732cd2d56530d7c027f4994a46093c507f0277976`.
 
-Implemented boundaries include canonical registry/ledger state; append-only
-Evaluation Contract and protocol history; bounded OpenAI/offline literature
-interfaces; experiment specifications and expected-output validation; resource
-accounting; outcome-neutral reporting; domain checks; claim, Challenger, paper
-and reproduction authorities. Their existence does not establish live scientific
-deployment. Provider confidentiality, real protected data/custody, complete
-scientific isolation and non-fixture application driving remain unfinished.
+Full-union independent source-review SHA-256:
+`96610e1412270210765a81d3c3e4bb8e957fd593fd1a9cc6fdff68de672ea925`.
+FARS assessment and the bounded A01 change were already integrated, not restarted.
 
-### Evidence applicable to the checkpoint
+### Accepted changes since f6b3d92
 
-All 293 installed functional inputs still match the V8 installation inventory
-(`8a3f19fe7ad41f39b534111623ddd435775f6b0cc5d190e128d8445a747383a9`).
-Documentation changes do not change those source/test/configuration identities.
-The following are distinct retained selections, **not an additive suite total**:
+The accepted union contains five bounded corrections, with their directly
+related regression and fixture updates:
 
-| Evidence class | Retained result and limit |
-| --- | --- |
-| Installed V8 | 468 selected IDs pass on Python 3.14.6 and 3.11.15, with the documented nested-capture limits; a separate 207-ID selection passes both with enclosing evidence. |
-| Installed V8 | The 168-module, 2,602-ID selection has 2,601 successes and one terminal-stop fixture error on each runtime. It is not a whole-suite PASS. |
-| Failed/incomplete verification | Isolation38 retains 37 successes/one inner timeout error; gates67 reaches its 7,200-second limit without complete outcomes. Causes and cleanup are not established. Original operations timeouts remain preserved. |
-| Private candidates, not installed | Operations18 diagnostic passes both runtimes; ZIP admission19 passes both. The later combined125 on Python 3.14.6 has 113 successes/12 setup errors, including 68 successful CLI methods. Those candidate fixes and counts do not transfer to installed V8. |
-| Historical reported baseline | Original 364/364 and 15/15 remain historical reports, not recovered original executable verification. |
-| Reconstructed baseline | 146 explicitly reconstructed tests on recovered source are separate from vNext; partial/unverifiable historical guarantees remain. |
+- Route external-checkpoint resume refusals through the existing terminal path
+  without allowing a new run to consume a resume-only checkpoint.
+- Admit only the finalized archive directory before parsing package contents.
+- Compare venue wrapper slots in their original requirement context on replay.
+- Reject a GPU submission whose exact frozen work identity is already consumed,
+  while retaining the reviewed requeue and distinct-work behavior.
+- Retain a conservatively rejected qualifier Claim without comparing its hashed
+  subject to the canonical Claim ID before the source-owned rejection branch.
 
-Repeated IDs on two Python runtimes are cross-runtime validation, not twice as
-many distinct tests. Earlier failures and rejected/private attempts remain local.
-The interrupted V4 setup-order candidate is unreviewed/uninstalled. A separate
-source security scan remains incomplete, with a low-severity bounded ZIP
-directory-preallocation finding still present in the installed source; its
-private tested correction is not claimed as integrated. This checkpoint is not
-a security certification. Full regression, lifecycle, recovery, reproduction,
-packaging, architecture and final audit acceptance remain pending.
+The CLI, terminal-stop and resource-admission fixtures changed with those fixes.
+The 16-file union is one transparent integration boundary: private intermediate
+compositions did not each receive the complete installed test selection, so no
+such intermediate verification or historical development chronology is claimed.
+The owner-triage cross-reference and current evidence documentation accompany it.
+
+### Publication record
+
+Pre-publication observation on September 23: `review/vnext-checkpoint` and its
+upstream resolve to `f6b3d92e1884caebea1e715272f527ca7588e5e4`; accepted V9
+source/tests and accompanying documents are not yet committed at this observation.
+The index is empty. A follow-up handoff will name the actual source commit and
+verified remote SHA after publication. `main` stays at the owner's README-only
+bootstrap; no final release, tag or unfinished-vNext merge is authorized here.
+
+The earlier implementation import `ca2bca940cd22ca785d50ccca5982af4b0512ee7`
+published 343 files while preserving README bootstrap
+`bba9ec5b652e78b5f4bfda6a101d640f0e07869e`. Later handoff documentation did
+not change that implementation freeze. The V9 pre-documentation candidate has
+350 files; this is a candidate inventory, not a new commit or remote measurement.
+No recovered-baseline tag has been created, and this vNext tree must not receive
+`v0.1.0-recovered-baseline` or the superseded trusted-kernel tag.
+
+The complete 16-file functional-delta disclosure review identified no new
+blocker and reconciled all 350 candidate hashes; review SHA-256
+`f7b846197066c3fbe1e67ba3ee83ba02b039b058733b97c7cf366be872e2ee50`.
+Its semantic exceptions are narrow, not filename exemptions. Updated documents,
+final candidate identities, index/modes/tree, reachable history and publication
+refs still require review. This is not whole-public-release clearance.
+
+### Evidence applicable to this checkpoint
+
+The same 125 distinct selected IDs pass on Python 3.14.6 and 3.11.15, with
+enclosing closure
+`80ab70ebc68277032e797b40e108f025d12a2493b8eb7e7bb42056e8bf8b0943`.
+The separate 192-module selection is terminal with exit 0 and 3,294 successes
+on Python 3.14.6 only; its single-runtime enclosing closure is
+`1475c93cce4b0c6ee519cfb357ba49740bceeb3f74d8b479d79b9efcf2911955`.
+These disjoint selections cover 3,419 distinct current IDs on Python 3.14;
+only the 125-ID selection is currently paired. The remaining192 Python 3.11
+selection is NOT_STARTED. Both closures leave nested/helper behavior
+NOT_ASSESSED; none of these counts is a full-suite, historical, scientific,
+security or release PASS.
+
+These digests identify retained private evidence, not downloadable captures or
+proof that a fresh clone reproduces their bootstrap/provenance. Historical V8
+468 and 207 passing selections, the V8 2,602 selection with 2,601 successes/one
+error per runtime, and private correction attempts retain their original scopes.
+Historical364/15 and reconstructed146 remain separate baseline evidence sets.
+No old failure or setup error becomes PASS because its successor is installed.
+
+Gates67 retains its original paired and diagnostic 7,200-second timeouts
+without complete outcomes; isolation38 retains 37 successes and one inner
+900-second timeout error per runtime. Causes remain UNKNOWN. The retained
+lint33 result is non-PASS. Original failures and separate private checks remain
+preserved, not relabeled or added to installed counts. Operations18, fresh
+installed lifecycle/reproduction/package, the current architecture packet and
+its four validator methods, and the final audit remain pending. Architecture
+packet validation is not proof that all 15 behavioral criteria pass.
+
+The Standard source scan is sealed PARTIAL, with 43 review products and three
+LOW findings. Accepted corrections are installed and have scoped test evidence;
+this is not full security PASS or clearance of omitted/stopped scopes.
 
 ### Boundaries, excluded evidence and next work
 
-Protected/real data, independent custodians, live OpenAI/scholarly/GPU validation
-and confidential deployment remain blocked or externally untested. The exact
-safety-stopped platform assessment, prompt-injection criterion, scholarly
-event/capture-alias and native lifetime/execution-restriction investigations stay
-stopped; another reviewer or Claude cannot substitute for them. E4 is absent.
+Scientific isolation, confidential provider custody, real protected data and
+independent custodians, non-fixture literature application driving, live
+OpenAI/scholarly/GPU validation, independent scientific review and E4 remain
+unfinished, blocked or untested. `AUTONOMOUS_EXPLORATION_READY` remains a
+provisional ceiling from bounded synthetic evidence, not whole-system readiness.
 
-GitHub excludes orchestration logs, private source-review/test captures, runtime
-bootstrap and hardware state, caches, raw provider exchanges, custody/holdout
-material, downloaded papers and generated archives. Public synthetic fixtures
-are regression inputs, not protected data or scientific evidence. Public source
-permits inspection and new appropriately bootstrapped local checks; it does not
-supply the private evidence needed to independently reproduce every historical
-capture. No private evidence is destroyed or replaced by this summary.
+The exact safeguard-stopped assess-patch-risk and substitutes, prompt-injection
+criterion, scholarly event-key/capture-alias, direct-coordinator legacy-selector/
+native-J retained session/thread/fork/FD lifetime, execution/read-restriction
+repair, trusted-collector and actual OS-crash collection scopes remain stopped,
+not PASS. No alternate reviewer, route, runtime or diagnosis clears them.
+Protected data, confidentiality boundaries, custodian requirements, spending
+limits, scientific gates and human-only E4 remain mandatory. No credential,
+private provider/run payload, protected dataset or unrelated process/descriptor
+inspection is authorized here.
 
-Next: obtain one bounded Claude diagnosis
-if an existing permitted interface is available; finish the setup/recovery and
-ZIP candidate integration with affected tests; resolve remaining internal
-verification failures without repeated unchanged expensive runs; freeze source
-once for mandatory final checks; complete qualified baseline/final Git work and
-the evidence-backed report. External/safety blockers remain explicit throughout.
+Private orchestration/run state, source reviews/test captures, runtime bootstrap
+and hardware state, caches, raw provider exchanges, custody/holdout material,
+downloaded papers and generated archives remain excluded from public Git.
+Public synthetic fixtures are regression inputs, not protected data, actual
+provider transcripts, scientific evidence or human authority. No private
+original is replaced or published by this summary.
+
+Under the owner's D-079 rule, report new consequential findings before repair
+or an expensive new campaign; do not delegate a repair. A single reviewed,
+private, observability-only gates67 diagnostic retains all 67 methods and the
+7,200-second bound. It is approved only after active regression is terminal and
+the safe V9 push and remote verification have completed, if ready. No automatic
+rerun or repair follows it; owner triage is next. The initial bounded Claude
+diagnosis is complete; the later credential-lock denial is not being retried.
+
+Next, complete the exact public candidate/index/history checks and safely publish
+V9 on the existing review branch, verifying its remote SHA and source/test tree.
+Then perform the single approved timing diagnostic and report its outcome before
+any further gates67 action. Continue the unstarted Python 3.11 selection and
+separate operations/lifecycle/architecture obligations without repeating valid
+completed scopes. Qualified history and the final audit remain unfinished;
+external/safety/scientific/E4 requirements are never waived by checkpointing.
 
 ## Earlier checkpoints — historical, not current running state
 
@@ -205,12 +260,12 @@ architecture dispositions; missing historical coverage remains explicit.
 
 ## Final verification still required
 
-1. Freeze source/tests/configuration and record the functional-source inventory; retain mandatory review gates, exact safety stops and permissible targeted checks. A stopped platform investigation must not be retried or rerouted.
+1. Maintain the installed V9 source/test/configuration freeze and its 300-input inventory; retain mandatory review gates, exact safety stops and permissible targeted checks. A stopped platform investigation must not be retried or rerouted.
 2. Full captured regression remains required. While unrestricted `test-suite` would select exact stopped probes, run permissible whole modules through the existing captured interface and report mixed stopped modules, fixture prerequisites, failures and timeouts separately. Do not suppress tests or present the selected total as a full-suite pass.
 3. Refresh and independently validate architecture-control bindings against the captured report.
 4. Run `/opt/homebrew/bin/python3 -I -S -B scripts/scientist_one_cli.py research-os-fixture` once on the frozen tree and reverify its registry, ledger, canonical state, operation receipt, literature/novelty chain, bounded autonomy, plan custody, discovery boundaries, terminal outcome, Local Mac rerun, negative/null history, 15/14 gates, and blocked paper outcome.
 5. Rerun legacy demo/verify/reproduce/verify/package/verify and recovery checks. Treat the semantic reproduction's expected CLI exit `1` as valid only when its parsed status is exactly `ARCHITECTURE_CONTROL_REPLAY_PASS`.
-6. Run the failure-injection/security matrix and dependency/network-boundary checks; finalize this documentation, the architecture report, and `.run`; verify the frozen source inventory again; then quarantine caches and run the architecture validator.
+6. Complete only permissible remaining failure-injection and dependency/network-boundary checks, retaining the sealed PARTIAL Standard scan and exact exclusions; finalize this documentation, the architecture report, and `.run`; verify the frozen source inventory again; then quarantine caches and run the architecture validator.
 7. Generate `reports/final_audit.json` with `/opt/homebrew/bin/python3 -I -S -B scripts/scientist_one_cli.py audit-project` as the last repository mutation.
 8. Parse/hash the final reports read-only and report their identities externally. Do not mutate this file after the audit to insert its digest.
 

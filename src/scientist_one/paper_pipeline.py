@@ -7862,6 +7862,70 @@ def _venue_score_outcome(score: float) -> str:
     return f"SCORE:{canonical_json_bytes(float(score)).decode('ascii')}"
 
 
+def _venue_requirement_contexts_equivalent(
+    registry: ArtifactRegistry,
+    *,
+    run_id: str,
+    selected_context: tuple[str, ...],
+    candidate_context: tuple[str, ...],
+) -> bool:
+    """Compare exact requirement envelopes, ignoring only their receipt labels.
+
+    Authoritative dimension callers already replay every selected requirement
+    through _resolve_venue_requirements. Equal typed fields below retain all
+    those scientific sources and semantic receipts unchanged. This comparison
+    does not authorize a requirement, replace its owner, or replay manuscript
+    state outside the caller's current round.
+    """
+
+    if (
+        len(selected_context) <= 4
+        or len(candidate_context) != len(selected_context)
+        or selected_context[:4] != candidate_context[:4]
+    ):
+        return False
+    candidate_hash, bundle_hash, profile_hash, manifest_hash = selected_context[:4]
+
+    def read_envelope(digest: str) -> VenueRequirementReceipt:
+        record, value = _read_registry_json(
+            registry, digest, logical_type="venue_requirement_receipt",
+            creator_role=Role.SCIENTIFIC_REVIEWER,
+        )
+        _require_exact_keys(
+            value, {item.name for item in fields(VenueRequirementReceipt)},
+            "venue requirement receipt",
+        )
+        receipt = VenueRequirementReceipt(**{
+            **value,
+            "source_artifact_hashes": _sequence(
+                value["source_artifact_hashes"], "venue requirement sources",
+            ),
+        })
+        if (
+            record.schema_version != "1.0"
+            or receipt.run_id != run_id
+            or receipt.candidate_artifact_hash != candidate_hash
+            or receipt.bundle_artifact_hash != bundle_hash
+            or receipt.profile_artifact_hash != profile_hash
+            or receipt.readiness_manifest_hash != manifest_hash
+            or record.parent_artifacts != (
+                candidate_hash, bundle_hash, profile_hash, manifest_hash,
+                *((receipt.semantic_judgment_hash,) if receipt.semantic_judgment_hash is not None else ()),
+                *receipt.source_artifact_hashes,
+            )
+        ):
+            raise ValidationError("venue requirement equivalence envelope is substituted")
+        return receipt
+
+    return all(
+        replace(read_envelope(selected_hash), receipt_id="venue-slot")
+        == replace(read_envelope(candidate_hash), receipt_id="venue-slot")
+        for selected_hash, candidate_hash in zip(
+            selected_context[4:], candidate_context[4:], strict=True,
+        )
+    )
+
+
 def _require_live_venue_semantic_judgment(
     registry: ArtifactRegistry,
     ledger: EventLedger,
@@ -7935,9 +7999,20 @@ def _require_live_venue_semantic_judgment(
             candidate.subject_kind is not subject_kind
             or candidate.subject_id != subject_id
             or candidate.evidence_hashes != evidence_hashes
-            or candidate.context_hashes != context_hashes
         ):
             continue
+        if candidate.context_hashes != context_hashes:
+            try:
+                if (
+                    subject_kind is not JudgmentSubjectKind.VENUE_DIMENSION
+                    or not _venue_requirement_contexts_equivalent(
+                        registry, run_id=run_id, selected_context=context_hashes,
+                        candidate_context=candidate.context_hashes,
+                    )
+                ):
+                    continue
+            except Exception:
+                continue
         try:
             require_scientific_semantic_judgment_receipt(
                 registry,
@@ -7948,7 +8023,7 @@ def _require_live_venue_semantic_judgment(
                 subject_id=subject_id,
                 outcome=candidate.outcome,
                 evidence_hashes=evidence_hashes,
-                context_hashes=context_hashes,
+                context_hashes=candidate.context_hashes,
             )
         except Exception:
             continue

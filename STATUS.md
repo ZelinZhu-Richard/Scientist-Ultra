@@ -1,12 +1,44 @@
 # Scientist-One vNext Status
 
-**DEVELOPMENT / REVIEW, not final acceptance.** `AUTONOMOUS_EXPLORATION_READY`
-remains a provisional ceiling from bounded synthetic evidence, not current
-whole-system readiness. The [September23 checkpoint handoff](OVERNIGHT_REPORT.md#development--review-checkpoint-september-23-2026)
-is the current status: installed V8 is unchanged; old captures are no longer
-running; private corrections remain uninstalled; known errors/timeouts and
-external/safety blocks remain. The owner now authorizes a public-safe review
-branch before final validation/historical import, without waiving final gates.
+**DEVELOPMENT / REVIEW, not final acceptance.**
+
+September 23, 2026 checkpoint, incorporating the Python 3.14 terminal observation at 16:19:20 UTC: V9 is installed and frozen with 300 functional inputs.
+The same 125 selected IDs pass on Python 3.14.6 and 3.11.15 at enclosing scope;
+a disjoint 3,294-ID selection passes on Python 3.14.6 only. This is 3,419 distinct
+selected current IDs on Python 3.14, with only 125 currently paired; remaining192
+on Python 3.11 is NOT_STARTED. Nested/helper behavior remains NOT_ASSESSED by
+the enclosing closures. These are not whole-suite, security, scientific or
+release acceptance.
+
+The Standard source scan is sealed PARTIAL, with 43 review products and three
+LOW findings. Accepted corrections are installed and have scoped test evidence;
+this is not full security PASS or clearance of omitted/stopped scopes.
+
+Gates67 retains its original paired and diagnostic 7,200-second timeouts
+without complete outcomes; isolation38 retains 37 successes and one inner
+900-second timeout error per runtime. Causes remain UNKNOWN. The retained
+lint33 result is non-PASS. Original failures and separate private checks remain
+preserved, not relabeled or added to installed counts. Operations18, fresh
+installed lifecycle/reproduction/package, the current architecture packet and
+its four validator methods, and the final audit remain pending. Architecture
+packet validation is not proof that all 15 behavioral criteria pass.
+
+The prior verified V8 checkpoint is `f6b3d92` on
+`review/vnext-checkpoint`. Publication identities and observed Git status for
+the accepted V9 delta are recorded in the checkpoint handoff. Qualified
+recovered-baseline import/tag and final feature-history integration remain
+pending; `main` stays at the owner's README-only bootstrap. V9 is a development
+checkpoint, not a final release.
+
+Scientific isolation, confidential provider custody, real protected data and
+independent custodians, non-fixture literature application driving, live
+OpenAI/scholarly/GPU validation, independent scientific review and E4 remain
+unfinished, blocked or untested. `AUTONOMOUS_EXPLORATION_READY` remains a
+provisional ceiling from bounded synthetic evidence, not whole-system readiness.
+
+The [current handoff](OVERNIGHT_REPORT.md#development--review-checkpoint-september-23-2026)
+records exact evidence, safety exclusions and owner-triage conditions. Earlier
+running/private/uninstalled statements below are historical, not present V9 state.
 
 ## Earlier dated checkpoints
 

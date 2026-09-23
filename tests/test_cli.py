@@ -11,7 +11,9 @@ import io
 import json
 import os
 from pathlib import Path
+import re
 import shutil
+import stat
 import subprocess
 import sys
 import tempfile
@@ -62,6 +64,213 @@ from scientist_one.roles import Role
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 ORIGINAL_RESOURCE_EVALUATE = ResourceController.evaluate
+
+
+class _CliFixtureOwner:
+    """Test-only returned-ID ownership, not controller or scientific authority."""
+
+    def __init__(self, root: Path, *, run_only: bool = False):
+        if type(root) is not type(Path()) or type(run_only) is not bool:
+            raise AssertionError("fixture root/profile type is invalid")
+        self.root = root
+        self.run_only = run_only
+        self._run_ids = []
+        self._packages = {}
+        self.cleanup_incomplete = False
+        self._require_root()
+        self._directory(root / "runs")
+        self._directory(root / ".scientist-one-build")
+        archive = root / ".scientist-one-build" / "test-runs"
+        if not self._present(archive):
+            archive.mkdir()
+        self._directory(archive)
+
+    @staticmethod
+    def _safe_id(value):
+        return type(value) is str and re.fullmatch(
+            r"[A-Za-z0-9][A-Za-z0-9._-]{0,127}", value
+        ) is not None
+
+    @staticmethod
+    def _present(path):
+        try:
+            path.lstat()
+        except FileNotFoundError:
+            return False
+        return True
+
+    @staticmethod
+    def _directory(path):
+        if not stat.S_ISDIR(path.lstat().st_mode):
+            raise AssertionError("unsafe fixture directory")
+
+    @staticmethod
+    def _file(path):
+        if not stat.S_ISREG(path.lstat().st_mode):
+            raise AssertionError("unsafe fixture file")
+
+    @classmethod
+    def _absent(cls, path):
+        if cls._present(path):
+            raise AssertionError("fixture destination/reserved subtree conflict")
+
+    def _require_root(self):
+        if not self.root.is_absolute() or self.root.resolve(strict=True) != self.root:
+            raise AssertionError("fixture root is not canonical")
+        self._directory(self.root)
+
+    def _record_return(self, result):
+        run_id = result.get("run_id") if type(result) is dict else None
+        if not self._safe_id(run_id):
+            raise AssertionError("unsafe returned run ID")
+        if run_id in self._run_ids:
+            raise AssertionError("duplicate returned run ID")
+        self._run_ids.append(run_id)
+
+    def start(self, controller, *args, **kwargs):
+        # No interception: a partial start that raises exposes no owned ID.
+        result = controller.start(*args, **kwargs)
+        self._record_return(result)
+        return result
+
+    def demo(self, controller, **kwargs):
+        # Genuine demo remains one call, including its original internal start.
+        result = controller.demo(**kwargs)
+        self._record_return(result)
+        self.record_package(result["run_id"], result.get("package"))
+        return result
+
+    def record_package(self, run_id, package):
+        if not self._safe_id(run_id) or run_id not in self._run_ids:
+            raise AssertionError("package run is not fixture-owned")
+        if package is None:
+            return
+        if self.run_only or type(package) is not dict or package.get("run_id") != run_id:
+            raise AssertionError("package ownership/profile mismatch")
+        if run_id in self._packages:
+            raise AssertionError("package already recorded")
+        records = []
+        for path_key, hash_key, suffix in (
+            ("archive_path", "archive_sha256", ".zip"),
+            ("envelope_path", "envelope_sha256", ".final-envelope.json"),
+        ):
+            digest = package.get(hash_key)
+            if type(digest) is not str or re.fullmatch(r"[0-9a-f]{64}", digest) is None:
+                raise AssertionError("invalid package identity hash")
+            expected = "artifacts/release_candidates/" + run_id + "-" + digest[:20] + suffix
+            path = package.get(path_key)
+            if type(path) is not str or path != expected:
+                raise AssertionError("noncanonical package identity path")
+            records.append((path, digest))
+        # Immutable copied identity metadata; this does not verify current bytes.
+        self._packages[run_id] = tuple(records)
+
+    def _diagnose_cleanup(self):
+        self.cleanup_incomplete = True
+        try:
+            # Fixed bounded metadata, no payload/exception serialization.
+            sys.stderr.write("CLI_FIXTURE_CLEANUP_INCOMPLETE reason=ARCHIVE_FAILED\n")
+            sys.stderr.flush()
+        except Exception:
+            return
+
+    def archive(self):
+        if not self._run_ids:
+            return
+        try:
+            self._archive()
+        except Exception:
+            self._diagnose_cleanup()
+            # Preserve earlier actual moves and the actual failure; never retry.
+            raise
+
+    def _archive(self):
+        self._require_root()
+        root = self.root
+        build = root / ".scientist-one-build"
+        runs = root / "runs"
+        archive = build / "test-runs"
+        parents = [root, build, runs, archive]
+        if not self.run_only:
+            parents += [build / "custody", build / "resource-authority"]
+        if self._packages:
+            parents += [root / "artifacts", root / "artifacts" / "release_candidates"]
+        for parent in parents:
+            self._directory(parent)
+        ids = tuple(self._run_ids)
+        if any(not self._safe_id(value) for value in ids) or len(set(ids)) != len(ids):
+            raise AssertionError("unsafe or duplicate fixture ownership")
+        if any(value not in ids for value in self._packages):
+            raise AssertionError("package ownership lost")
+        plans = []
+        # Preflight the complete fixed target set before any move.
+        for run_id in ids:
+            source, destination = runs / run_id, archive / run_id
+            self._directory(source)
+            self._absent(destination)
+            ancillary = []
+            packages = []
+            if not self.run_only:
+                self._absent(source / "external-authority")
+                self._absent(source / "release-candidates")
+                for path, name, kind in (
+                    (build / "custody" / (run_id + ".jsonl"), "custody.jsonl", "file"),
+                    (build / "resource-authority" / run_id, "resource", "dir"),
+                ):
+                    present = self._present(path)
+                    if present:
+                        (self._file if kind == "file" else self._directory)(path)
+                    ancillary.append((path, name, kind, present))
+                for relative, digest in self._packages.get(run_id, ()):
+                    path = root / relative
+                    self._file(path)
+                    packages.append((path, path.name, digest))
+            elif self._packages:
+                raise AssertionError("run-only fixture cannot own packages")
+            plans.append((source, destination, tuple(ancillary), tuple(packages)))
+        for source, destination, ancillary, packages in plans:
+            self._require_root()
+            for parent in parents:
+                self._directory(parent)
+            self._directory(source)
+            self._absent(destination)
+            if not self.run_only:
+                self._absent(source / "external-authority")
+                self._absent(source / "release-candidates")
+            os.replace(source, destination)
+            self._directory(destination)
+            if self.run_only:
+                continue
+            external = destination / "external-authority"
+            release = destination / "release-candidates"
+            self._absent(external)
+            self._absent(release)
+            if any(present for _, _, _, present in ancillary):
+                external.mkdir()
+            if packages:
+                release.mkdir()
+            for path, name, kind, present in ancillary:
+                self._require_root()
+                for parent in (*parents, destination):
+                    self._directory(parent)
+                if self._present(path) != present:
+                    raise AssertionError("authority presence changed after preflight")
+                if not present:
+                    continue
+                (self._file if kind == "file" else self._directory)(path)
+                self._directory(external)
+                target = external / name
+                self._absent(target)
+                os.replace(path, target)
+            for path, name, _digest in packages:
+                self._require_root()
+                for parent in (*parents, destination, release):
+                    self._directory(parent)
+                self._file(path)
+                target = release / name
+                self._absent(target)
+                os.replace(path, target)
+        # Checkpoints, rollback archives and unknown partial outputs stay put.
 
 
 @contextlib.contextmanager
@@ -575,83 +784,9 @@ class PackagingResourceAuthorityProjectionTests(unittest.TestCase):
 
 class OrchestratorTests(unittest.TestCase):
     def setUp(self) -> None:
-        self._test_token = f"test-{uuid.uuid4().hex}"
-        self._before_runs = {
-            path.name for path in (PROJECT_ROOT / "runs").iterdir() if path.is_dir()
-        }
-        self._before_packages = {
-            path.name
-            for path in (PROJECT_ROOT / "artifacts" / "release_candidates").iterdir()
-            if path.is_file()
-        }
         self.orchestrator = ScientistOneOrchestrator(PROJECT_ROOT)
-        self.orchestrator.set_command_context(
-            ("python3", "-m", "scientist_one", self._test_token)
-        )
-
-    def tearDown(self) -> None:
-        """Move only this test's exact new run/package evidence; never delete it."""
-
-        runs_dir = PROJECT_ROOT / "runs"
-        packages_dir = PROJECT_ROOT / "artifacts" / "release_candidates"
-        after_runs = {
-            path.name for path in runs_dir.iterdir() if path.is_dir() and not path.is_symlink()
-        }
-        created: list[str] = []
-        for run_id in sorted(after_runs - self._before_runs):
-            try:
-                manifest = json.loads((runs_dir / run_id / "manifest.json").read_text())
-                initial = manifest["artifacts"]["resource_runtime_initial"]
-            except (OSError, KeyError, TypeError, json.JSONDecodeError):
-                continue
-            if self._test_token in initial.get("creation_command", []):
-                created.append(run_id)
-        archive_root = PROJECT_ROOT / ".scientist-one-build" / "test-runs"
-        archive_root.mkdir(parents=True, exist_ok=True)
-        for run_id in created:
-            source = runs_dir / run_id
-            destination = archive_root / run_id
-            if source.is_symlink() or not source.is_dir():
-                raise AssertionError("unsafe test-run archival target")
-            if destination.exists():
-                # Another concurrent runner can only have archived this exact
-                # UUID-owned run after observing the same test process.
-                continue
-            os.replace(source, destination)
-            custody = (
-                PROJECT_ROOT / ".scientist-one-build" / "custody" / f"{run_id}.jsonl"
-            )
-            if custody.is_file() and not custody.is_symlink():
-                custody_destination = destination / "external-authority" / "custody.jsonl"
-                custody_destination.parent.mkdir(parents=True, exist_ok=True)
-                os.replace(custody, custody_destination)
-            resource_authority = (
-                PROJECT_ROOT
-                / ".scientist-one-build"
-                / "resource-authority"
-                / run_id
-            )
-            if resource_authority.is_dir() and not resource_authority.is_symlink():
-                authority_destination = destination / "external-authority" / "resource"
-                authority_destination.parent.mkdir(parents=True, exist_ok=True)
-                os.replace(resource_authority, authority_destination)
-
-        after_packages = {
-            path.name
-            for path in packages_dir.iterdir()
-            if path.is_file() and not path.is_symlink()
-        }
-        for name in sorted(after_packages - self._before_packages):
-            matching = [run_id for run_id in created if name.startswith(run_id + "-")]
-            if not matching:
-                # A concurrent test process may have created its own package;
-                # this test must neither move nor reject that evidence.
-                continue
-            if len(matching) != 1:
-                raise AssertionError("new package ambiguously matches test runs")
-            destination_dir = archive_root / matching[0] / "release-candidates"
-            destination_dir.mkdir(parents=True, exist_ok=True)
-            os.replace(packages_dir / name, destination_dir / name)
+        self._fixture_owner = _CliFixtureOwner(PROJECT_ROOT)
+        self.addCleanup(self._fixture_owner.archive)
 
     def test_unsafe_recovery_actions_dominate_status_without_resume_command(self) -> None:
         manifest = {
@@ -925,7 +1060,7 @@ class OrchestratorTests(unittest.TestCase):
             with mock.patch.dict(
                 "sys.modules", {"json_shadow_probe": module}, clear=False
             ), self.assertRaises(OrchestrationError):
-                self.orchestrator.start()
+                self._fixture_owner.start(self.orchestrator)
 
     def test_path_traversal_run_id_is_rejected(self) -> None:
         with self.assertRaises(OrchestrationError):
@@ -933,10 +1068,10 @@ class OrchestratorTests(unittest.TestCase):
 
     def test_brief_outside_root_is_rejected(self) -> None:
         with self.assertRaises(OrchestrationError):
-            self.orchestrator.start("/tmp/not-project-evidence.md")
+            self._fixture_owner.start(self.orchestrator, "/tmp/not-project-evidence.md")
 
     def test_start_without_brief_is_synthetic_and_resumable(self) -> None:
-        result = self.orchestrator.start()
+        result = self._fixture_owner.start(self.orchestrator)
         self.assertEqual(result["mode"], "synthetic_demo")
         self.assertEqual(result["current_state"], "CALIBRATE")
         self.assertTrue(result["resumable"])
@@ -953,10 +1088,7 @@ class OrchestratorTests(unittest.TestCase):
             self.assertIsNotNone(captured)
             self.assertEqual(captured[0], PROJECT_ROOT)
             orchestrator = ScientistOneOrchestrator(PROJECT_ROOT)
-            orchestrator.set_command_context(
-                ("python3", "-m", "scientist_one", self._test_token)
-            )
-            started = orchestrator.start()
+            started = self._fixture_owner.start(orchestrator)
             manifest = orchestrator.load_manifest(started["run_id"])
             frozen = orchestrator._json_artifact_payload(
                 manifest, "frozen_source_inventory"
@@ -1010,7 +1142,7 @@ class OrchestratorTests(unittest.TestCase):
                 stop_budget=False,
                 backoff_seconds=0.0,
             )
-            result = self.orchestrator.demo()
+            result = self._fixture_owner.demo(self.orchestrator)
         self.assertEqual(result["status"], "PASS")
         self.assertEqual(result["terminal_state"], "READY_FOR_HUMAN_REVIEW")
         self.assertEqual(result["outcome"], "COMPLETE_DEMO_ONLY")
@@ -1358,7 +1490,7 @@ class OrchestratorTests(unittest.TestCase):
                 stop_budget=False,
                 backoff_seconds=0.0,
             )
-            result = self.orchestrator.demo()
+            result = self._fixture_owner.demo(self.orchestrator)
         run_id = result["run_id"]
         manifest = self.orchestrator.load_manifest(run_id)
         custody_record = self.orchestrator._json_artifact_payload(
@@ -1466,7 +1598,7 @@ class OrchestratorTests(unittest.TestCase):
         self.assertEqual(provider.status.violation_reasons, expected_reasons)
 
     def test_preflight_pause_refuses_work_with_typed_terminal_evidence(self) -> None:
-        started = self.orchestrator.start()
+        started = self._fixture_owner.start(self.orchestrator)
         run_id = started["run_id"]
         while self.orchestrator.status(run_id)["current_state"] != "PREFLIGHT":
             self.orchestrator.advance_once(run_id)
@@ -1493,7 +1625,7 @@ class OrchestratorTests(unittest.TestCase):
         self.assertIn(manifest["artifacts"]["terminal_report"]["sha256"], ledger)
 
     def test_preflight_cross_stage_configuration_mismatch_stops_security(self) -> None:
-        run_id = self.orchestrator.start()["run_id"]
+        run_id = self._fixture_owner.start(self.orchestrator)["run_id"]
         while self.orchestrator.status(run_id)["current_state"] != "PREFLIGHT":
             self.orchestrator.advance_once(run_id)
         payload = self.orchestrator.preflight()
@@ -1505,7 +1637,7 @@ class OrchestratorTests(unittest.TestCase):
     def test_repeated_worker_crash_and_stall_refuse_work_with_checkpointed_stop(self) -> None:
         for reason in ("REPEATED_WORKER_CRASHES", "WORK_STALLED"):
             with self.subTest(reason=reason):
-                started = self.orchestrator.start()
+                started = self._fixture_owner.start(self.orchestrator)
                 run_id = started["run_id"]
                 while self.orchestrator.status(run_id)["current_state"] != "PREFLIGHT":
                     self.orchestrator.advance_once(run_id)
@@ -1555,7 +1687,7 @@ class OrchestratorTests(unittest.TestCase):
             with self.subTest(scenario=scenario), mock.patch.object(
                 ResourceController, "evaluate", autospec=True, side_effect=continue_decision
             ):
-                result = self.orchestrator.demo(synthetic_scenario=scenario)
+                result = self._fixture_owner.demo(self.orchestrator, synthetic_scenario=scenario)
             self.assertEqual(result["terminal_state"], expected)
             manifest = self.orchestrator.load_manifest(result["run_id"])
             self.assertIn("terminal_report", manifest["artifacts"])
@@ -1577,7 +1709,7 @@ class OrchestratorTests(unittest.TestCase):
                 self.orchestrator._save_manifest(original)
 
     def test_resource_runtime_rollback_and_erasure_are_rejected(self) -> None:
-        started = self.orchestrator.start()
+        started = self._fixture_owner.start(self.orchestrator)
         run_id = started["run_id"]
         manifest = self.orchestrator.load_manifest(run_id)
         original = json.loads(json.dumps(manifest))
@@ -1604,7 +1736,7 @@ class OrchestratorTests(unittest.TestCase):
                 backoff_seconds=0.0,
             )
 
-        run_id = self.orchestrator.start()["run_id"]
+        run_id = self._fixture_owner.start(self.orchestrator)["run_id"]
         current = self.orchestrator.load_manifest(run_id)
         stale_waiter = json.loads(json.dumps(current))
         with mock.patch.object(
@@ -1651,7 +1783,7 @@ class OrchestratorTests(unittest.TestCase):
                 backoff_seconds=0.0,
             )
 
-        run_id = self.orchestrator.start()["run_id"]
+        run_id = self._fixture_owner.start(self.orchestrator)["run_id"]
         manifest = self.orchestrator.load_manifest(run_id)
         used_before = manifest["resource_runtime_state"]["exploratory_used"]
         inner_operation = mock.Mock(
@@ -1694,7 +1826,7 @@ class OrchestratorTests(unittest.TestCase):
         )
 
     def test_resource_transaction_requires_external_checkpoint_authority(self) -> None:
-        run_id = self.orchestrator.start()["run_id"]
+        run_id = self._fixture_owner.start(self.orchestrator)["run_id"]
         manifest = self.orchestrator.load_manifest(run_id)
         checkpoint = (
             PROJECT_ROOT / ".scientist-one-build" / "checkpoints" / run_id
@@ -1745,7 +1877,7 @@ class OrchestratorTests(unittest.TestCase):
                 backoff_seconds=0.0,
             )
 
-        run_id = self.orchestrator.start()["run_id"]
+        run_id = self._fixture_owner.start(self.orchestrator)["run_id"]
         manifest = self.orchestrator.load_manifest(run_id)
         before_crash = json.loads(json.dumps(manifest))
         used_before = manifest["resource_runtime_state"]["exploratory_used"]
@@ -1774,19 +1906,82 @@ class OrchestratorTests(unittest.TestCase):
             charged["resource_runtime_artifact"],
             "resource_runtime_pilot_charge",
         )
-        retry = mock.Mock(side_effect=AssertionError("stale retry must not execute"))
-        with self.assertRaisesRegex(
-            OrchestrationError,
-            "resource transaction caller projection is stale",
-        ):
-            self.orchestrator._run_with_resources(
-                before_crash,
-                experiment_id=f"{run_id}:stale-retry",
-                validity_stage="PILOT",
-                validity_units=2,
-                operation=retry,
+        # This is an injected Python exception in a generic CALIBRATE call,
+        # not an observed OS crash or the source-owned CANDIDATE failure witness.
+        # Negative PILOT routing may precede the stale-caller diagnostic.
+        def retained_identity():
+            rows = []
+            for relative in (
+                Path("runs") / run_id,
+                Path(".scientist-one-build/resource-authority") / run_id,
+                Path(".scientist-one-build/checkpoints") / run_id,
+                Path(".scientist-one-build/custody") / f"{run_id}.jsonl",
+            ):
+                target = PROJECT_ROOT / relative
+                if not target.exists() and not target.is_symlink():
+                    rows.append((relative.as_posix(), "ABSENT"))
+                    continue
+                paths = [target]
+                if target.is_dir() and not target.is_symlink():
+                    paths += sorted(target.rglob("*"))
+                for path in paths:
+                    info = path.lstat()
+                    payload = (
+                        os.readlink(path) if stat.S_ISLNK(info.st_mode)
+                        else path.read_bytes() if stat.S_ISREG(info.st_mode)
+                        else None
+                    )
+                    rows.append((
+                        path.relative_to(PROJECT_ROOT).as_posix(), info.st_mode,
+                        info.st_dev, info.st_ino, info.st_size,
+                        info.st_mtime_ns, info.st_ctime_ns, payload,
+                    ))
+            return tuple(rows)
+
+        charged_projection = json.loads(json.dumps(charged))
+        before_retry = retained_identity()
+        for label, projection in (("stale", before_crash), ("fresh", charged)):
+            retry = mock.Mock(side_effect=AssertionError("refused retry must not execute"))
+            original_projection = json.loads(json.dumps(projection))
+            with self.subTest(projection=label), mock.patch.object(
+                ResourceController, "acquire",
+                side_effect=AssertionError("refused retry must not acquire"),
+            ) as acquire, mock.patch.object(
+                self.orchestrator, "_run_with_resources_locked",
+                side_effect=AssertionError("refused retry must not schedule work"),
+            ) as scheduled:
+                with self.assertRaises(OrchestrationError):
+                    self.orchestrator._run_with_resources(
+                        projection,
+                        experiment_id=f"{run_id}:{label}-retry",
+                        validity_stage="PILOT",
+                        validity_units=2,
+                        operation=retry,
+                    )
+            retry.assert_not_called()
+            acquire.assert_not_called()
+            scheduled.assert_not_called()
+            self.assertEqual(projection, original_projection)
+            self.assertEqual(retained_identity(), before_retry)
+            after_retry = self.orchestrator.load_manifest(run_id)
+            self.assertEqual(after_retry, charged_projection)
+            self.assertEqual(
+                after_retry["resource_runtime_state"]["exploratory_used"],
+                used_before + 2,
             )
-        retry.assert_not_called()
+            self.assertEqual(
+                after_retry["resource_runtime_state"]["confirmatory_used"],
+                before_crash["resource_runtime_state"]["confirmatory_used"],
+            )
+            self.assertEqual(
+                after_retry["resource_runtime_state"]["worker_crashes"],
+                before_crash["resource_runtime_state"]["worker_crashes"],
+            )
+            self.assertEqual(
+                after_retry["resource_runtime_artifact"], "resource_runtime_pilot_charge"
+            )
+            self.assertNotIn("resource_runtime_pilot_completion", after_retry["artifacts"])
+            self.assertNotIn("resource_runtime_pilot_failure", after_retry["artifacts"])
 
     def test_code_drift_before_confirm_becomes_typed_security_stop(self) -> None:
         def continue_decision(controller, *args, **kwargs):
@@ -1796,7 +1991,7 @@ class OrchestratorTests(unittest.TestCase):
                 reasons=(), checkpoint_required=False, accept_new_work=True,
                 stop_budget=False, backoff_seconds=0.0,
             )
-        started = self.orchestrator.start()
+        started = self._fixture_owner.start(self.orchestrator)
         run_id = started["run_id"]
         with mock.patch.object(ResourceController, "evaluate", autospec=True, side_effect=continue_decision):
             while self.orchestrator.status(run_id)["current_state"] != "CONFIRM":
@@ -1843,7 +2038,7 @@ class OrchestratorTests(unittest.TestCase):
                 autospec=True,
                 side_effect=continue_decision,
             ):
-                run_id = self.orchestrator.start()["run_id"]
+                run_id = self._fixture_owner.start(self.orchestrator)["run_id"]
                 while self.orchestrator.status(run_id)["current_state"] != stage:
                     self.orchestrator.advance_once(run_id)
                 with mock.patch(
@@ -1874,7 +2069,7 @@ class OrchestratorTests(unittest.TestCase):
                 stop_budget=False, backoff_seconds=0.0,
             )
 
-        run_id = self.orchestrator.start()["run_id"]
+        run_id = self._fixture_owner.start(self.orchestrator)["run_id"]
         with mock.patch.object(
             ResourceController,
             "evaluate",
@@ -1967,7 +2162,7 @@ class OrchestratorTests(unittest.TestCase):
                 stop_budget=False, backoff_seconds=0.0,
             )
 
-        run_id = self.orchestrator.start()["run_id"]
+        run_id = self._fixture_owner.start(self.orchestrator)["run_id"]
         with mock.patch.object(
             ResourceController,
             "evaluate",
@@ -2035,7 +2230,7 @@ class OrchestratorTests(unittest.TestCase):
                 stop_budget=False, backoff_seconds=0.0,
             )
 
-        run_id = self.orchestrator.start()["run_id"]
+        run_id = self._fixture_owner.start(self.orchestrator)["run_id"]
         run_path = PROJECT_ROOT / "runs" / run_id
         resource_path = (
             PROJECT_ROOT / ".scientist-one-build" / "resource-authority" / run_id
@@ -2098,7 +2293,7 @@ class OrchestratorTests(unittest.TestCase):
             self.orchestrator.package(run_id)
 
     def test_mutable_scenario_and_fake_terminal_are_rejected(self) -> None:
-        run_id = self.orchestrator.start(synthetic_scenario="positive")["run_id"]
+        run_id = self._fixture_owner.start(self.orchestrator, synthetic_scenario="positive")["run_id"]
         original = self.orchestrator.load_manifest(run_id)
         tampered = json.loads(json.dumps(original))
         tampered["synthetic_scenario"] = "null"
@@ -2121,7 +2316,7 @@ class OrchestratorTests(unittest.TestCase):
                 stop_budget=False, backoff_seconds=0.0,
             )
 
-        run_id = self.orchestrator.start()["run_id"]
+        run_id = self._fixture_owner.start(self.orchestrator)["run_id"]
         with mock.patch.object(
             ResourceController,
             "evaluate",
@@ -2164,6 +2359,9 @@ class OrchestratorTests(unittest.TestCase):
                 terminal = self.orchestrator.advance_once(run_id)
         self.assertEqual(terminal["terminal_state"], "READY_FOR_HUMAN_REVIEW")
         self.assertEqual(custody_reads, [0])
+        self._fixture_owner.record_package(
+            run_id, self.orchestrator.load_manifest(run_id)["package"]
+        )
 
     def test_pre_release_mutable_semantic_projection_is_rejected(self) -> None:
         def continue_decision(controller, *args, **kwargs):
@@ -2174,7 +2372,7 @@ class OrchestratorTests(unittest.TestCase):
                 stop_budget=False, backoff_seconds=0.0,
             )
 
-        run_id = self.orchestrator.start()["run_id"]
+        run_id = self._fixture_owner.start(self.orchestrator)["run_id"]
         with mock.patch.object(
             ResourceController,
             "evaluate",
@@ -2269,7 +2467,7 @@ class OrchestratorTests(unittest.TestCase):
                 stop_budget=False, backoff_seconds=0.0,
             )
 
-        run_id = self.orchestrator.start()["run_id"]
+        run_id = self._fixture_owner.start(self.orchestrator)["run_id"]
         with mock.patch.object(
             ResourceController,
             "evaluate",
@@ -2303,7 +2501,7 @@ class OrchestratorTests(unittest.TestCase):
                 reasons=(), checkpoint_required=False, accept_new_work=True,
                 stop_budget=False, backoff_seconds=0.0,
             )
-        started = self.orchestrator.start()
+        started = self._fixture_owner.start(self.orchestrator)
         run_id = started["run_id"]
         with mock.patch.object(ResourceController, "evaluate", autospec=True, side_effect=continue_decision):
             while self.orchestrator.status(run_id)["current_state"] != "WRITE":
@@ -2687,9 +2885,8 @@ class ImmutablePublishSecurityTests(unittest.TestCase):
 
     def test_package_run_aggregate_bound_is_enforced_before_object_read(self) -> None:
         orchestrator = ScientistOneOrchestrator(PROJECT_ROOT)
-        token = f"test-{uuid.uuid4().hex}"
-        orchestrator.set_command_context(("python3", "-m", "scientist_one", token))
-        run_id = orchestrator.start()["run_id"]
+        fixture_owner = _CliFixtureOwner(PROJECT_ROOT, run_only=True)
+        run_id = fixture_owner.start(orchestrator)["run_id"]
         try:
             def continue_decision(controller, *args, **kwargs):
                 return replace(
@@ -2719,13 +2916,7 @@ class ImmutablePublishSecurityTests(unittest.TestCase):
                 package_run(PROJECT_ROOT, run_id)
             verify_all.assert_not_called()
         finally:
-            source = PROJECT_ROOT / "runs" / run_id
-            destination = (
-                PROJECT_ROOT / ".scientist-one-build" / "test-runs" / run_id
-            )
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            if source.is_dir() and not source.is_symlink() and not destination.exists():
-                os.replace(source, destination)
+            fixture_owner.archive()
 
     def test_reproduction_numeric_and_serialization_boundaries_fail_closed(self) -> None:
         with self.assertRaises(ReproductionError):

@@ -8688,6 +8688,38 @@ class ScheduledGPUCloudBackend:
             "action_idempotency_key": action_idempotency_key,
         }
 
+    @staticmethod
+    def _require_unconsumed_submit_work(
+        events: tuple[LedgerEvent, ...],
+        *,
+        action_type: str,
+        cloud_spec_sha256: str,
+        authority_artifact_sha256: str,
+    ) -> None:
+        """A renamed plan cannot purchase an already consumed exact spec.
+
+        Same-authority recovery and requeue retain their existing exact
+        consumption checks. Corrections do not erase a prior paid intent:
+        an unknown transport outcome is not evidence that no work occurred.
+        Distinct frozen specs remain independent, even with a shared budget.
+        """
+        if action_type != "SUBMIT":
+            return
+        for event in events:
+            consumption = thaw_json(event.metadata).get(
+                "compute_escalation_submission_consumption"
+            )
+            if (
+                isinstance(consumption, Mapping)
+                and consumption.get("action_type") == "SUBMIT"
+                and consumption.get("cloud_spec_sha256") == cloud_spec_sha256
+                and consumption.get("authority_artifact_sha256")
+                != authority_artifact_sha256
+            ):
+                raise ScheduledGPURecoveryBlocked(
+                    "scheduled GPU exact work was already consumed under another authority"
+                )
+
     def _consume_attempt_authority(
         self,
         *,
@@ -8781,6 +8813,12 @@ class ScheduledGPUCloudBackend:
         events = self._ledger.events()
         if not events or events[-1].event_hash is None:
             raise ExperimentError("compute escalation ledger has no live head")
+        self._require_unconsumed_submit_work(
+            events,
+            action_type=action_type,
+            cloud_spec_sha256=cloud_spec.sha256,
+            authority_artifact_sha256=authority_artifact_sha256,
+        )
         prior_consumptions: list[tuple[LedgerEvent, Mapping[str, Any]]] = []
         for event in events:
             consumption = thaw_json(event.metadata).get(
@@ -8880,6 +8918,12 @@ class ScheduledGPUCloudBackend:
                         "compute escalation ledger is invalid during consumption"
                     )
                 locked_events = locked_result.events
+                self._require_unconsumed_submit_work(
+                    locked_events,
+                    action_type=action_type,
+                    cloud_spec_sha256=cloud_spec.sha256,
+                    authority_artifact_sha256=authority_artifact_sha256,
+                )
                 locked_consumptions: list[
                     tuple[LedgerEvent, Mapping[str, Any]]
                 ] = []

@@ -1,5 +1,52 @@
 # Known Limitations
 
+## V9 verification and checkpoint limits
+
+September 23, 2026 checkpoint, incorporating the Python 3.14 terminal observation at 16:19:20 UTC: V9 is installed and frozen with 300 functional inputs.
+The same 125 selected IDs pass on Python 3.14.6 and 3.11.15 at enclosing scope;
+a disjoint 3,294-ID selection passes on Python 3.14.6 only. This is 3,419 distinct
+selected current IDs on Python 3.14, with only 125 currently paired; remaining192
+on Python 3.11 is NOT_STARTED. Nested/helper behavior remains NOT_ASSESSED by
+the enclosing closures. These are not whole-suite, security, scientific or
+release acceptance.
+
+The Standard source scan is sealed PARTIAL, with 43 review products and three
+LOW findings. Accepted corrections are installed and have scoped test evidence;
+this is not full security PASS or clearance of omitted/stopped scopes.
+
+Gates67 retains its original paired and diagnostic 7,200-second timeouts
+without complete outcomes; isolation38 retains 37 successes and one inner
+900-second timeout error per runtime. Causes remain UNKNOWN. The retained
+lint33 result is non-PASS. Original failures and separate private checks remain
+preserved, not relabeled or added to installed counts. Operations18, fresh
+installed lifecycle/reproduction/package, the current architecture packet and
+its four validator methods, and the final audit remain pending. Architecture
+packet validation is not proof that all 15 behavioral criteria pass.
+
+The exact safeguard-stopped assess-patch-risk and substitutes, prompt-injection
+criterion, scholarly event-key/capture-alias, direct-coordinator legacy-selector/
+native-J retained session/thread/fork/FD lifetime, execution/read-restriction
+repair, trusted-collector and actual OS-crash collection scopes remain stopped,
+not PASS. No alternate reviewer, route, runtime or diagnosis clears them.
+Protected data, confidentiality boundaries, custodian requirements, spending
+limits, scientific gates and human-only E4 remain mandatory. No credential,
+private provider/run payload, protected dataset or unrelated process/descriptor
+inspection is authorized here.
+
+Under the owner's D-079 rule, report new consequential findings before repair
+or an expensive new campaign; do not delegate a repair. A single reviewed,
+private, observability-only gates67 diagnostic retains all 67 methods and the
+7,200-second bound. It is approved only after active regression is terminal and
+the safe V9 push and remote verification have completed, if ready. No automatic
+rerun or repair follows it; owner triage is next. The initial bounded Claude
+diagnosis is complete; the later credential-lock denial is not being retried.
+
+The handoff records the actual V9 publication identity and observed Git status.
+Functional-delta disclosure review alone is not final document/index/history
+clearance. A permitted development push does not remove the substantive
+limitations below; selected successes do not complete local features, real
+science or E4.
+
 ## Scientific scope
 
 - The [FARS assessment](FARS_DESIGN_REVIEW.md) is bounded architectural evidence,

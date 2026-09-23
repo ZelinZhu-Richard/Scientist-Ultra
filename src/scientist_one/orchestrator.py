@@ -82,8 +82,12 @@ from .protocol import (
 from .recovery import (
     ConfirmatoryRevealAuthority,
     FreshCustodyEvidence,
+    LedgerValidationError,
+    RecoveryError,
     RecoveryManager,
+    RecoveryReport,
     RegisteredArtifactSelector,
+    ResumeAction,
 )
 from .reproduction import (
     ARCHITECTURE_CONTROL_REPLAY_STATUS,
@@ -12004,9 +12008,131 @@ class ScientistOneOrchestrator:
         self._save_manifest(manifest)
         package_run(self.root, str(manifest["run_id"]))
 
+    def _external_checkpoint_conflict_report(self, manifest):
+        """Read-only negative selection; never repair or infer PILOT completion."""
+        run_id = manifest.get("run_id")
+        if type(run_id) is not str or RUN_ID_PATTERN.fullmatch(run_id) is None:
+            return None
+        def requested_ledger_validation(path):
+            # Both RecoveryManager validations enter here. Existing validators
+            # may initialize ordinary lock entries and registry directories;
+            # this prefix must decline before them when those entries are absent
+            # or unsafe. This is sequential preflight, not a concurrent FS lease.
+            for relative in (
+                Path("runs") / run_id / "registry" / "objects",
+                Path("runs") / run_id / "registry" / "metadata",
+                Path(".scientist-one-build/checkpoints") / run_id,
+            ):
+                descriptor = open_confined_directory_fd(self.root, relative, create=False)
+                os.close(descriptor)
+            for relative in (
+                Path(".scientist-one-event-ledger.lock"),
+                Path(".scientist-one-artifact-registry.lock"),
+                Path("runs") / run_id / ".events.jsonl.lock",
+                Path("runs") / run_id / "registry" / ".registry.lock",
+            ):
+                descriptor = open_confined_directory_fd(
+                    self.root, relative.parent, create=False
+                )
+                try:
+                    try:
+                        metadata = os.stat(
+                            relative.name, dir_fd=descriptor, follow_symlinks=False
+                        )
+                    except OSError as exc:
+                        raise OrchestrationError(
+                            "checkpoint precheck requires existing ordinary locks"
+                        ) from exc
+                    if (not stat.S_ISREG(metadata.st_mode)
+                            or metadata.st_nlink != 1
+                            or metadata.st_mode & 0o077):
+                        raise OrchestrationError(
+                            "checkpoint precheck requires private regular locks"
+                        )
+                finally:
+                    os.close(descriptor)
+            # The unchanged foundation adapter dispatches a registry using the
+            # ledger's event run ID. Bind the actual intrinsic ledger to this
+            # requested run before allowing that dispatch, on BOTH validations.
+            intrinsic = EventLedger(self.root, path.relative_to(self.root)).validate()
+            if (not intrinsic.valid or not intrinsic.events
+                    or intrinsic.events[0].run_id != run_id):
+                raise OrchestrationError(
+                    "checkpoint precheck ledger does not bind the requested run"
+                )
+            # Keep authoritative typed transition/registry receipt replay.
+            return self._foundation_ledger_validation(path)
+
+        try:
+            manager = RecoveryManager(
+                self.root, ledger_validator=requested_ledger_validation
+            )
+            ledger_path = Path("runs") / run_id / "events.jsonl"
+            ledger = manager.validate_ledger(ledger_path)
+            # Discharge every non-conflict LedgerValidationError precondition
+            # of select_checkpoint before entering the narrow exception handler.
+            if not ledger.valid or not ledger.events or ledger.run_id != run_id:
+                return None
+            registry = self._registry(run_id)
+            artifacts = manager.validate_artifacts(registry)
+            if not artifacts.valid:
+                return None
+        except (RecoveryError, PathSecurityError, OrchestrationError):
+            # Unknown/corrupt inputs retain their existing negative owner path.
+            return None
+        try:
+            manager.select_checkpoint(
+                Path(".scientist-one-build/checkpoints") / run_id,
+                ledger, artifacts, expected_run_id=run_id,
+            )
+        except LedgerValidationError as conflict:
+            # With those preconditions, this actual selector exception denotes
+            # a validated same-run checkpoint's absent event or conflicting head.
+            # Its message is diagnostic only, never the classification authority.
+            if (manager.validate_ledger(ledger_path) != ledger
+                    or manager.validate_artifacts(registry) != artifacts
+                    or self.load_manifest(run_id) != manifest):
+                raise OrchestrationError("checkpoint conflict inputs changed during negative selection")
+            return RecoveryReport(
+                action=ResumeAction.STOP_SECURITY,
+                reasons=(f"RECOVERY_VALIDATION_FAILED:{conflict}",),
+                ledger_valid=True, ledger_event_count=ledger.event_count,
+                ledger_head_hash=ledger.head_hash, artifacts_valid=True,
+                artifact_issues=(), quarantined=(), checkpoint=None,
+                derived_state=manager._derived_state(ledger.events),
+                # Same conservative failure-report fields as recover's
+                # checkpoint-error path, not a claim about unseen custody.
+                confirmatory_touched=False, confirmatory_completed=False,
+            )
+        except RecoveryError:
+            # Bounds, unsafe entries and ambiguous selections are not promoted
+            # into a proved rollback channel. Existing routing still decides.
+            return None
+        return None
+
+    @staticmethod
+    def _external_checkpoint_refusal_status(manifest, recovery):
+        return {
+            "status": "STOP_SECURITY",
+            "run_id": manifest["run_id"],
+            "current_state": "STOP_SECURITY",
+            "terminal_state": "STOP_SECURITY",
+            "outcome": "STOP_SECURITY",
+            "mode": manifest.get("mode"),
+            "artifact_count": len(manifest.get("artifacts", {})),
+            "event_count": recovery.ledger_event_count,
+            "resumable": False,
+            "persisted": False,
+            "authority_channel": "EXTERNAL_CHECKPOINT_RECOVERY_REFUSAL",
+            "recovery": recovery.to_dict(),
+        }
+
     @_project_command
     def resume(self, run_id: str) -> dict[str, Any]:
         manifest = self.load_manifest(run_id)
+        conflict = self._external_checkpoint_conflict_report(manifest)
+        if conflict is not None:
+            return self._external_checkpoint_refusal_status(manifest, conflict)
         pilot_disposition = self._pilot_operation_disposition(manifest)
         if pilot_disposition is not None:
             return pilot_disposition
@@ -12029,20 +12155,7 @@ class ScientistOneOrchestrator:
             # checkpoint timeline.  Expose the typed recovery refusal through
             # this out-of-band command result and leave every authority byte
             # unchanged.
-            return {
-                "status": "STOP_SECURITY",
-                "run_id": run_id,
-                "current_state": "STOP_SECURITY",
-                "terminal_state": "STOP_SECURITY",
-                "outcome": "STOP_SECURITY",
-                "mode": manifest.get("mode"),
-                "artifact_count": len(manifest.get("artifacts", {})),
-                "event_count": recovery.ledger_event_count,
-                "resumable": False,
-                "persisted": False,
-                "authority_channel": "EXTERNAL_CHECKPOINT_RECOVERY_REFUSAL",
-                "recovery": recovery.to_dict(),
-            }
+            return self._external_checkpoint_refusal_status(manifest, recovery)
         if recovery.action.value == "STOP_SECURITY" and any(
             "INVALID_LEGACY_TRANSITION_AUTHORITY" in str(reason)
             for reason in recovery.reasons

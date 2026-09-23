@@ -1,14 +1,38 @@
 # Scientist-One vNext Execution Plan
 
-September23 priority supersedes earlier execution ordering: preserve the coherent
-installed V8 snapshot; complete exact public-content/history review; push and
-verify `review/vnext-checkpoint` without changing `main`; then continue the Goal.
+September 23, 2026 checkpoint, incorporating the Python 3.14 terminal observation at 16:19:20 UTC: V9 is installed and frozen with 300 functional inputs.
+The same 125 selected IDs pass on Python 3.14.6 and 3.11.15 at enclosing scope;
+a disjoint 3,294-ID selection passes on Python 3.14.6 only. This is 3,419 distinct
+selected current IDs on Python 3.14, with only 125 currently paired; remaining192
+on Python 3.11 is NOT_STARTED. Nested/helper behavior remains NOT_ASSESSED by
+the enclosing closures. These are not whole-suite, security, scientific or
+release acceptance.
+
+Maintain the V9 functional freeze; preserve closed results and the still-unstarted
+Python 3.11 remainder without inventing a paired 3,294 result. Complete only
+already-authorized remaining verification at its recorded scope. Do not restart
+FARS, reconstruct old counts, reopen the sealed PARTIAL scan or substitute for
+stopped work. Separate operations, lifecycle/recovery/reproduction/package,
+architecture, qualified Git history and final audit obligations remain.
+
+The prior verified V8 checkpoint is `f6b3d92` on
+`review/vnext-checkpoint`. Publication identities and observed Git status for
+the accepted V9 delta are recorded in the checkpoint handoff. Qualified
+recovered-baseline import/tag and final feature-history integration remain
+pending; `main` stays at the owner's README-only bootstrap. V9 is a development
+checkpoint, not a final release.
+
+Under the owner's D-079 rule, report new consequential findings before repair
+or an expensive new campaign; do not delegate a repair. A single reviewed,
+private, observability-only gates67 diagnostic retains all 67 methods and the
+7,200-second bound. It is approved only after active regression is terminal and
+the safe V9 push and remote verification have completed, if ready. No automatic
+rerun or repair follows it; owner triage is next. The initial bounded Claude
+diagnosis is complete; the later credential-lock denial is not being retried.
+
 The [current handoff](OVERNIGHT_REPORT.md#development--review-checkpoint-september-23-2026)
-records known failures and private/uninstalled corrections. Do not restart FARS,
-reconstruct historical counts again, or run another broad campaign merely to
-delay this development checkpoint. Afterward close existing defects, run affected
-tests, then freeze once for mandatory final checks. Qualified historical import
-and final release remain separate unfinished requirements.
+controls current evidence and ordering; historical plans below do not authorize
+stopped tests, unchanged retries, budget increases or new implementation work.
 
 ## Earlier planning checkpoints
 
@@ -65,7 +89,16 @@ Evolve the verified trusted kernel into Research OS vNext without weakening prov
 
 The final capability classification is conservatively capped at `AUTONOMOUS_EXPLORATION_READY` unless stronger evidence is produced. The current build does not justify `REAL_EXPERIMENT_PIPELINE_READY`, `RESEARCH_GRADE`, or `SUBMISSION_PIPELINE_READY`: Local Mac's limited opt-in Seatbelt mode is not complete scientific isolation, and live external paths remain unvalidated.
 
-The user's additional completion gate requires truthful Git history and permitted public-safe synchronization with the existing canonical Scientist-Ultra remote. An earlier integration checkpoint is preserved outside the repository, and exact26source/3config baseline recovery is verified; current work needs a fresh complete hashed snapshot at a stable writer-free boundary before history reconstruction. The user authorized reconstruction; 146 new controls now pass on both runtimes, while missing original tests and architecture evidence retain their explicit limitations. Baseline import/tag still require preservation and release review, not another answer to the reconstruction question. The user published README-only bootstrap commit `bba9ec5` on `main`, tracking `origin/main`; preserve that ancestry and do not call it the trusted baseline. No agent Git mutation has occurred. Public audit, coherent tested commits, baseline tag, exact-ref pushes/tracking and completed-vNext integration remain mandatory. [Reconstruction record](docs/GIT_HISTORY_RECONSTRUCTION.md).
+The user's Git completion gate remains truthful history and public-safe
+synchronization with the canonical Scientist-Ultra remote. The published V8
+review checkpoint preserves the README bootstrap; it is not the recovered
+baseline or V9 acceptance. Complete private preservation preceded V9 installation.
+Recovered source/configuration and 146 explicitly reconstructed controls remain
+a separate evidence set, with missing original tests and architecture limits.
+The qualified recovered-baseline import/tag, exact final ancestry, public claims
+and staged/reachable-content review, and verified synchronization remain pending.
+Do not merge unfinished vNext into `main` or invent historical feature states.
+See [the reconstruction record](docs/GIT_HISTORY_RECONSTRUCTION.md).
 
 ## Preserved architecture contract
 
@@ -124,10 +157,10 @@ The phases above describe implemented boundaries and the system fixture, not com
 
 D071 source reconciliation found remaining working-path gaps. Persisted Evaluation Contract amendments, contract/design history, complete progress exclusion and paired readback are locally integrated. Operational BEST_OF_N reporting and its exposure/no-progress integration are now independently scoped-reviewed with636/636 affected tests, zero skips/failures and unchanged complete Python inventory. Preserve this new stable checkpoint privately, then continue source-owned fresh confirmatory-reserve/protocol lifecycle handling; the earlier complete backup remains historical preservation. Other material work remains: credentialed-live sensitive raw/parsed/derived/error/metadata custody; complete local scientific read isolation/resource containment/attestation; and selected literature full-text transport/application driving. General-web fallback remains decision-only; optional vendors are not all mandatory. Current limited Seatbelt launch/recovery/tamper integration passed on this host, so strict local isolation is local engineering. Preserve current ALL_SEEDS inference and all confidentiality/scientific gates. Git history must be truthful and independently public-reviewed before any push; no unfinished-vNext merge into main. Complete bounded requirement reconciliation before final source freeze. Exact evidence and remaining scope are in `.run/STATE.json` and `docs/VNEXT_REQUIREMENTS_MATRIX.md`.
 
-Only after that implementation and integration work is verified, perform the following evidence-freeze sequence:
+The following retained final-verification obligations remain subject to the current handoff, D-079 owner triage, closed evidence and exact safety exclusions. They are not authorization for a new campaign or a stopped mechanism:
 
-1. Freeze concurrent source, test, and configuration changes; record a reproducible functional-source inventory before expensive verification.
-2. Preserve required security-review gates and their exact recorded dispositions. Do not retry or substitute for a safety-stopped platform investigation. Compile all vNext modules and run permissible provider, literature, state, design, discovery, experiment, domain, gate, paper, CLI, and end-to-end checks.
+1. Maintain the installed V9 source/test/configuration freeze and its 300-input inventory; recheck identity against final evidence and at the last mutation boundary.
+2. Preserve the sealed PARTIAL Standard scan, three LOW findings, installed correction/scoped-test evidence, and exact exclusions; this is not full security PASS. Do not retry or substitute for a safety-stopped platform investigation. Compile all vNext modules and run permissible provider, literature, state, design, discovery, experiment, domain, gate, paper, CLI, and end-to-end checks.
 3. Full captured regression remains mandatory, but do not invoke unrestricted `test-suite` while it would select exact safety-stopped probes. Use the existing whole-module captured interface for permissible modules; explicitly retain mixed stopped modules, fixture prerequisites, failures and timeouts as unresolved. Do not add a selector or suppress assertions to claim a full-suite pass.
 4. Refresh architecture-report bindings only to that verified captured report and rerun the independent architecture validator.
 5. Execute one fresh guarded vNext fixture with `/opt/homebrew/bin/python3 -I -S -B scripts/scientist_one_cli.py research-os-fixture`, then use authority-aware `status` and `verify` to rehydrate its receipt, registry, ledger, canonical state, literature/novelty chain, bounded autonomy, plan custody, discovery boundaries, terminal outcome, Local Mac clean rerun, negative/null retention, 15/14 gates, paper, and venue outcomes.

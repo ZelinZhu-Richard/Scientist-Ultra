@@ -14,6 +14,7 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import stat
+import struct
 from typing import Any, Mapping
 import zipfile
 
@@ -141,6 +142,70 @@ EVALUATION_R_CHECK_VALUES = frozenset(check.value for check in RCheck)
 
 class PackagingError(RuntimeError):
     """Raised when a safe review bundle cannot be constructed."""
+
+
+def _admit_finalized_archive_directory(archive: bytes) -> None:
+    """Bound actual central-directory entries before ZipFile allocates them.
+
+    Only the non-spanned, comment/extra-free ZIP_STORED profile emitted by
+    _zip_bytes is admitted. This is resource admission, not release validation:
+    all existing member, hash, ledger, custody and E4 checks still follow.
+    """
+    if type(archive) is not bytes or not 22 <= len(archive) <= MAX_PACKAGE_INPUT_BYTES:
+        raise PackagingError("final archive byte bound is invalid")
+    footer = len(archive) - 22
+    # CPython consults this locator even without classic ZIP64 sentinels.
+    # Refuse ambiguous filename bytes here too: the counted directory must
+    # be the same one the downstream parser will materialize.
+    if footer >= 20 and archive[footer - 20:footer - 16] == b"PK\x06\x07":
+        raise PackagingError("final archive ZIP64 dispatch is unsupported")
+    signature, disk, start_disk, disk_count, count, size, offset, comment = (
+        struct.unpack_from("<4s4H2LH", archive, footer)
+    )
+    if (
+        signature != b"PK\x05\x06"
+        or disk != 0
+        or start_disk != 0
+        or disk_count != count
+        or count > MAX_PACKAGE_FILES
+        or comment != 0
+        or offset + size != footer
+        or size < count * 46
+    ):
+        raise PackagingError("final archive directory profile is invalid")
+    cursor = offset
+    observed = 0
+    total = 0
+    while cursor < footer:
+        # Check the observed count, not just the untrusted end-record count.
+        if observed >= MAX_PACKAGE_FILES or footer - cursor < 46:
+            raise PackagingError("final archive directory entry bound is invalid")
+        fields = struct.unpack_from("<4s6H3L5H2L", archive, cursor)
+        (magic, _made, required, flags, compression, _time, _date, _crc,
+         compressed, uncompressed, name_length, extra_length, comment_length,
+         member_disk, _internal, _external, local_offset) = fields
+        following = cursor + 46 + name_length + extra_length + comment_length
+        if (
+            magic != b"PK\x01\x02"
+            or required != 20
+            or flags not in (0, 0x800)
+            or compression != zipfile.ZIP_STORED
+            or compressed != uncompressed
+            or not name_length
+            or extra_length != 0
+            or comment_length != 0
+            or member_disk != 0
+            or local_offset >= offset
+            or following > footer
+        ):
+            raise PackagingError("final archive member profile is invalid")
+        total += uncompressed
+        if total > MAX_PACKAGE_INPUT_BYTES:
+            raise PackagingError("final archive exceeds its aggregate bound")
+        observed += 1
+        cursor = following
+    if cursor != footer or observed != count:
+        raise PackagingError("final archive directory count differs")
 
 
 def _read_private_trust_root(
@@ -746,6 +811,7 @@ def _verify_finalized_package(
     ):
         raise PackagingError("final package or envelope digest mismatch")
     archive_members: dict[str, bytes] = {}
+    _admit_finalized_archive_directory(archive)
     try:
         with zipfile.ZipFile(io.BytesIO(archive), "r") as packet:
             infos = packet.infolist()

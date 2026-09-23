@@ -1,14 +1,39 @@
 # Research OS vNext Requirement-to-Evidence Matrix
 
-Status: **implementation-gap reconciliation; not ready for final freeze**  
+Status: **V9 functional source frozen; final verification and requirement reconciliation incomplete**
 Authoritative requirement source: `RESEARCH_OS_VNEXT_META_SPEC.md`  
-Review checkpoint: 2026-09-21 (D077; current verification is incomplete)
+Review checkpoint: 2026-09-23, incorporating the 16:19:20 UTC terminal observation
 
-September23 superseding execution status: the installed V8 source is unchanged
-and earlier captures are no longer running. See the [current development handoff](../OVERNIGHT_REPORT.md#development--review-checkpoint-september-23-2026)
-for retained failures, private/uninstalled candidates and the owner's review-branch
-priority. This matrix remains a requirement reconciliation, not a final PASS or
-permission to reopen safety-stopped work. No requirement is waived by checkpointing.
+September 23, 2026 checkpoint, incorporating the Python 3.14 terminal observation at 16:19:20 UTC: V9 is installed and frozen with 300 functional inputs.
+The same 125 selected IDs pass on Python 3.14.6 and 3.11.15 at enclosing scope;
+a disjoint 3,294-ID selection passes on Python 3.14.6 only. This is 3,419 distinct
+selected current IDs on Python 3.14, with only 125 currently paired; remaining192
+on Python 3.11 is NOT_STARTED. Nested/helper behavior remains NOT_ASSESSED by
+the enclosing closures. These are not whole-suite, security, scientific or
+release acceptance.
+
+The Standard source scan is sealed PARTIAL, with 43 review products and three
+LOW findings. Accepted corrections are installed and have scoped test evidence;
+this is not full security PASS or clearance of omitted/stopped scopes.
+
+Gates67 retains its original paired and diagnostic 7,200-second timeouts
+without complete outcomes; isolation38 retains 37 successes and one inner
+900-second timeout error per runtime. Causes remain UNKNOWN. The retained
+lint33 result is non-PASS. Original failures and separate private checks remain
+preserved, not relabeled or added to installed counts. Operations18, fresh
+installed lifecycle/reproduction/package, the current architecture packet and
+its four validator methods, and the final audit remain pending. Architecture
+packet validation is not proof that all 15 behavioral criteria pass.
+
+The [current handoff](../OVERNIGHT_REPORT.md#development--review-checkpoint-september-23-2026)
+records exact closures, publication state, owner triage and safety exclusions.
+No requirement or capability row is promoted merely by these selected results.
+
+### Earlier checkpoint evidence — historical
+
+Dated descriptions below retain their original identities and outcomes. Older
+“current,” “running,” “uninstalled” and Git statements describe those checkpoints,
+not V9; overlapping counts are not additive or permission to reopen stopped work.
 
 Current September21 checkpoint: the reviewed V8 correction union is installed,
 with293 functional inputs bound by installation proof
@@ -99,6 +124,8 @@ another request, not managed-dispatch authority. The
 [managed acquisition design](LITERATURE_WORKFLOW_DESIGN.md) is not implemented;
 the application, live-source and scientific gaps are not closed by library tests.
 
+## Current requirement interpretation
+
 This matrix maps the normative vNext specification to the current implementation, direct tests, and authoritative runtime evidence. It is deliberately stricter than a feature inventory. A deterministic fixture proves a contract only; it does not prove live-provider behavior, real literature coverage, scientific validity, independent review, GPU execution, or publication readiness.
 
 Current source reconciliation supersedes broad completion wording in older rows: persisted Evaluation Contract amendment publication, contract/design history, complete native progress exclusion and paired readback are locally integrated and independently scoped-reviewed. Source-owned operational BEST_OF_N reporting and its exposure/no-progress integration pass a frozen636-test affected matrix with no skips or failures. Fresh confirmatory-reserve/protocol integration remains unfinished; credentialed-live raw and derived response custody is unfinished; PMC framing, supplied coordination, outcome composition and versioned wire/custody replay are installed and offline-tested, but production activation and genuine native/TLS/live/signing deployment remain closed; and native literature acquisition is not driven by a non-fixture application workflow. General-web fallback is a decision only. Not every optional source vendor must be built. Existing limited Seatbelt host integration passed1/1 on 2026-09-06 outside Codex's nested sandbox, but full read isolation/resource containment/scientific attestation remains local engineering with its recorded safety stop. These are not cleared by missing credentials or a final test count. See D071 and the exact source/test scope in STATE. D072 additionally requires preserved current work, truthful Git reconstruction and clean public-readiness review before exact-remote synchronization; those release steps are not yet complete.
@@ -112,7 +139,8 @@ recorded without treating them as clearance of the remaining gates:
 |---|---|
 | Final captured test count/result/report digest | `PENDING` |
 | Final architecture-control count/report digest | `PENDING` |
-| Final Standard Codex Security scan result and scan identifier | `PENDING` |
+| Standard Codex Security scan | Sealed PARTIAL, 43 review products / three LOW findings; accepted corrections installed with scoped tests, not full security PASS; exact omissions/stops retained |
+| Installed V9 selected runtime scopes | 125 distinct IDs paired; disjoint 3,294 pass on Python 3.14.6 only; 3,419 selected current IDs on 3.14, only 125 currently paired; enclosing-only, not full suite |
 | Final last-mutation `audit-project` report digest (`reports/final_audit.json`) | `PENDING` |
 | Pre-V8 post-FARS Research OS fixture run ID, artifact count, event count, and hashes | `vnext-final-20260920-fars`:343 artifacts,67 events,40 canonical objects/21 types; operation receipt `f82056a53b56459f0c3e026e9e19bb5645168b8841f78c50f45d3c763fd52162`, normal status/deep verificationPASS at synthetic system scope; [complete measured bindings](VNEXT_FINAL_VERIFICATION.md). Fresh final-source fixture remains pending. |
 | Pre-V8 post-vNext kernel demo/recovery/reproduction/package receipts | `run-20260920T174324Z-5cf9a4d002`:75 artifacts,22 events; seven-command read-back ladder has expected statuses, zero confirmation replay and repeatable237-member demo-only packaging; exact [scope and hashes](VNEXT_FINAL_VERIFICATION.md), not baseline acceptance or E4. Fresh final-source lifecycle remains pending. |
@@ -311,12 +339,12 @@ This submatrix prevents a broad “adversarial tests exist” statement from hid
 | §29.10 | Challenger, soundness, statistics, claims, writing, venue, reproduction integrated. | Registry-resolved 14-category Challenger, 15-dimension soundness assessment, paper bundle/verification, integrated fixture phases and canonical state | E2E read-back plus gate/paper/terminal/reproduction component suites | Soundness, claim graph, authoritative bundle, paper/venue, clean-rerun, and terminal artifacts | `VERIFIED_LOCAL` | Reproduction is system-only/non-evidentiary; paper/venue correctly remain blocked. |
 | §29.11 | Failure-injection, regression, integration and E2E pass or have explicit blockers. | Failure matrix and tests | Targeted vNext suites; final captured suite `PENDING` | Final aggregate reports and architecture/audit freeze are `PENDING` | `PENDING_FINAL_VERIFICATION` | Final all-suite evidence and architecture/audit freeze are missing. |
 | §29.12 | One legitimate small system fixture traverses question through verified representation without claiming publishable science. | `research-os-fixture` | E2E conservative-authority test | Full registry/ledger/summary and operation receipt; final run ID `PENDING` | `VERIFIED_LOCAL` | “Legitimate” is limited to a deterministic system fixture. It is deliberately synthetic, nonpublishable, and non-evidentiary. |
-| §29.13 | Documentation and `.run` match actual implementation. | Current docs and run ledger | Narrative synchronization complete; final measured-binding review pending | Final exact counts, hashes, run IDs, verification report, and completion state are `PENDING` | `PENDING_FINAL_VERIFICATION` | Final exact bindings and completion state are pending. |
+| §29.13 | Documentation and `.run` match actual implementation. | Current docs and run ledger | V9 checkpoint narrative synchronized; final measured-binding review pending | Final exact counts, hashes, run IDs, verification report, and completion state are `PENDING` | `PENDING_FINAL_VERIFICATION` | Final exact bindings and completion state are pending. |
 | §29.14 | Final upstream comparison is evidence-based and axes are separate. | Upstream comparison and beyond-target documents | Documentation review | Separate architectural tables; no empirical benchmark artifact | `VERIFIED_LOCAL` | Empirical superiority remains `NOT_YET_ESTABLISHED`. |
 | §29.15 | No blocking failure or untested external capability is hidden. | `.run/ISSUES.md`, `KNOWN_LIMITATIONS.md`, this matrix | Explicit blocker review | Explicit `BLOCKED_LOCAL`, `BLOCKED_EXTERNAL`, and `IMPLEMENTED_UNTESTED_EXTERNAL` entries | `VERIFIED_LOCAL` | Final audit may uncover additional issues; none may be removed from the final report without evidence. |
 | §29 | Choose final capability conservatively. | D-017; fixture summary | E2E asserts `AUTONOMOUS_EXPLORATION_READY` | `research_os_run_summary.capability_level` | `VERIFIED_LOCAL` | Higher levels are unsupported for the reasons stated at the top of this document. |
 | §30 | Final report — state what was actually implemented. | This matrix and synchronized architecture/scientific/operational docs; `docs/VNEXT_FINAL_VERIFICATION.md` | Narrative build inventory is present; final source freeze review pending | Final measured build inventory `PENDING` | `PENDING_FINAL_VERIFICATION` | The narrative exists; frozen evidence bindings have not yet been produced. |
-| §30 | Final report — give exact test, Standard Codex Security scan, last-mutation `audit-project`, architecture, recovery, reproduction, and E2E verification. | Captured test/audit scripts, Standard scan record, architecture report, legacy and vNext commands | Exact final executions have not all run | Final counts, scan identifier, run IDs, receipts, snapshots, and digests `PENDING` | `PENDING_FINAL_VERIFICATION` | Targeted development results cannot replace the final frozen evidence set. |
+| §30 | Final report — give exact test, Standard Codex Security scan, last-mutation `audit-project`, architecture, recovery, reproduction, and E2E verification. | Captured test/audit scripts, Standard scan record, architecture report, legacy and vNext commands | Exact final executions have not all run | Standard scan sealed PARTIAL/three LOW; remaining final test, run, architecture, snapshot and audit bindings `PENDING` | `PENDING_FINAL_VERIFICATION` | Targeted development results cannot replace the final frozen evidence set. |
 | §30 | Final report — compare pre-vNext and post-vNext guarantees. | Historical baseline, reconstruction and final verification reports | Final after-tree comparison not complete | Final after receipts `PENDING` | `PENDING_FINAL_VERIFICATION` | The historical reported baseline and bounded recovered/reconstructed baseline must remain distinct; the final after state is not yet verified. |
 | §30 | Final report — accurately state `LOCAL_MAC` behavior. | `docs/APPLE_SILICON_PROFILE.md`, architecture/reproducibility docs, this matrix | Local subprocess, adaptive-plan custody, deep-verification, and non-evidence tests | Final run ID/counts `PENDING`; known `os_enforced_sandbox=false` | `PENDING_FINAL_VERIFICATION` | Narrative states technical execution is `VERIFIED_LOCAL` while scientific eligibility is `BLOCKED_LOCAL`; final identity awaits freeze. |
 | §30 | Final report — separate implemented, tested, and untested `GPU_CLOUD` capabilities. | Compute docs and this matrix | Structured scheduler and fake lifecycle/contract tests only | Scheduled boundary is `IMPLEMENTED_UNTESTED_EXTERNAL`; live CUDA/scheduler/hardware is `BLOCKED_EXTERNAL` | `PENDING_FINAL_VERIFICATION` | Narrative distinction is present; final captured identity is pending and no real scheduler/hardware run may be implied. |
@@ -344,7 +372,7 @@ This submatrix prevents a broad “adversarial tests exist” statement from hid
 
 The following items prevent this matrix from claiming full vNext completion or a capability above `AUTONOMOUS_EXPLORATION_READY`:
 
-1. **Final frozen verification is incomplete.** Final captured tests, architecture controls, Standard security scan, trusted-kernel recovery/reproduction/package regression, final fixture/deep verification, exact before/after evidence, and final report bindings are `PENDING`. The project audit must be the last mutation; its result will live in `reports/final_audit.json` and will be reported externally without a post-audit document edit.
+1. **Final frozen verification is incomplete.** V9 has 300 pinned functional inputs; serial125 is paired and the disjoint remaining3,294 IDs pass on Python3.14.6 only, with enclosing-only limits. Remaining192 on Python3.11 is NOT_STARTED. Operations18, fresh current lifecycle/recovery/reproduction/package, architecture packet/validator4, final fixture/deep verification, exact before/after evidence and final report bindings remain pending. The Standard scan is sealed PARTIAL with43 products/three LOW findings; installed corrections and scoped tests are not full security clearance. Gates67/isolation38 timeouts and lint33 non-PASS remain explicit. Exact stopped/omitted coverage is not PASS. The project audit must be the last mutation; its result belongs in `reports/final_audit.json` and is reported externally without a post-audit edit.
 2. **No live provider or scholarly source has been exercised.** OpenAI and six scholarly adapters are locally contract-tested only; the unverified fixture transports receive no resolved credential. Approved network access, rate limits, terms, licensing, retention, live parsing, model identity, usage, and costs remain `BLOCKED_EXTERNAL` or `IMPLEMENTED_UNTESTED_EXTERNAL`. OpenAI is blocked with either an absent required credential or a present credential on real network; the latter also requires separately reviewed sensitive-response custody (`BLOCKED_LOCAL`). PMC production activation remains closed; supplied-response normalization is not proof that every listed adapter has a working native route. The citation graph, audited expansion, ranking, five-round investigator, and registry-checked gates are implemented with captured fixture responses.
 3. **`LOCAL_MAC` scientific eligibility is `BLOCKED_LOCAL`.** It has a real subprocess, reviewed-template autonomous implementation, scrubbed environment, admitted argv, confined outputs, bounded logs, adaptive-plan custody, manifest validation, checkpoints, clean rerun, and deep verification, but no OS-enforced filesystem/process/network sandbox.
 4. **Live `GPU_CLOUD` execution is `BLOCKED_EXTERNAL`.** The provider-neutral `ScheduledGPUCloudBackend`, structured transport seam, escalation, scheduler/queue/preemption/requeue/checkpoint lifecycle, and trusted-registry artifact return are implemented and locally contract-tested as `IMPLEMENTED_UNTESTED_EXTERNAL`; no real scheduler, CUDA runtime, credentials, cost authority, or GPU hardware was available.

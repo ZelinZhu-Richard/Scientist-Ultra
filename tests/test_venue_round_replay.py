@@ -85,12 +85,33 @@ _SEMANTIC_CUTOFF = _node('''if _before_event_index is not None:
     ):
         raise ValidationError("Venue semantic admission does not precede its canonical projection")
 ''')
+_VENUE_CONTEXT_EQUIVALENCE = _node('''if candidate.context_hashes != context_hashes:
+    try:
+        if (
+            subject_kind is not JudgmentSubjectKind.VENUE_DIMENSION
+            or not _venue_requirement_contexts_equivalent(
+                registry, run_id=run_id, selected_context=context_hashes,
+                candidate_context=candidate.context_hashes,
+            )
+        ):
+            continue
+    except Exception:
+        continue
+''')
+_VENUE_SIBLING_FILTER = _node('''if (
+    candidate.subject_kind is not subject_kind
+    or candidate.subject_id != subject_id
+    or candidate.evidence_hashes != evidence_hashes
+):
+    continue
+''')
 
 
 def _normalize_venue_owner(function):
     """Reconstruct the full saved preimage, admitting only exact added nodes."""
     name = function.__name__
     counts = {key: 0 for key in ("route", "kwargs", "manuscript", "guard", "selector", "selected")}
+    slot_changes = {key: 0 for key in ("filter", "equivalence", "context")}
     expected = {
         "_assess_venue": (1, 3, 0, 0, 0, 0),
         "_resolve_final_venue_inputs": (1, 4, 1, 0, 1, 0),
@@ -104,6 +125,14 @@ def _normalize_venue_owner(function):
 
     class Normalize(ast.NodeTransformer):
         def visit_If(self, node):
+            if name == "_require_live_venue_semantic_judgment":
+                if _dump(node) == _dump(_VENUE_CONTEXT_EQUIVALENCE):
+                    slot_changes["equivalence"] += 1
+                    return None
+                if _dump(node) == _dump(_VENUE_SIBLING_FILTER):
+                    slot_changes["filter"] += 1
+                    node.test.values.append(_expression("candidate.context_hashes != context_hashes"))
+                    return node
             if _dump(node) in {_dump(_ASSESS_ROUTE), _dump(_FINAL_PAPER_ROUTE)}:
                 _assert_node(node, _ASSESS_ROUTE if name == "_assess_venue" else _FINAL_PAPER_ROUTE)
                 counts["route"] += 1
@@ -128,6 +157,13 @@ def _normalize_venue_owner(function):
 
         def visit_Call(self, node):
             callee = node.func.id if isinstance(node.func, ast.Name) else None
+            if name == "_require_live_venue_semantic_judgment" and callee == "require_scientific_semantic_judgment_receipt":
+                keyword = next(item for item in node.keywords if item.arg == "context_hashes")
+                if _dump(keyword.value) == _dump(_expression("candidate.context_hashes")):
+                    _assert_node(next(item.value for item in node.keywords if item.arg == "receipt_artifact_hash"), _expression("candidate_record.sha256"))
+                    _assert_node(next(item.value for item in node.keywords if item.arg == "outcome"), _expression("candidate.outcome"))
+                    slot_changes["context"] += 1
+                    keyword.value = _expression("context_hashes")
             if callee == "_require_venue_manuscript_revision":
                 assert name in {"_resolve_venue_readiness_manifest", "_resolve_final_venue_inputs"}
                 keyword = next(item for item in node.keywords if item.arg == "_round_replay")
@@ -161,6 +197,7 @@ def _normalize_venue_owner(function):
         _assert_node(tree.body[0], _node('"Full shared Venue owner; private context changes no source obligation."'))
         tree.body[0] = _node('"Rehydrate and freshly replay one final venue-assessment artifact."')
     assert tuple(counts.values()) == expected[name], (name, counts)
+    assert tuple(slot_changes.values()) == ((1, 1, 1) if name == "_require_live_venue_semantic_judgment" else (0, 0, 0)), (name, slot_changes)
     return tree.body
 
 

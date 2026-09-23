@@ -1,14 +1,58 @@
 # Research OS vNext Final Verification
 
-Status: **FINAL FREEZE PENDING**  
+Status: **V9 FUNCTIONAL SOURCE FROZEN; FINAL VERIFICATION INCOMPLETE**
 Capability ceiling: **`AUTONOMOUS_EXPLORATION_READY`**
 
-September23: this is a **DEVELOPMENT / REVIEW** checkpoint, not final acceptance.
+September 23, 2026 checkpoint, incorporating the Python 3.14 terminal observation at 16:19:20 UTC: V9 is installed and frozen with 300 functional inputs.
+The same 125 selected IDs pass on Python 3.14.6 and 3.11.15 at enclosing scope;
+a disjoint 3,294-ID selection passes on Python 3.14.6 only. This is 3,419 distinct
+selected current IDs on Python 3.14, with only 125 currently paired; remaining192
+on Python 3.11 is NOT_STARTED. Nested/helper behavior remains NOT_ASSESSED by
+the enclosing closures. These are not whole-suite, security, scientific or
+release acceptance.
+
+V9 is installed and its 300 functional inputs are frozen: the independently
+reviewed 16-file union comprises nine replacements and seven additions, with
+284 unchanged neighbors. Installation proof SHA-256:
+`58c469e5796559217a3877f732cd2d56530d7c027f4994a46093c507f0277976`.
+
+The same 125 distinct selected IDs pass on Python 3.14.6 and 3.11.15, with
+enclosing closure
+`80ab70ebc68277032e797b40e108f025d12a2493b8eb7e7bb42056e8bf8b0943`.
+The separate 192-module selection is terminal with exit 0 and 3,294 successes
+on Python 3.14.6 only; its single-runtime enclosing closure is
+`1475c93cce4b0c6ee519cfb357ba49740bceeb3f74d8b479d79b9efcf2911955`.
+These disjoint selections cover 3,419 distinct current IDs on Python 3.14;
+only the 125-ID selection is currently paired. The remaining192 Python 3.11
+selection is NOT_STARTED. Both closures leave nested/helper behavior
+NOT_ASSESSED; none of these counts is a full-suite, historical, scientific,
+security or release PASS.
+
+The Standard source scan is sealed PARTIAL, with 43 review products and three
+LOW findings. Accepted corrections are installed and have scoped test evidence;
+this is not full security PASS or clearance of omitted/stopped scopes.
+
+Gates67 retains its original paired and diagnostic 7,200-second timeouts
+without complete outcomes; isolation38 retains 37 successes and one inner
+900-second timeout error per runtime. Causes remain UNKNOWN. The retained
+lint33 result is non-PASS. Original failures and separate private checks remain
+preserved, not relabeled or added to installed counts. Operations18, fresh
+installed lifecycle/reproduction/package, the current architecture packet and
+its four validator methods, and the final audit remain pending. Architecture
+packet validation is not proof that all 15 behavioral criteria pass.
+
 The [current handoff](../OVERNIGHT_REPORT.md#development--review-checkpoint-september-23-2026)
-supersedes older running states below and separates installed/private/historical
-evidence. V8 functional bytes remain unchanged; later private fixes are not
-installed. Final verification is unfinished and is not required to pretend PASS
-before the separately authorized, disclosure-audited development checkpoint.
+retains exact safety exclusions, D-079 owner triage and the conditional single
+gates diagnostic approval, plus the actual V9 publication identity and observed
+Git status. The prior verified V8 checkpoint is `f6b3d92`. Qualified
+baseline/tag/history and final release verification remain pending; a safe
+development-source push does not close them.
+
+## Earlier verification checkpoints — historical
+
+The following dated descriptions retain original identities and outcomes.
+Their “current,” “running,” “uninstalled” and Git wording refers to those dates,
+not V9. They do not authorize repeats or contribute an additive final-suite total.
 
 September21 V8 verification checkpoint: the reviewed 15-file correction union is
 installed and its 293 functional inputs are pinned by installation proof
@@ -154,7 +198,9 @@ The supported integrated run is deliberately a synthetic system fixture. It may 
 |---|---|
 | Frozen post-vNext captured suite | `PENDING` |
 | Captured test report SHA-256 | `PENDING` |
-| Frozen source/test attestations | `PENDING` |
+| Frozen V9 functional inputs | 300-input installation proof `58c469e5796559217a3877f732cd2d56530d7c027f4994a46093c507f0277976`; final post-verification/mutation equality pending |
+| Current selected runtime evidence | 125 distinct IDs paired on Python 3.14.6/3.11.15; disjoint 3,294 IDs pass on 3.14.6 only; 3,419 selected current IDs on 3.14, only 125 currently paired; enclosing-only limits above |
+| Standard source scan | Sealed PARTIAL, 43 products / three LOW findings; accepted corrections installed with scoped tests, not full security PASS |
 | Mandatory architecture controls | `PENDING` |
 | Architecture report SHA-256 and targeted validator | `PENDING` |
 | Final vNext run ID | Pre-V8 post-FARS guarded fixture `vnext-final-20260920-fars` completed; a fresh final-source run remains pending |
@@ -298,6 +344,12 @@ The final vNext fixture must retain all of the following independent outcomes:
 These results are not contradictory. They are the required separation between operational integrity, scientific validity, writing eligibility, and human release authority.
 
 ## Failure injection and threat review
+
+The Standard source scan is sealed PARTIAL with 43 review products and three
+LOW findings. Installed corrections and scoped tests do not clear excluded
+coverage or establish full security acceptance. Exact stopped scopes remain
+stopped, not PASS; no new or replacement scan is authorized by this report.
+Remaining permissible evidence and D-079 owner triage are separate obligations.
 
 All 20 mandatory adversarial classes are mapped in `vnext_failure_injection_matrix.md`. Exact final captured results are `PENDING`. The final threat review must preserve the remaining boundaries: coherent rewriting of ordinary local hash witnesses; compromise of the local HMAC key, signer/verifier closure, or trusted source; unavailable live providers/literature/GPU; no independent custody/review/E4; and absent Local Mac OS isolation. The HMAC path blocks ordinary caller fabrication but is not an independent signature or transparency witness.
 
