@@ -1,0 +1,14 @@
+[project]
+name = "scientist-one"
+version = "0.1.0"
+description = "Local-first, custody-aware autonomous research operating system"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+scientist-one = "scientist_one.cli:main"
+
+[tool.scientist-one]
+package-root = "src"
+offline = true
+

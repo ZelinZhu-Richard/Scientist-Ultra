@@ -1,8 +1,19 @@
 # Scientist-One vNext
 
-Scientist-One vNext extends the existing trusted research kernel into a provenance-first Research OS. The current conservative capability level is `AUTONOMOUS_EXPLORATION_READY`: the repository can execute and verify a legitimate synthetic end-to-end research representation, but it is not research-grade, submission-ready, independently validated science, or evidence of superiority over upstream ScientistOne.
+Scientist-One vNext extends an existing research-control kernel into a provenance-first Research OS. This is an unfinished **DEVELOPMENT / REVIEW** checkpoint, not a final release. `AUTONOMOUS_EXPLORATION_READY` is a provisional ceiling supported by earlier bounded synthetic fixtures, not current whole-system acceptance. Known regression errors, timeouts and unverified paths remain. It is not research-grade, submission-ready, independently validated science, or evidence of superiority over upstream ScientistOne.
+
+The [checkpoint handoff](OVERNIGHT_REPORT.md#development--review-checkpoint-september-23-2026) distinguishes installed tests from private candidates and historical/reconstructed evidence. Private run state, credentials, reports and captured runtime/bootstrap evidence are intentionally excluded from GitHub; a fresh clone does not reproduce those private captures merely by containing the same source. Do not enable live credentials, protected data or external workloads from this checkpoint.
 
 The integrated `research-os-fixture` is deliberately nonpublishable. A top-level `status: PASS` means only that the bounded system fixture completed with internally consistent registry, ledger, state, and gate evidence. Scientific soundness, external validation, paper readiness, and human release authority remain separate outcomes and fail closed.
+
+Historical baseline results, the newly [reconstructed executable baseline](docs/BASELINE_TEST_RECONSTRUCTION.md), and vNext regressions are distinct evidence sets. Reconstruction does not recover the missing original test suite or establish public-release readiness. The OpenAI reference adapter has an [offline-tested prospective schema profile](docs/ARCHITECTURE.md#controlled-external-fixtures-and-blocked-live-validation); live service and confidential deployment remain unverified.
+
+The milestone is unfinished. Material gaps include protected-data reserve and
+independent-custodian integration, confidential deployment, non-fixture literature
+application control, complete scientific execution isolation, and durable handling
+of stalled or failed owned work. Passing component tests and the synthetic fixture
+do not close these gaps. See [current verification scope](docs/VNEXT_FINAL_VERIFICATION.md)
+for passing selections, original failures and unresolved safety/external gates.
 
 ## Authority and security boundary
 
@@ -14,7 +25,7 @@ The integrated `research-os-fixture` is deliberately nonpublishable. A top-level
 - Discovery promotion, scientific superiority promotion, and paper composition each have separate registry-resolved authority. Diagnostic values, serialized passes, and SHA-shaped strings cannot substitute for re-resolution and deterministic recomputation.
 - Research termination uses an exact 11-outcome diagnostic vocabulary. Persisting an outcome as a frozen registry artifact and canonical `Decision` additionally requires its complete source owner; a diagnostic label alone grants no authority. The integrated, scoped-reviewed GPU-requirement owner is limited to one unperformed mandatory CUDA-device protocol. Termination does not drive or rewrite the legacy macro-state machine.
 - Human and scientific gates are independent. E4 is human-only and the program cannot synthesize it.
-- The built-in Local Mac experiment launches a real isolated-interpreter child process and can pass technical manifest/output validation, but it does not yet have an OS-enforced network, filesystem, or process sandbox. Technical success therefore remains distinct from scientific eligibility, and its results and clean rerun are `NON_EVIDENTIARY` scientifically.
+- The default Local Mac fixture launches a real isolated-interpreter child process and can pass technical manifest/output validation, but that mode has no OS-enforced network, filesystem, or process sandbox. A separate limited opt-in Seatbelt path has bounded host-test evidence, not complete scientific read isolation/resource containment or attestation. Technical success therefore remains distinct from scientific eligibility, and fixture results and clean reruns are `NON_EVIDENTIARY` scientifically.
 - Live literature, OpenAI service access, GPU execution, external novelty, independent scientific review, genuine independent custody, and E4 remain unavailable or untested. Credentialless scholarly routes remain structurally reachable, but credential-bearing live egress additionally requires a separately reviewed sensitive-response custody design.
 
 See [Threat model](docs/THREAT_MODEL.md), [Scientific validity](docs/SCIENTIFIC_VALIDITY_MODEL.md), [Architecture](docs/ARCHITECTURE.md), and [Known limitations](docs/KNOWN_LIMITATIONS.md).
@@ -42,7 +53,7 @@ controlled multi-round literature, citation expansion, and evidence ranking
 Implemented behavior includes:
 
 - a provider-neutral model interface and an OpenAI Responses adapter with strict structured-output parsing, exercised through an unverified fixture transport that receives no resolved credential; fixture output is advisory and non-scientific. Live OpenAI execution is `BLOCKED_EXTERNAL` both when its required credential is unavailable and when a configured credential would otherwise cross a real-network transport, because sensitive-response custody is not implemented (`BLOCKED_LOCAL`);
-- a policy-scoped literature gateway and PMC adapter, exercised through executable seed-search, citation-expansion, relevance-filtering, full-text-review, and disconfirming-search rounds with bounded citation graph expansion and target-bound scholarly ranking; live scholarly retrieval remains `BLOCKED_EXTERNAL`;
+- a policy-scoped literature gateway and scholarly adapters, exercised through synthetic seed-search, citation-expansion, relevance-filtering, full-text-review, and disconfirming-search rounds with bounded citation graph expansion and target-bound ranking. Native OpenAlex components and offline PMC wire/custody handling are present, but non-fixture application driving is unfinished and PMC production activation is closed. Supplied-payload normalization is not live acquisition; live validation remains unverified;
 - a prospective scientific `Dataset`/`Split` lane that freezes the exact source snapshot, body digest, license and permitted use before access; requires the signed run-bound credentialless live-transport authority and an audited semantic license/use judgment; atomically publishes the raw-data manifest, use record, dataset authority, experiment projection, and one exhaustive disjoint four-role split set before result visibility; and rejects partial, colliding, late, or substituted publication;
 - a Problem Investigator that can reject a question when gap-destroying evidence is present, plus registry-checked novelty that re-resolves the investigation state, normalized records/full text/passages, citation graph, expansion plan/execution, and evidence ranking before clearance; synthetic records still cannot establish real novelty;
 - bounded implementation autonomy in which a provider may select only an independently reviewed closed worker template and bounded numeric parameters—not source, paths, commands, dependencies, shell, or network policy—and every proposal, admission, execution, and semantic result remains registered and non-evidentiary;
@@ -111,11 +122,11 @@ The integrated fixture is synthetic and intentionally reaches different outcomes
 | Scientific soundness | `MORE_EXPERIMENTS_REQUIRED` |
 | Paper and venue | `BLOCKED` / `NOT_READY` |
 | Human release | E4 absent and never synthesized |
-| Capability level | `AUTONOMOUS_EXPLORATION_READY` |
+| Provisional capability ceiling, not current acceptance | `AUTONOMOUS_EXPLORATION_READY` |
 
 ## Historical pre-vNext baseline
 
-The pre-vNext trusted kernel was independently frozen on 2026-08-29 before consequential vNext changes. These are historical baseline facts, not current vNext verification:
+The preserved August 29 record reports a pre-vNext freeze before consequential vNext changes. These are historical reported results, not independently reproduced current counts; some original test/report sources remain unrecovered:
 
 - captured suite: 364/364 passed; report SHA-256 `73dee18929495015a1693ead7cf6849ae85cb96430b9887cfa7939c78ed28f36`;
 - architecture controls: 15/15 retained, targeted validator 4/4; report SHA-256 `3d6c80c7f63514c9b711c9d2b98b7512b02550870cda567f18b3a82de112580e`;

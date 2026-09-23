@@ -1,0 +1,32 @@
+{
+  "fixture_notice": "Synthetic system-integration fixture; not scientific evidence and not a real benchmark.",
+  "rows": [
+    {"id": "subject-01", "label": 0, "signal": 0.10, "split": "development"},
+    {"id": "subject-02", "label": 0, "signal": 0.12, "split": "development"},
+    {"id": "subject-03", "label": 0, "signal": 0.14, "split": "development"},
+    {"id": "subject-04", "label": 0, "signal": 0.16, "split": "development"},
+    {"id": "subject-05", "label": 0, "signal": 0.18, "split": "development"},
+    {"id": "subject-06", "label": 0, "signal": 0.20, "split": "development"},
+    {"id": "subject-07", "label": 0, "signal": 0.22, "split": "development"},
+    {"id": "subject-08", "label": 0, "signal": 0.24, "split": "development"},
+    {"id": "subject-09", "label": 0, "signal": 0.26, "split": "development"},
+    {"id": "subject-10", "label": 0, "signal": 0.90, "split": "development"},
+    {"id": "subject-11", "label": 1, "signal": 0.70, "split": "development"},
+    {"id": "subject-12", "label": 1, "signal": 0.72, "split": "development"},
+    {"id": "subject-13", "label": 1, "signal": 0.74, "split": "development"},
+    {"id": "subject-14", "label": 1, "signal": 0.76, "split": "development"},
+    {"id": "subject-15", "label": 1, "signal": 0.78, "split": "development"},
+    {"id": "subject-16", "label": 1, "signal": 0.80, "split": "development"},
+    {"id": "subject-17", "label": 1, "signal": 0.82, "split": "development"},
+    {"id": "subject-18", "label": 1, "signal": 0.84, "split": "development"},
+    {"id": "subject-19", "label": 1, "signal": 0.86, "split": "development"},
+    {"id": "subject-20", "label": 1, "signal": 0.88, "split": "development"},
+    {"id": "subject-21", "label": 0, "signal": 0.15, "split": "train"},
+    {"id": "subject-22", "label": 1, "signal": 0.85, "split": "train"},
+    {"id": "subject-23", "label": 0, "signal": 0.20, "split": "validation"},
+    {"id": "subject-24", "label": 1, "signal": 0.80, "split": "validation"},
+    {"id": "subject-25", "label": 0, "signal": 0.25, "split": "confirmatory"},
+    {"id": "subject-26", "label": 1, "signal": 0.75, "split": "confirmatory"}
+  ],
+  "schema_version": "SCIENTIST_ONE_VNEXT_FIXTURE_DATASET_V1"
+}

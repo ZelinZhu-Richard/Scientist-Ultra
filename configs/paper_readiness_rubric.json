@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "frozen_before_evaluation": true,
+  "candidate_threshold": 85,
+  "mandatory_r_checks": ["R0", "R1", "R2", "R3", "R4", "R5", "R6", "R7"],
+  "blocking_conditions": [
+    "security_gate_failure",
+    "critical_e2_or_e3_objection",
+    "primary_reproduction_failure",
+    "unsupported_material_claim",
+    "fabricated_or_unverifiable_citation",
+    "contaminated_confirmatory_reserve",
+    "category_below_minimum"
+  ],
+  "categories": [
+    {"id": "question", "weight": 8, "minimum_fraction": 0.75},
+    {"id": "novelty_evidence", "weight": 8, "minimum_fraction": 0.75},
+    {"id": "falsifiability", "weight": 7, "minimum_fraction": 0.80},
+    {"id": "methodological_validity", "weight": 12, "minimum_fraction": 0.85},
+    {"id": "baseline_fairness", "weight": 8, "minimum_fraction": 0.80},
+    {"id": "experimental_design", "weight": 10, "minimum_fraction": 0.85},
+    {"id": "statistical_validity", "weight": 10, "minimum_fraction": 0.85},
+    {"id": "ablations_robustness", "weight": 8, "minimum_fraction": 0.75},
+    {"id": "negative_controls", "weight": 5, "minimum_fraction": 0.80},
+    {"id": "reproducibility", "weight": 8, "minimum_fraction": 0.90},
+    {"id": "claim_evidence_alignment", "weight": 8, "minimum_fraction": 0.90},
+    {"id": "writing_clarity", "weight": 4, "minimum_fraction": 0.75},
+    {"id": "limitations", "weight": 2, "minimum_fraction": 0.80},
+    {"id": "artifact_quality", "weight": 2, "minimum_fraction": 0.90}
+  ],
+  "label_rules": {
+    "novelty_unverified": "Blocks submission-ready status regardless of numeric score.",
+    "synthetic_only": "Requires COMPLETE_DEMO_ONLY and DEMO_RESEARCH_PACKAGE labels.",
+    "e4_absent": "Maximum autonomous state is READY_FOR_HUMAN_REVIEW; RELEASED is forbidden."
+  }
+}

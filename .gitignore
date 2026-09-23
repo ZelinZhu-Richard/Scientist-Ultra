@@ -1,0 +1,105 @@
+# Public-release defense in depth, not a substitute for selective staging or
+# review of exact candidate content and every reachable commit. See
+# docs/PUBLIC_RELEASE_POLICY.md. Never use force-add to bypass these defaults.
+
+# Local orchestration, scientific runs, generated evidence, custody, and locks.
+/.run/
+/.scientist-one-build/
+/runs/
+/artifacts/
+/reports/
+/state/
+/.scientist-one-*.lock
+
+# Local agent/app configuration may contain private context or machine paths.
+/.agents/
+/.codex/
+/.idea/
+/.vscode/
+
+# Credentials and private configuration. The exception is only eligible for
+# review; it does not assert that any example's contents are sanitized.
+.env
+.env.*
+!.env.example
+.envrc
+.secrets/
+.credentials/
+credentials.json
+credentials.*.json
+token.json
+tokens.json
+cookies.txt
+cookies.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+
+# Caches, virtual environments, installed packages, and generated build output.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.cache/
+.tox/
+.nox/
+.venv/
+venv/
+env/
+node_modules/
+*.egg-info/
+/build/
+/dist/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Temporary output, logs, crash dumps, and editor/OS files.
+/tmp/
+/temp/
+*.tmp
+*.temp
+*.log
+*.dmp
+*.core
+*.crash
+*.ips
+core
+core.[0-9]*
+*.swp
+*.swo
+*~
+.DS_Store
+._*
+
+# Generated packages and unreviewed binary literature/data/model artifacts.
+# An essential redistributable asset needs a narrow, documented exception and
+# full review before staging. Renaming a file never makes it public-safe.
+*.[zZ][iI][pP]
+*.tar
+*.tar.*
+*.tgz
+*.gz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.whl
+*.[pP][dD][fF]
+*.db
+*.sqlite
+*.sqlite3
+*.parquet
+*.arrow
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.pt
+*.pth
+*.onnx
+*.safetensors
