@@ -71,6 +71,140 @@ custody, scientific and human-only E4 requirements continue to govern execution.
 
 ## Scope and non-negotiable labels
 
+### Fresh-admission design proposal — D-081, not implemented
+
+Source basis: published `84f045c`, functional freeze `8f5b3669`; no admission
+code has changed. This is a bounded proposal, not a second specification or
+permission to execute it. The host-issuer question below must be resolved before
+implementation. Independent non-author review found the legacy-routing and E0
+compatibility questions below still unresolved; it did not approve implementation.
+
+**Existing authority, separated.** `scripts/scientist_one_cli.py:main` captures
+source and binds dispatch to its canonical directory. The orchestrator's
+`_captured_project_root`, `_safe_root` and constructor require that identity,
+the current directory, a narrow `ScientistOne` basename and a confined regular
+`state/APP_SESSION_BOOTSTRAP.json` with PASS and matching canonical path.
+`_handler_calibrate` subsequently registers a hash-bound, path-redacted reference
+to that receipt as existing E0 input. The runbook additionally checks the claimed
+app-selected workspace and historical bootstrap checks. These readers do not
+themselves issue a receipt or authenticate a host-app signature. The source
+loader establishes captured local source identity, not host selection or
+platform permission. Filesystem/platform permission remains imposed externally.
+
+No supported issuer is present in the public scripts or CLI, and no approved
+host receipt-issuance interface was identified in the available tool metadata.
+This does not prove no such host facility exists elsewhere. The provenance of
+the historical receipt is not reconstructed or upgraded into a host attestation.
+Its bytes and all historical references must remain unchanged. Repository-owned
+code cannot truthfully fill an app-attested field solely from cwd or user text.
+
+**Recommended route: keep the existing authority boundary.**
+
+1. User explicitly selects the new narrow workspace in the host app and confirms
+   the intended project. This selection is not itself a repository receipt.
+2. Host/platform owner identifies an approved admission mechanism and its trust
+   contract: actor, selected-directory binding, authenticity/freshness, permitted
+   operations and safe handoff to the repository. This is an external prerequisite,
+   not an interface this project may invent and call host-approved.
+3. Only that approved issuer records freshly observed facts for this workspace.
+   Any repository adapter may validate/import the approved evidence, but may not
+   mint host claims. A potential `initialize workspace` host action is PROPOSED,
+   NOT AVAILABLE here. Its wire/command cannot be specified honestly before the
+   issuer contract is supplied.
+4. After an approved legacy/new dispatch rule, captured startup revalidates
+   current root identity, issuer context and receipt binding, then permits
+   ordinary commands through their unchanged scientific,
+   resource and approval gates. Record source/runtime identity through existing
+   run manifests and artifact/ledger owners; no parallel provenance store.
+
+The receipt could prove only the facts actually supplied by the approved issuer
+and the local checks actually performed. It would not prove data rights,
+protected-data access, network/spending permission, sandbox containment,
+exchangeability, successful experiments, custody independence, scientific
+promotion, release readiness or E4. A recorded initialization is not a research
+result. Exact command permissions cannot exceed the issuer/platform contract.
+
+**Required state behavior for any approved adapter:**
+
+| Input state | Proposed behavior; all remain UNIMPLEMENTED |
+| --- | --- |
+| No record | Validate host evidence and current root before an atomic create-once publication; absence/failure grants no admission. |
+| Exact valid record for same workspace/issuer context | Revalidate issuer authenticity/freshness and current identity; no-op without changing bytes, timestamps, run state or historical authority. |
+| Copied/mismatched record, changed directory identity, symlink/hardlink or unknown schema | Refuse; never repair paths, overwrite or silently downgrade to local admission. |
+| Partial publication | Incomplete evidence grants no authority; retry may complete only an exact validated pending publication under the approved protocol. No automatic cleanup, lock removal or invented success. |
+| Existing historical receipt | Preserve original bytes and established historical-context semantics; no inference that any legacy-shaped file has historical authority. Legacy/new routing remains unresolved below. |
+
+Canonical path alone cannot identify a replaced directory. Proposed new evidence
+must bind the live selected directory identity and approved issuer context and
+be rechecked at admission; stale identity fails closed. Machine-local details
+remain private. The exact persistence/atomicity implementation must reuse the
+existing confined publication helpers and be reviewed, not assumed solved here.
+
+**Unresolved legacy/new routing (non-author review finding):** current
+`_safe_root` does not authenticate issuer/schema, so preserving its permissive
+legacy shape for arbitrary fresh workspaces would contradict a new claim that
+local assertions cannot admit them. This is a source-level compatibility
+finding, not an executed exploit. A filename, timestamp, caller-selected mode
+or merely old-looking JSON cannot establish historical authority. The approved
+host contract must provide a trusted distinction between an already admitted
+historical context and fresh admission, with no unknown-version/legacy-shaped
+fallback on the fresh path. No such distinction is implemented or assumed here.
+If providing it requires migration or a new trust service, that exceeds this
+adapter proposal and returns to owner triage. Preserving historical bytes does
+not authorize falsely granting historical status to newly written files.
+
+**Separate option if no host issuer is available:** owner may instead approve
+a distinctly labelled `LOCAL_DEVELOPMENT` mode. A proposed command could be
+`python3 -I -S -B scripts/scientist_one_cli.py init --mode local-development --root .`.
+It is NOT implemented or currently accepted. A locally issued record would
+prove only explicit user selection and current local checks; it must state
+`host_app_attestation: NOT_PROVIDED` and confer no platform authority. It must
+not write `app_session_bootstrap: PASS`, reuse historical bootstrap hashes or
+enter the old E0 bootstrap-evidence slot by alias. Whether that mode may admit
+any research commands and how E0 records its distinct technical scope require
+a separate owner-approved design. It is not an automatic fallback, and would
+not overcome a platform denial. This option is not the recommendation for
+implementation while the original host-authority contract is unresolved.
+
+**Minimal implementation envelope after approval:** existing launcher/CLI
+admission and orchestrator `_safe_root` are the integration seam; add only a
+small adapter to the *identified* issuer contract, focused startup tests and
+this runbook. Preserve existing source capture, root confinement, legacy exit
+codes and historical receipt readers. Inspect `_handler_calibrate` only for
+version-correct reference compatibility; no E0 predicate/authority migration
+is authorized. If host evidence cannot fit without changing those semantics,
+return that expansion to owner triage. No provider, worker, custody, scientific
+state-machine, claim registry or ledger changes are part of this proposal.
+
+**Acceptance before enabling fresh admission:** authentic fresh issuer evidence
+in a fresh selected workspace; no private development state; exact same-context
+repeat no-op; mismatched/copied/stale/partial/unknown evidence refuses; no writes
+before complete admission except explicitly approved initialization publication;
+interrupted-publication tests use permitted deterministic failure injection,
+not stopped native/process probes; historical bytes/readback stay unchanged;
+captured startup remains mandatory; no host, scientific, custody or E4 authority
+can be obtained from a local assertion on the proposed fresh path. Test a fresh
+locally asserted legacy-shaped record, unknown-version fallback, directory
+replacement, expired/replayed issuer context and conflicting concurrent
+publication explicitly, without executing stopped investigations. These are
+acceptance requirements, not demonstrated properties of the current reader.
+Run the existing six onboarding controls (including help, metadata and static
+exit mapping) and focused new initializer tests on both supported test runtimes.
+Synthetic issuer fixtures establish adapter behavior only; enabling real
+admission additionally requires authentic approved-issuer evidence. Only then
+test a permitted question-driven workflow; initializer success is not its PASS.
+
+**Decision needed:** identify an approved host issuer and authorize its precise
+adapter, or explicitly choose the separate non-host local-development design.
+Neither exists by assumption. Production implementation remains unapproved.
+
+Review disposition: preserve the host boundary; obtain an approved issuer
+contract and legacy/new routing before any adapter. E0's existing bootstrap
+field meanings also need compatibility review, not a name-only substitution.
+Root accepts these qualifications; there is no remaining reviewer and root
+disagreement, but the issuer, routing and E0 compatibility are unresolved
+dependencies. The implementation envelope above is conditional, not clearance.
+
 This runbook operates Scientist-One inside the app-selected project root with no uncontrolled command network, no dependency acquisition, and no write outside the repository. The legacy demonstration is synthetic: every resulting package remains `DEMO_RESEARCH_PACKAGE`, `NOVELTY_UNVERIFIED`, with simulated non-independent custody. The vNext integrated fixture is also synthetic and nonpublishable; it exercises audited egress with deterministic fixture transports, not live network access, and its local experiment output is explicitly `NON_EVIDENTIARY`. E4 is human-only; overnight automation cannot publish, submit, or declare `RELEASED`.
 
 The repository also contains source-owned scientific Dataset/Split, Result/StatisticalTest, ClaimSemantics/`Jref`/`Jqual`, and v2 Ablation authority paths. They are not activated by this synthetic fixture. A credentialless live gateway crossing may mint a narrow run-bound HMAC execution authority, but no overnight step may treat that local signature as response truth, scientific approval, protected custody, E4, or an external witness; same-process/key/source compromise remains `BLOCKED_LOCAL`. Credential-bearing real-network egress is disabled before gateway external-request registration or dispatch pending a separately reviewed sensitive-response store, and the unverified fixture transport receives no resolved credential.

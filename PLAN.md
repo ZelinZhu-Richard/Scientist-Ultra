@@ -5,14 +5,18 @@
 V9 source `b57087f` and handoff `5e011a3` are published; `main` is unchanged.
 The one gates67 diagnostic is terminal TIMEOUT, not an active run. Its earlier
 INCOMPLETE observation and all raw evidence remain. No automatic repair/retry.
-The following finite work supersedes the older freeze/next-batch ordering below:
+Numerical `71b3ddb` and CLI `84f045c` checkpoints are now pushed and remotely
+verified. The final focused24 distinct tests pass on both runtimes. Freeze303
+adds pyproject coverage to the original functional population plus two new test
+modules; only statistics changed among the prior300 inputs. The following
+finite work supersedes the older freeze/next-batch ordering below:
 
 | Work / owner | Intended patch boundary | Dependency and observable exit / affected checks |
 | --- | --- | --- |
-| Harness interpretation / root | Existing private evidence and ledger only; read-only runner review | Explain timer/output/terminal paths from source and actual markers; no execution, repair, process probes or cancellation change. Return next decision to owner. |
-| Permutation correctness / root + non-author reviewer | `statistics.py` permutation implementation and method-version description; one dedicated test module; relevant statistical documentation | Reproduce 70-assignment example through guarded captured tests, compare to independent rational oracle, verify scale/tie/tail/MC/validation cases; non-author full-patch review before acceptance. Preserve other statistical routines and historical results. |
-| CLI consistency / root | `pyproject.toml`, supported-entry documentation, focused startup/exit-contract tests; launcher only if existing authority is demonstrably preserved | Trace real captured entry and fresh admission. Prefer removing unsupported console declaration over changing guards. Fresh source-checkout smoke without private receipts; disclose first blocked authority rather than forging it. |
-| One local workflow / root | Existing brief/config/local execution/report owners, safe example and focused tests only if existing admission permits | User question and permitted input/config, prospective baseline/hypothesis, actual worker results and evidence-linked limitations/reproduction. Report protected fresh-onboarding dependency before changing it. No new provider, authority, ledger or template-only autonomy claim. |
+| Harness interpretation / root — DONE | Existing private evidence and ledger only; read-only runner review | Report delivered; timeout cause/outcomes/cleanup unknown. Repair or further diagnostic remains awaiting owner triage. |
+| Permutation correctness / root + non-author reviewer — DONE | `statistics.py`, new test module and comparison-v2 documentation | Reproduced defect; exact rational oracle,18 focused tests both runtimes and complete non-author review accepted; published71b3ddb. Historical results preserved. |
+| CLI consistency / root — DONE at conservative scope | `pyproject.toml`, supported-entry documentation, six startup/exit-contract tests | Unsupported console declaration removed; guarded launcher unchanged; published84f045c. Fresh source smoke proves help and truthful refusal, not successful initialized onboarding. |
+| One local workflow / root — design DONE, implementation BLOCKED | Runbook D-081 proposal independently reviewed; no admission implementation approved | Approved issuer, trusted legacy/new routing, publication semantics and E0 compatibility remain unresolved. Owner receives conditional adapter scope and acceptance criteria. Actual configurable workflow still needs execution evidence; no canned substitute. |
 | Verify / publish / root | Existing evidence/docs/handoff and coherent commits on current review branch | Focused checks during development, exact affected-evidence reconciliation, coherent source freeze and applicable final checks. Outgoing-content audit before each push; remote SHA verified; main unchanged, no final release. |
 
 Numerical source changes invalidate claims that previous V9 full-source captures
@@ -22,6 +26,14 @@ do not rerun safety-stopped `test_scientific_core` or historical studies.
 Original final lifecycle/recovery/reproduction/architecture/Git requirements
 remain pending, not waived. New consequential findings outside D-080 go to
 owner triage under D-079. No broad refactor, security campaign or harness rewrite.
+
+Next unrelated dependency: run the already queued installed `test_vnext_operations`
+18-method selection once under the unchanged guarded capture path and7200-second
+bound, serially. Preserve exact303-source identity and results. If it fails or
+times out, retain completed/unknown outcomes and return any new substantial
+diagnostic/repair to owner triage; do not repeat unchanged execution. Later
+cross-runtime/full integration, supported lifecycle, architecture packet,
+qualified baseline history and final audit remain finite original obligations.
 
 ## Preserved V9 verification checkpoint
 

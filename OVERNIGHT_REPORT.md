@@ -20,8 +20,11 @@ The authorized gates67 diagnostic is terminal TIMEOUT, not still running:
 7200.020898582879s, 106 timing markers, no complete worker result. All 67 test
 outcomes and the cause/cleanup status remain UNKNOWN. No retry or repair follows.
 Fresh-source guarded help succeeds, but status stops at missing app-bound
-bootstrap admission before run creation. Legitimate fresh issuance is awaiting
-owner triage; no private receipt or synthetic success substitutes for it.
+bootstrap admission before run creation. The owner now authorizes a bounded
+fresh-admission design and independent read-only review only; both are complete
+in the runbook. Approved host issuer, trusted legacy/new routing and E0
+compatibility remain unresolved; implementation still requires approval.
+No private receipt or synthetic success substitutes for it.
 
 The CLI follow-up removes the unsupported installed console declaration, without
 changing CLI or launcher guards. Six fresh-source checks pass on both runtimes;
@@ -32,8 +35,25 @@ exit0/PASS, exit1/non-PASS and exit2/error behavior is unchanged. See the runboo
 for portable commands and the supplied-question refusal. No baseline/candidate
 execution or report is claimed for the blocked configurable workflow.
 
-Next: publish the CLI/documentation follow-up after outgoing-content checks;
-progress the configurable workflow only through admitted boundaries.
+The CLI checkpoint `84f045c845ef50fa685ec6818deebeee3f085c9e` is also pushed and
+verified by remote-ref query and fetch; its metadata/test blobs are present.
+The source checkpoint has a clean tracked tree/index and tracks the existing
+review branch. This handoff is a documentation-only successor. Both pushes
+passed exact outgoing-content/history checks; no specific new disclosure
+blocker was found. Private raw captures remain local, limiting reproduction
+of the recorded private runs from GitHub alone.
+
+Current functional freeze contains303 inputs: the previous V9 population of300
+(299 unchanged, statistics corrected), two new tests, and explicit pyproject
+metadata coverage. Freeze/focused-evidence closure SHA-256:
+`8f5b36693b67312a181c3fa0f87491623b48a2b85f1ec12e90027890767db973`.
+
+Next: retain this source freeze; continue the previously queued operations18
+check, then reconcile the remaining permitted integration/lifecycle checks.
+Do not rerun gates67 or repair its harness. Admission design/review is returned
+to the owner with its unresolved dependencies; no related authority changes
+are authorized. A local-development alternative must be separately scoped and
+must not inherit host, platform or scientific authority.
 Original operations/lifecycle/reproduction/package, architecture, qualified
 history and final checks remain open. V9 tests below retain their exact-source
 scope and are not automatically current after this correction. External/safety
