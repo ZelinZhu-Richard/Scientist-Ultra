@@ -24,9 +24,10 @@ focused numerical tests pass on Python 3.14.6 and 3.11.15. See
 [comparison semantics and limits](docs/SCIENTIFIC_VALIDITY_MODEL.md#permutation-comparison-semantics-v2).
 These results do not revalidate the whole system after the source change.
 
-Fresh-workspace research execution is blocked at app-bound bootstrap admission;
-no private receipt is supplied by this repository. CLI packaging/onboarding
-reconciliation and the requested configurable workflow remain unfinished.
+The unsupported installed `scientist-one` console declaration has been removed;
+use the guarded source-checkout command below. Fresh-workspace research execution
+is blocked at app-bound bootstrap admission; no private receipt is supplied by
+this repository. The requested configurable workflow remains unfinished.
 The single authorized gates67 diagnostic ended in a 7,200-second timeout with
 no complete test-result payload; its cause remains unknown. No retry is queued.
 
@@ -117,18 +118,40 @@ Implemented behavior includes:
 - an exact terminal vocabulary: `NOT_PUBLISHABLE`, `INSUFFICIENT_NOVELTY`, `INCONCLUSIVE`, `HYPOTHESIS_FALSIFIED`, `NEGATIVE_RESULT`, `NO_MEANINGFUL_GAIN`, `RESULT_NOT_ROBUST`, `REPRODUCIBILITY_FAILED`, `INSUFFICIENT_COMPUTE`, `FULL_VALIDATION_REQUIRES_GPU_CLOUD`, and `MORE_EXPERIMENTS_REQUIRED`. Diagnostic mappings and source-authorized persistence are distinct; the integrated GPU-requirement path grants only a protocol-scoped operational blocker, never scientific or spending authority;
 - atomic run-ID reservation and an atomic `fixture-operation.json` receipt that moves from `IN_PROGRESS` to `COMPLETE` or `FAILED`. A completed run ID is immutable; failure requires a new run ID and grants no downstream authority.
 
-## Guarded fixture command
+## Supported source-checkout entry point
 
-Run from the canonical project root through the captured-source launcher:
+Use an already trusted CPython installation, version 3.11 or later. Focused
+startup checks were run on 3.11.15 and 3.14.6. From a checkout named
+`ScientistOne`, the portable entry sequence is:
 
 ```sh
-/opt/homebrew/bin/python3 -I -S -B scripts/scientist_one_cli.py research-os-fixture
+python3 --version
+python3 -I -S -B scripts/scientist_one_cli.py --help
+python3 -I -S -B scripts/scientist_one_cli.py status
+```
+
+`--help` works without private development state. In a fresh checkout, `status`
+currently exits **2** with an app-session bootstrap error before creating run
+state. The controller requires a truthful app-bound workspace receipt, and this
+checkpoint does not yet provide its fresh issuer. Do not copy historical
+receipts, fabricate markers, remove guards or call the guarded module directly.
+There is no supported installed `scientist-one` console command at this boundary.
+See the [onboarding limitation and exit contract](docs/OVERNIGHT_RUNBOOK.md#fresh-checkout-onboarding-and-exit-contract).
+
+## Guarded fixture command — admitted workspaces only
+
+Only after legitimate workspace admission, run from that canonical project root
+through the captured-source launcher. This is a fixed synthetic fixture, not
+the requested configurable real-input workflow:
+
+```sh
+python3 -I -S -B scripts/scientist_one_cli.py research-os-fixture
 ```
 
 An explicit identifier is optional:
 
 ```sh
-/opt/homebrew/bin/python3 -I -S -B scripts/scientist_one_cli.py research-os-fixture --run-id vnext-local-fixture-1
+python3 -I -S -B scripts/scientist_one_cli.py research-os-fixture --run-id vnext-local-fixture-1
 ```
 
 The launcher rejects unisolated startup, captures and reattests project source around dispatch, and passes the command through the admitted orchestrator root. The fixture validates required inputs before reserving a run directory. Reusing an existing run ID fails closed. `--run-id` is a named argument, not a positional argument.

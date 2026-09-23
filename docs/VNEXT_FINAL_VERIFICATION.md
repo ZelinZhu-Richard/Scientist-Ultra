@@ -28,7 +28,14 @@ but no complete captured worker payload, so individual outcomes remain UNKNOWN.
 Nested times overlap. Source-level output retention occurs after return/timeout,
 not as live durable progress; cleanup and root cause remain unknown. Original
 and interim evidence is retained. Further investigation/repair/retry requires
-owner triage. CLI/fresh-workflow acceptance and final verification remain open.
+owner triage. The conservative CLI packaging correction removes the unsupported
+console declaration without modifying cli.py or the captured launcher. Six new
+fresh-source checks pass on both runtimes; the combined focused selection is
+24 distinct tests, not an additional count on top of the numerical18. Help
+works without private state; status/start with a supplied question refuse before
+run creation because fresh app-bound admission is unavailable. Legacy status
+mapping is checked read-only, not by fabricating launch authority. The real
+question-driven workflow and final verification remain incomplete.
 
 ## Preserved V9 exact-source evidence
 

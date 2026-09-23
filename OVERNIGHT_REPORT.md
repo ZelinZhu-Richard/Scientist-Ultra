@@ -11,9 +11,9 @@ enumeration and seeded Monte Carlo conventions. The scaled example returns
 1/35. New analysis descriptions identify comparison v2; historical results stay
 unchanged. These are component results, not refreshed full-system acceptance.
 
-Last remotely verified branch: `review/vnext-checkpoint` at
-`5e011a363e3b001dd132102b3708ce579ceca66d`; this numerical follow-up is not yet
-published. Main remains `bba9ec5`. Only reviewed development source is eligible
+Numerical correction `71b3ddb895ff63d7493569ad58227fc484900cf3` is pushed and
+remotely verified on `review/vnext-checkpoint`, with its source/test blobs visible
+after fetch. Main remains `bba9ec5`. Only reviewed development source is eligible
 for the next commit/push; private captures and bootstrap state remain excluded.
 
 The authorized gates67 diagnostic is terminal TIMEOUT, not still running:
@@ -23,9 +23,17 @@ Fresh-source guarded help succeeds, but status stops at missing app-bound
 bootstrap admission before run creation. Legitimate fresh issuance is awaiting
 owner triage; no private receipt or synthetic success substitutes for it.
 
-Next: publish the numerical correction after outgoing-content checks; reconcile
-CLI packaging and document/test the actually supported startup/legacy exit
-contract; progress the configurable workflow only through admitted boundaries.
+The CLI follow-up removes the unsupported installed console declaration, without
+changing CLI or launcher guards. Six fresh-source checks pass on both runtimes;
+they demonstrate help and truthful admission/usage refusal, not a research run.
+The combined current focused selection is24 distinct tests (18 numerical +6
+startup), cross-runtime, not an additive total with V9 or private runs. Legacy
+exit0/PASS, exit1/non-PASS and exit2/error behavior is unchanged. See the runbook
+for portable commands and the supplied-question refusal. No baseline/candidate
+execution or report is claimed for the blocked configurable workflow.
+
+Next: publish the CLI/documentation follow-up after outgoing-content checks;
+progress the configurable workflow only through admitted boundaries.
 Original operations/lifecycle/reproduction/package, architecture, qualified
 history and final checks remain open. V9 tests below retain their exact-source
 scope and are not automatically current after this correction. External/safety

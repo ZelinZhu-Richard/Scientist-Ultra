@@ -1,5 +1,74 @@
 # Overnight Runbook
 
+## Fresh-checkout onboarding and exit contract
+
+The supported entry is the source-checkout launcher, not a pip-installed
+`scientist-one` command or direct import of `scientist_one.cli`. The former
+console declaration was removed because ordinary startup cannot supply the
+captured import authority. Neither CLI nor launcher guards were weakened.
+
+In an app-selected checkout named `ScientistOne`, use an already trusted
+CPython >=3.11 installation; `python3` below denotes that selected interpreter,
+not permission to download one or substitute an unreviewed runtime. Record its
+version. The tested versions are 3.11.15 and 3.14.6:
+
+```sh
+python3 --version
+python3 -I -S -B scripts/scientist_one_cli.py --help
+python3 -I -S -B scripts/scientist_one_cli.py status
+```
+
+Fresh source-only smoke: help exits0; status exits2 with
+`OrchestrationError: app-session bootstrap receipt is invalid`. No receipt,
+run, artifact store or resource authority is created. A caller-supplied brief
+does not bypass that prerequisite. This is a verified refusal, NOT successful
+onboarding. The existing section1 only validates a receipt already issued for
+the admitted workspace. It is not a recipe for manufacturing one. A supported
+fresh app-bound issuer requires separately reviewed authority design; owner
+triage is pending. Do not copy the development receipt or edit its path.
+
+The legacy exit contract is unchanged:
+
+| Exit | Meaning | Not implied |
+| --- | --- | --- |
+| 0 | Help succeeded, or a command result has top-level `status: PASS` | Scientific support, publication readiness, human/E4 approval |
+| 1 | A command returned another status; inspect its JSON | Necessarily a crash or invalid negative/null scientific result |
+| 2 | Usage/startup/admission error or caught command exception | A completed research evaluation |
+
+For example, `ARCHITECTURE_CONTROL_REPLAY_PASS` remains a non-PASS top-level
+label and therefore retains exit1. No blanket success adapter or breaking
+exit-code migration was introduced. Six focused fresh-source tests cover
+metadata, help, missing admission, supplied-question refusal, usage and the
+unchanged source-level status mapping. They do not fabricate a runtime PASS
+to test approval authority or claim that a scientific workflow executed.
+
+### Requested question-driven workflow: first blocked stage
+
+The smoke question is “Does a fixed linear classifier exceed a majority
+baseline on permitted local data?” It is authored synthetic test text, not a
+scientific result, literature source or dataset. An input file can be named by:
+
+```sh
+python3 -I -S -B scripts/scientist_one_cli.py start --brief question.md
+```
+
+Fresh-workspace admission currently blocks this command BEFORE brief ingestion,
+source/data registration, prospective planning or worker dispatch. No data was
+consumed, baseline/candidate run, uncertainty calculated or research report
+generated. The public tests record that failure instead of returning canned
+results. The concrete next prerequisite is legitimate fresh app-bound admission.
+After admission, the existing `start --brief` only registers supplied text and
+initializes a run; it does not itself translate arbitrary questions/configuration
+into executable research. The requested full configurable workflow remains
+unfinished and must reuse the existing prospective plan/worker/artifact owners.
+Current `research-os-fixture` is a reviewed fixed synthetic demonstration, not
+general autonomous coding or a fallback presented as the user's research.
+
+The remaining sections apply to ALREADY ADMITTED workspaces. Their retained
+historical interpreter examples are not prerequisites for a new user; use the
+selected trusted interpreter consistently. Original admission, external-access,
+custody, scientific and human-only E4 requirements continue to govern execution.
+
 ## Scope and non-negotiable labels
 
 This runbook operates Scientist-One inside the app-selected project root with no uncontrolled command network, no dependency acquisition, and no write outside the repository. The legacy demonstration is synthetic: every resulting package remains `DEMO_RESEARCH_PACKAGE`, `NOVELTY_UNVERIFIED`, with simulated non-independent custody. The vNext integrated fixture is also synthetic and nonpublishable; it exercises audited egress with deterministic fixture transports, not live network access, and its local experiment output is explicitly `NON_EVIDENTIARY`. E4 is human-only; overnight automation cannot publish, submit, or declare `RELEASED`.
