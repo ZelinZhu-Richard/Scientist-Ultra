@@ -39,12 +39,15 @@ The owner-triage cross-reference and current evidence documentation accompany it
 
 ### Publication record
 
-Pre-publication observation on September 23: `review/vnext-checkpoint` and its
-upstream resolve to `f6b3d92e1884caebea1e715272f527ca7588e5e4`; accepted V9
-source/tests and accompanying documents are not yet committed at this observation.
-The index is empty. A follow-up handoff will name the actual source commit and
-verified remote SHA after publication. `main` stays at the owner's README-only
-bootstrap; no final release, tag or unfinished-vNext merge is authorized here.
+V9 source commit `b57087ff31c619e2bc1c7a5e71168cc3fcec4047` was pushed on
+September 23 to `review/vnext-checkpoint`, tracking
+`origin/review/vnext-checkpoint`. A subsequent remote-ref query and fetch
+confirmed that exact SHA. Its tree contains 350 regular files, including
+73 source files and 216 test files; this is actual implementation, not a
+README-only checkpoint. The working tree and index were clean after that push.
+This handoff update is a documentation-only successor to that source commit.
+`main` and `origin/main` remain at `bba9ec5b652e78b5f4bfda6a101d640f0e07869e`.
+No force-push, tag, visibility change, merge into main or final release occurred.
 
 The earlier implementation import `ca2bca940cd22ca785d50ccca5982af4b0512ee7`
 published 343 files while preserving README bootstrap
@@ -55,11 +58,20 @@ No recovered-baseline tag has been created, and this vNext tree must not receive
 `v0.1.0-recovered-baseline` or the superseded trusted-kernel tag.
 
 The complete 16-file functional-delta disclosure review identified no new
-blocker and reconciled all 350 candidate hashes; review SHA-256
+blocker and reconciled the pre-documentation candidate hashes; review SHA-256
 `f7b846197066c3fbe1e67ba3ee83ba02b039b058733b97c7cf366be872e2ee50`.
-Its semantic exceptions are narrow, not filename exemptions. Updated documents,
-final candidate identities, index/modes/tree, reachable history and publication
-refs still require review. This is not whole-public-release clearance.
+Its semantic exceptions are narrow, not filename exemptions. Root separately
+reviewed the complete document changes. The exact source-commit candidate
+screen is `a637d0c3b8bb11a3254d584976b4520d7b27991fb2e4bc7c62cc1a367ba36868`;
+the reachable-history audit is
+`a73e5cd2fc6b318f5d9a6575c66ac92ce33bcf6d2925c3ad89c0849245925295`
+(350 files, four commits, 372 distinct blobs). It checked exact bytes, modes,
+effective ignores, paths and credential/generated-artifact patterns. Semantic
+content/license/claim review reused only unchanged reviewed inputs. No specific
+disclosure blocker remained for this development-source push; these bounded
+checks do not establish exhaustive security, redistribution rights or final
+release acceptance. The repository continues to be treated as PUBLIC; the fresh
+anonymous metadata lookup was unavailable, not proof of a visibility change.
 
 ### Evidence applicable to this checkpoint
 
@@ -128,9 +140,8 @@ the safe V9 push and remote verification have completed, if ready. No automatic
 rerun or repair follows it; owner triage is next. The initial bounded Claude
 diagnosis is complete; the later credential-lock denial is not being retried.
 
-Next, complete the exact public candidate/index/history checks and safely publish
-V9 on the existing review branch, verifying its remote SHA and source/test tree.
-Then perform the single approved timing diagnostic and report its outcome before
+The source checkpoint is remotely verified. After publishing this handoff,
+perform the single approved timing diagnostic and report its outcome before
 any further gates67 action. Continue the unstarted Python 3.11 selection and
 separate operations/lifecycle/architecture obligations without repeating valid
 completed scopes. Qualified history and the final audit remain unfinished;
