@@ -9,11 +9,15 @@ V8 implementation is a coherent development snapshot, not a completed Goal.
 No interrupted private patch is included. FARS assessment and its bounded A01
 output-completion change are already integrated; they are not being restarted.
 
-- Intended branch: `review/vnext-checkpoint`, preserving the owner's README-only
+- Published branch: `review/vnext-checkpoint`, preserving the owner's README-only
   bootstrap `bba9ec5b652e78b5f4bfda6a101d640f0e07869e`. `main` stays unchanged.
-- Checkpoint SHA and remote verification: **pending commit/push**. This document
-  will identify the implementation commit after it exists; Git identifies any
-  subsequent documentation-only tip. No push is claimed by this preparation.
+- Implementation commit: `ca2bca940cd22ca785d50ccca5982af4b0512ee7`,
+  `chore(checkpoint): import current vnext development state`. Remote refs and
+  GitHub's complete tree response verified this SHA, all 343 files, 73 source
+  files and 209 test/helper files on September 23. Upstream is
+  `origin/review/vnext-checkpoint`; the working tree was clean after that push.
+  This handoff is a subsequent documentation-only change; its commit is not a
+  different implementation/test freeze. No recovered-baseline tag was created.
 - Git state at recovery: one modified tracked README plus untracked implementation,
   tests and documentation; no staged files, no implementation commit or tag.
 - Commit rationale: transparent import of the interdependent current source and
@@ -70,7 +74,7 @@ permits inspection and new appropriately bootstrapped local checks; it does not
 supply the private evidence needed to independently reproduce every historical
 capture. No private evidence is destroyed or replaced by this summary.
 
-Next: verify the safe review branch remotely; obtain one bounded Claude diagnosis
+Next: obtain one bounded Claude diagnosis
 if an existing permitted interface is available; finish the setup/recovery and
 ZIP candidate integration with affected tests; resolve remaining internal
 verification failures without repeated unchanged expensive runs; freeze source
