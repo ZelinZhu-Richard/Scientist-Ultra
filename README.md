@@ -2,7 +2,7 @@
 
 Scientist-One vNext extends an existing research-control kernel into a provenance-first Research OS. This is an unfinished **DEVELOPMENT / REVIEW** checkpoint, not a final release. `AUTONOMOUS_EXPLORATION_READY` is a provisional ceiling supported by earlier bounded synthetic fixtures, not current whole-system acceptance. Known regression errors, timeouts and unverified paths remain. It is not research-grade, submission-ready, independently validated science, or evidence of superiority over upstream ScientistOne.
 
-The [checkpoint handoff](OVERNIGHT_REPORT.md#development--review-checkpoint-september-23-2026) distinguishes installed tests from private candidates and historical/reconstructed evidence. Private run state, credentials, reports and captured runtime/bootstrap evidence are intentionally excluded from GitHub; a fresh clone does not reproduce those private captures merely by containing the same source. Do not enable live credentials, protected data or external workloads from this checkpoint.
+The [current checkpoint handoff](OVERNIGHT_REPORT.md#current-handoff--owner-d083-september-24-2026) distinguishes installed tests from private candidates and historical/reconstructed evidence. Private run state, credentials, reports and captured runtime/bootstrap evidence are intentionally excluded from GitHub; a fresh clone does not reproduce those private captures merely by containing the same source. Do not enable live credentials, protected data or external workloads from this checkpoint.
 
 The integrated `research-os-fixture` is deliberately nonpublishable. A top-level `status: PASS` means only that the bounded system fixture completed with internally consistent registry, ledger, state, and gate evidence. Scientific soundness, external validation, paper readiness, and human release authority remain separate outcomes and fail closed.
 
@@ -17,6 +17,21 @@ for passing selections, original failures and unresolved safety/external gates.
 
 ## Current bounded follow-up
 
+The owner-directed focus is one ML core: Generic ML/CV, ML+OR, ML+Management
+Science & Engineering and offline-only quantitative-finance research. NeurIPS,
+ICML, ICLR and CVPR are fit targets, not readiness or acceptance claims. The
+first CVPR topic is still owner-supplied. Existing domain code/tests remain.
+Autonomous execution is the intended default only within approved scientific,
+data/tool and budget scope; optional human gates and human-only E4 remain.
+
+Colab is the first concrete cloud-worker target, not yet a working integration.
+The new offline preparation component binds existing frozen input hashes and
+inspects returned manifest/artifact bytes;15 synthetic checks pass on both
+Python runtimes after non-author review. It does not authenticate a commit/job,
+invoke a worker, reserve CU or collect scientific evidence. The CLI was not found
+on PATH and no live job ran. See the [bounded engineering path](docs/OVERNIGHT_RUNBOOK.md#colab-engineering-preparation--offline-only)
+and handoff for account, spending, confidentiality and compatibility prerequisites.
+
 The permutation-test numerical correction is integrated after independent
 non-author review: exact represented-value comparisons replace the fixed
 `1e-15` tolerance. The reported scaled example now returns `1/35`. Eighteen
@@ -30,6 +45,11 @@ is blocked at app-bound bootstrap admission; no private receipt is supplied by
 this repository. The requested configurable workflow remains unfinished.
 The single authorized gates67 diagnostic ended in a 7,200-second timeout with
 no complete test-result payload; its cause remains unknown. No retry is queued.
+
+The subsequent D080 source passed the original3,294-ID selection on Python3.11.15
+and the separate18 operations IDs on both runtimes, with retained-source closure.
+Those full-source records precede the two-file Colab extension and are not a
+paired current full-suite result. Historical V9 measurements below stay separate.
 
 ## Verified V9 checkpoint — historical source
 

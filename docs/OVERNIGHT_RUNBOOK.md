@@ -66,6 +66,48 @@ unfinished and must reuse the existing prospective plan/worker/artifact owners.
 Current `research-os-fixture` is a reviewed fixed synthetic demonstration, not
 general autonomous coding or a fallback presented as the user's research.
 
+For an already admitted workspace, source inspection of `start` and
+`_handler_charter` confirms a second, independent limit: supplied brief text is
+registered at CALIBRATE, while non-synthetic CHARTER explicitly queues
+BLOCKED_EXTERNAL for locally supplied external evidence/providers. No D083
+code changes that route. This is source-level evidence, not a newly executed
+user study. A local-admission record alone would not resolve it; arbitrary
+question-to-contract/worker dispatch and real provider/literature boundaries
+remain incomplete. Do not turn an engineering fixture into that evidence.
+
+### Colab engineering preparation — offline only
+
+`scientist_one.colab_preparation` provides `ColabInputPreparation` and
+`inspect_colab_output` over existing frozen request/spec/output types. It is a
+library component reached through captured startup, not a new console command
+or an alternate admission path. It accepts caller-supplied immutable worker,
+configuration and data bytes, verifies their frozen hashes, and inspects exact
+returned manifest/artifact bytes. Only first-attempt exploratory,
+non-evidentiary single-GPU DIRECT_REMOTE work is covered. A supplied full commit
+or provider job ID is not authenticated; the original controller must supply
+review, scientific, submission and collection authority.
+
+The focused engineering check is:
+
+```sh
+python3 -I -S -B scripts/scientist_one_cli.py __captured-test-module__ tests.test_colab_preparation
+```
+
+Fifteen synthetic byte-contract tests pass on Python3.11.15 and3.14.6, including
+rejection of mismatched inputs, incomplete seed returns, changed identities and
+unknown schema, with negative/null/failed results retained. No GPU, Colab CLI,
+model, literature source or scientific experiment is invoked. There are no new
+runtime dependencies. This command is not the requested question-to-results
+workflow, a thin cloud worker or evidence of live Colab support.
+
+Google documents an [official consumer CLI](https://github.com/googlecolab/google-colab-cli),
+but live integration still needs an approved pinned installation/authentication
+route, versioned direct-runtime/CU accounting compatibility, artifact persistence
+and cancellation semantics, explicit per-job/cumulative spending limits and the
+recorded confidentiality review. No command here installs or starts it. The
+controller and authoritative state remain local; no moving-branch checkout,
+private receipt, protected payload, token or entire run history is uploaded.
+
 The remaining sections apply to ALREADY ADMITTED workspaces. Their retained
 historical interpreter examples are not prerequisites for a new user; use the
 selected trusted interpreter consistently. Original admission, external-access,

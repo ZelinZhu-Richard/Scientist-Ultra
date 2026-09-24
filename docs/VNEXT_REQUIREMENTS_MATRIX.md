@@ -1,10 +1,12 @@
 # Research OS vNext Requirement-to-Evidence Matrix
 
-Status: **V9 functional source frozen; final verification and requirement reconciliation incomplete**
+Status: **D083 priorities active; final verification and requirement reconciliation incomplete**
 Authoritative requirement source: `RESEARCH_OS_VNEXT_META_SPEC.md`  
-Review checkpoint: 2026-09-23, incorporating the 16:19:20 UTC terminal observation
+Current review checkpoint: 2026-09-24. The dated September23 snapshot below is
+preserved as historical evidence; the D083 status section below governs current
+priorities and superseding selection results.
 
-September 23, 2026 checkpoint, incorporating the Python 3.14 terminal observation at 16:19:20 UTC: V9 is installed and frozen with 300 functional inputs.
+Historical September 23, 2026 checkpoint, incorporating the Python 3.14 terminal observation at 16:19:20 UTC: V9 was installed and frozen with 300 functional inputs.
 The same 125 selected IDs pass on Python 3.14.6 and 3.11.15 at enclosing scope;
 a disjoint 3,294-ID selection passes on Python 3.14.6 only. This is 3,419 distinct
 selected current IDs on Python 3.14, with only 125 currently paired; remaining192
@@ -25,8 +27,8 @@ installed lifecycle/reproduction/package, the current architecture packet and
 its four validator methods, and the final audit remain pending. Architecture
 packet validation is not proof that all 15 behavioral criteria pass.
 
-The [current handoff](../OVERNIGHT_REPORT.md#development--review-checkpoint-september-23-2026)
-records exact closures, publication state, owner triage and safety exclusions.
+The [dated September 23 handoff](../OVERNIGHT_REPORT.md#development--review-checkpoint-september-23-2026)
+records the exact historical closures and exclusions for that checkpoint.
 No requirement or capability row is promoted merely by these selected results.
 
 ### Earlier checkpoint evidence — historical
@@ -127,6 +129,48 @@ the application, live-source and scientific gaps are not closed by library tests
 ## Current requirement interpretation
 
 This matrix maps the normative vNext specification to the current implementation, direct tests, and authoritative runtime evidence. It is deliberately stricter than a feature inventory. A deterministic fixture proves a contract only; it does not prove live-provider behavior, real literature coverage, scientific validity, independent review, GPU execution, or publication readiness.
+
+### Current owner-directed status — D083, September 24, 2026
+
+The current priority is Generic ML with a first-class CV profile, followed by
+ML+OR, ML+Management Science & Engineering using existing optimization and
+statistics capabilities, and offline-only quantitative-finance ML. The first
+CVPR topic is `AWAITING_OWNER_TOPIC`; no topic-specific novelty or result is
+claimed. D083's bounded offline byte preparation/inspection is implemented in
+`colab_preparation.py`: 15 focused captured tests pass on Python3.11.15 and3.14.6
+after non-author review. It is not a transport, worker invocation, verified source
+commit, admission, budget reservation or scientific collection. The official
+consumer Colab CLI documents automation, but
+is absent from the available `PATH`; exact release, runtime, authentication,
+entitlement, and balance are `UNKNOWN`. Do not infer Colab Enterprise coverage,
+an installed worker, or a live run. Keep the controller, scientific ledger,
+registry, and custody local; only disclosed and approved job payloads may leave.
+There is no hard CU spend-cap claim.
+
+The owner-confirmed monthly entitlement is private ledger context and is not
+repeated in this public requirements matrix. Actual balance and renewal remain
+unknown. D082 admission implementation, E0 changes, and the stronger legacy
+CLI restriction remain unapproved. COLAB-001 awaits owner triage. gates67 remains
+TIMEOUT with cause/cancellation/cleanup and all67 outcomes unknown; no retry.
+
+The original192-module / 3,294-distinct-ID Python3.11.15 selection is now
+terminal exit0 under parent `58644`. Reviewed closure
+`68f0a148cd8f623f9f12d53477cbe04dae64db525536ee1f111b38446acaa749` binds result
+`395aeae17a4777313b2dfa01a2a1f95fe7711821abb4101512e7860464dc5783`; 885 files
+were reviewed, and source freeze is
+`8f5b36693b67312a181c3fa0f87491623b48a2b85f1ec12e90027890767db973`. This is an
+enclosing-scope result only, not full-suite, nested/helper, scientific, E4,
+live, or cleanup verification and not an exact-source pair with V9 Python3.14.
+Existing24 focused and18 operations checks remain separate, non-additive
+evidence. The dated records below retain their original checkpoint meanings.
+
+| D083 requirement | Actual current state / evidence | Remaining dependency |
+| --- | --- | --- |
+| ML common core / CV, ML+OR/MSE, offline quant priorities | REQUIREMENT_RECONCILED; existing adapters retained, no new CV-specific validity coverage claimed | Question/configuration-driven workflow and meaningful profile checks remain incomplete; first CVPR topic AWAITING_OWNER_TOPIC |
+| Autonomous intended default in approved scope | REQUIREMENT_RECONCILED; existing three human-gate interfaces retained, no admission/E0/permission changes | Actual non-fixture application execution and approved inputs/tool/budget scope |
+| Colab frozen-input / original output contract preparation | IMPLEMENTED_OFFLINE: `ColabInputPreparation`, `inspect_colab_output`, `tests/test_colab_preparation.py`15 paired; all original scientific/backend owners unchanged | No authenticated commit/job provenance, CLI transfer or actual worker execution inferred from byte equality |
+| Concrete Colab worker and native cumulative CU accounting | NOT_IMPLEMENTED; existing DIRECT_REMOTE and USD-based scheduler boundaries mapped | Pinned supported interface, explicit capability/versioned CU compatibility, shared reservations/unknown-attempt accounting, account/setup and live caps; no parallel ledger |
+| Live Colab validation / confidential deployment | UNTESTED_EXTERNAL; CLI absent from PATH, no account/runtime accessed | Owner setup/spending and COLAB-001 triage; no private payloads or credentials published |
 
 Current source reconciliation supersedes broad completion wording in older rows: persisted Evaluation Contract amendment publication, contract/design history, complete native progress exclusion and paired readback are locally integrated and independently scoped-reviewed. Source-owned operational BEST_OF_N reporting and its exposure/no-progress integration pass a frozen636-test affected matrix with no skips or failures. Fresh confirmatory-reserve/protocol integration remains unfinished; credentialed-live raw and derived response custody is unfinished; PMC framing, supplied coordination, outcome composition and versioned wire/custody replay are installed and offline-tested, but production activation and genuine native/TLS/live/signing deployment remain closed; and native literature acquisition is not driven by a non-fixture application workflow. General-web fallback is a decision only. Not every optional source vendor must be built. Existing limited Seatbelt host integration passed1/1 on 2026-09-06 outside Codex's nested sandbox, but full read isolation/resource containment/scientific attestation remains local engineering with its recorded safety stop. These are not cleared by missing credentials or a final test count. See D071 and the exact source/test scope in STATE. D072 additionally requires preserved current work, truthful Git reconstruction and clean public-readiness review before exact-remote synchronization; those release steps are not yet complete.
 
@@ -372,7 +416,7 @@ This submatrix prevents a broad “adversarial tests exist” statement from hid
 
 The following items prevent this matrix from claiming full vNext completion or a capability above `AUTONOMOUS_EXPLORATION_READY`:
 
-1. **Final frozen verification is incomplete.** V9 has 300 pinned functional inputs; serial125 is paired and the disjoint remaining3,294 IDs pass on Python3.14.6 only, with enclosing-only limits. Remaining192 on Python3.11 is NOT_STARTED. Operations18, fresh current lifecycle/recovery/reproduction/package, architecture packet/validator4, final fixture/deep verification, exact before/after evidence and final report bindings remain pending. The Standard scan is sealed PARTIAL with43 products/three LOW findings; installed corrections and scoped tests are not full security clearance. Gates67/isolation38 timeouts and lint33 non-PASS remain explicit. Exact stopped/omitted coverage is not PASS. The project audit must be the last mutation; its result belongs in `reports/final_audit.json` and is reported externally without a post-audit edit.
+1. **Final frozen verification is incomplete.** V9 has 300 pinned functional inputs; serial125 is paired and the disjoint3,294-ID selection passes on Python3.14.6 only, with enclosing-only limits. The separate original192-module/3,294-ID Python3.11.15 selection is now terminal exit0 at the exact enclosing-source scope recorded above, not an exact-source pair with V9 Python3.14. Operations18 is now paired at D080 scope; fresh current lifecycle/recovery/reproduction/package, architecture packet/validator4, final fixture/deep verification, exact before/after evidence and final report bindings remain pending. The Standard scan is sealed PARTIAL with43 products/three LOW findings; installed corrections and scoped tests are not full security clearance. Gates67/isolation38 timeouts and lint33 non-PASS remain explicit. Exact stopped/omitted coverage is not PASS. The project audit must be the last mutation; its result belongs in `reports/final_audit.json` and is reported externally without a post-audit edit.
 2. **No live provider or scholarly source has been exercised.** OpenAI and six scholarly adapters are locally contract-tested only; the unverified fixture transports receive no resolved credential. Approved network access, rate limits, terms, licensing, retention, live parsing, model identity, usage, and costs remain `BLOCKED_EXTERNAL` or `IMPLEMENTED_UNTESTED_EXTERNAL`. OpenAI is blocked with either an absent required credential or a present credential on real network; the latter also requires separately reviewed sensitive-response custody (`BLOCKED_LOCAL`). PMC production activation remains closed; supplied-response normalization is not proof that every listed adapter has a working native route. The citation graph, audited expansion, ranking, five-round investigator, and registry-checked gates are implemented with captured fixture responses.
 3. **`LOCAL_MAC` scientific eligibility is `BLOCKED_LOCAL`.** It has a real subprocess, reviewed-template autonomous implementation, scrubbed environment, admitted argv, confined outputs, bounded logs, adaptive-plan custody, manifest validation, checkpoints, clean rerun, and deep verification, but no OS-enforced filesystem/process/network sandbox.
 4. **Live `GPU_CLOUD` execution is `BLOCKED_EXTERNAL`.** The provider-neutral `ScheduledGPUCloudBackend`, structured transport seam, escalation, scheduler/queue/preemption/requeue/checkpoint lifecycle, and trusted-registry artifact return are implemented and locally contract-tested as `IMPLEMENTED_UNTESTED_EXTERNAL`; no real scheduler, CUDA runtime, credentials, cost authority, or GPU hardware was available.

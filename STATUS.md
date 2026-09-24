@@ -2,14 +2,24 @@
 
 **DEVELOPMENT / REVIEW, not final acceptance.**
 
-Current bounded follow-up: the independently reviewed permutation correction
+Current September24 status: D083 ML-first priorities are reconciled. Offline
+Colab input/result preparation passes15 focused captured tests on both runtimes
+after non-author review; live transport/CU authority and question-to-results
+execution remain incomplete. The D0803294-ID Python3.11 selection and paired18
+operations checks are closed at their exact prior source scope. See the
+[current handoff](OVERNIGHT_REPORT.md#current-handoff--owner-d083-september-24-2026)
+for evidence, exclusions and queued manual actions. D082 implementation remains
+unapproved; no host-issuer search, gates67 retry or live GPU action is pending.
+
+Preserved numerical/CLI follow-up: the independently reviewed permutation correction
 and its 18 focused tests are integrated and pass on Python 3.14.6 and 3.11.15.
 Historical results are unchanged; new analysis results name comparison v2.
 This changes the source identity: V9 full-source captures below are retained
 V9 evidence, not verification of this follow-up. The unsupported console entry
 is removed and the guarded source-checkout startup/legacy exit contract is
 documented and covered by six fresh-source checks. Fresh research execution is blocked by the
-missing app-bound workspace bootstrap issuer, awaiting owner triage. No receipt
+missing implemented admission path; D082 local-mode implementation and explicit
+legacy compatibility await owner triage, not another host-issuer search. No receipt
 is copied or invented. The approved gates67 diagnostic is terminal TIMEOUT,
 with all 67 individual outcomes unknown; no repair/retry is authorized.
 

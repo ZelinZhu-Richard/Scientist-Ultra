@@ -18,6 +18,24 @@ and its evidence-based [design review](docs/FARS_DESIGN_REVIEW.md). These do not
 replace this specification, waive original requirements or create another
 scientific authority. Apply only justified, tested adaptations under the addendum.
 
+## Owner-directed execution priorities — September 24, 2026
+
+The current development focus is Generic ML with a first-class CV profile,
+followed by ML+OR, ML+Management Science & Engineering using existing
+optimization/statistics capabilities, and offline-only quantitative-finance ML.
+NeurIPS, ICML, ICLR, and CVPR are venue-fit targets, not acceptance claims. The
+first CVPR topic is `AWAITING_OWNER_TOPIC`; do not invent topic-specific novelty,
+experiments, or results. Topic-independent engineering and synthetic smoke work
+may proceed.
+
+Apply this priority amendment through sections 19–23 below, the existing plan
+and requirements matrix, not a second roadmap. It is an owner requirement,
+not evidence of implemented CV, Colab or autonomous workflow functionality.
+
+D082 admission implementation, E0 changes, and the stronger legacy-CLI
+restriction remain unapproved. This priority update changes sequencing, not the
+independent scientific, human-only E4, confidentiality, or safety gates.
+
 # MULTI-AGENT ORCHESTRATION POLICY
 
 Optimize for verified, integrated progress per unit of usage.
@@ -689,19 +707,57 @@ Support replaceable backends for NVIDIA CUDA, single GPU, multi-GPU when justifi
 
 Avoid hard dependency on one vendor. The same scientific project definition must move between compute profiles without being rewritten.
 
+Colab is the first concrete cloud-worker target, not a new research provider or
+controller. Verify a currently supported consumer interface and actual account
+availability; do not infer Enterprise access from consumer capacity. Prefer an
+approved automation interface; if a user-launched notebook is necessary, keep
+it thin and invoke versioned repository worker code. Pin source, configuration,
+inputs and dependencies per job; never pull a moving branch during execution.
+Keep persistent control, scientific state, custody, registry and ledger local.
+Only approved job payloads cross the worker boundary. Declare worker dependencies
+separately; no global installation, credential upload or admission bypass.
+
 ### 19.3 Escalation policy
 
 Estimate expected scientific value, uncertainty reduction, CPU/GPU need, RAM/VRAM, disk, wall-clock, and monetary cost where known. Prefer cheap experiments that eliminate weak hypotheses early.
 
 Record why escalation occurred. Do not spend major GPU resources merely because they are available, and never lower evidentiary standards because local compute is limited.
 
+Track Colab compute units as their own service unit, not currency, GPU-hours or
+model tokens. Owner-reported monthly capacity is not current available balance
+or spending approval. Reuse existing resource/authority accounting for per-job
+and cumulative limits, reservations and unknown submission outcomes; do not
+rewrite frozen contracts or create another budget ledger. Planning ceilings
+must fit usable balance after reservations and preserve main, confirmation and
+failure capacity. Separate observed consumption from estimates or unavailable
+measurements; promise a hard CU cutoff only if the supported interface enforces
+it. Without applicable explicit per-job and cumulative live caps, do not start
+chargeable work. No purchases, top-ups or upgrades are inferred.
+
+After access and spending approval, proceed from local correctness to tiny GPU
+smoke, reduced pilot, baseline reproduction, candidate experiments and finally
+multi-seed/ablation/confirmation work. Keep CPU-only checks local. Preserve costs
+and ambiguity across interrupted submissions; no blind resubmission.
+
 ## 20. Domain adapters
 
 Add domain-specific scientific validity without contaminating the generic kernel. Each adapter must implement meaningful checks, not empty configuration.
 
+ML is the common engine. Prioritize Generic ML with a first-class computer-vision
+profile, ML+OR, ML+Management Science & Engineering reusing OR/optimization and
+statistics, and offline-only ML quantitative-finance evaluation. No brokerage
+or live trading. Retain Medical Imaging, Systems, time-series and recommender
+code, historical evidence and applicable tests; deprioritize unrelated expansion
+without deleting it or claiming unfinished requirements complete. The first CVPR
+topic remains owner-supplied; engineering examples must be labeled synthetic.
+
 ### 20.1 `GENERIC_ML`
 
 Cover train/validation/test separation, data and preprocessing leakage, benchmark versions, pretrained-data contamination, seed policy, checkpoint selection, early stopping, augmentation, metric implementation, hyperparameter fairness, parameters/compute, robustness, and claimed generalization.
+
+The CV profile must retain these same controls with explicit task/metric,
+image/subject grouping, augmentation and pretrained-data provenance. A profile
+or venue name alone does not establish a valid experiment or novelty.
 
 ### 20.2 `MEDICAL_IMAGING`
 
@@ -728,6 +784,14 @@ Support:
 - `HUMAN_GATES_REQUIRED`
 - `HUMAN_GATES_SELECTIVE`
 - `FULL_AUTONOMOUS`
+
+Autonomous execution is the intended default only within an approved question,
+data/tool scope, Evaluation Contract and budget. Retain selective and required
+review interfaces. Optional research checkpoints, mandatory scientific gates,
+and external/platform action authority remain separate. This does not change
+admission/E0, grant spending or protected-data access, or override development
+owner triage for new consequential findings under D079. A richer review UI can
+wait; the existing gate architecture must remain.
 
 Configurable human gates may include research-question approval, novelty approval, Evaluation Contract freeze, compute escalation, confirmation reveal, soundness promotion, and final release.
 
@@ -781,7 +845,10 @@ It may not rely on raw model memory. Important tables and figures should be gene
 
 Use a multidimensional readiness model rather than one magic score. Keep hard blockers separate from any numeric rubric. No weighted average may override fabricated or unsupported references, irreproducible headline results, unresolved leakage, evaluator exploitation, omitted required baselines, method-code contradictions, invalid statistics, unsupported novelty, selection bias, or failed clean reproduction.
 
-Venue profiles may cover ML/AI conferences and workshops, medical imaging, operations research/optimization, and systems. Scientific quality must be judged before venue fit.
+Primary venue-fit targets are NeurIPS, ICML, ICLR and CVPR. Retain applicable
+ML/AI workshop, medical-imaging, OR/optimization and systems profiles without
+unrelated expansion. Scientific quality must be judged before venue fit; no
+target establishes acceptance, submission readiness or comparative superiority.
 
 Allowed venue-fit classifications:
 

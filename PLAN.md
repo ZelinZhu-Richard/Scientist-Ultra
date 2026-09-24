@@ -1,63 +1,63 @@
 # Scientist-One vNext Execution Plan
 
-## Current bounded milestone — owner D-080, September 23
+## Current bounded milestone — owner D083, September 24
 
-V9 source `b57087f` and handoff `5e011a3` are published; `main` is unchanged.
-The one gates67 diagnostic is terminal TIMEOUT, not an active run. Its earlier
-INCOMPLETE observation and all raw evidence remain. No automatic repair/retry.
-Numerical `71b3ddb` and CLI `84f045c` checkpoints are now pushed and remotely
-verified. The final focused24 distinct tests pass on both runtimes. Freeze303
-adds pyproject coverage to the original functional population plus two new test
-modules; only statistics changed among the prior300 inputs. The following
-finite work supersedes the older freeze/next-batch ordering below:
+The D083 amendment makes ML-first development the current priority: Generic ML
+with a first-class CV profile, then ML+OR, ML+Management Science & Engineering,
+and offline-only quantitative-finance ML. The first CVPR topic remains
+`AWAITING_OWNER_TOPIC`. The amendment authorizes bounded offline request/worker
+preparation, not live experiments or scientific authority.
 
-| Work / owner | Intended patch boundary | Dependency and observable exit / affected checks |
+Latest verification closes the original192-module / 3,294-distinct-ID
+Python3.11.15 selection: parent `58644`, exit0, with reviewed closure
+`68f0a148cd8f623f9f12d53477cbe04dae64db525536ee1f111b38446acaa749`, result
+`395aeae17a4777313b2dfa01a2a1f95fe7711821abb4101512e7860464dc5783`, and 885
+files. It is an enclosing-source selection only. Source freeze is
+`8f5b36693b67312a181c3fa0f87491623b48a2b85f1ec12e90027890767db973`. This does
+not pair with historical V9 Python3.14 evidence or establish a full suite,
+scientific, nested/helper, E4, or cleanup result. Existing24 focused and18
+operations checks remain separate; do not add their historical/private counts.
+
+| Work | Current state and next boundary |
+| --- | --- |
+| D083 offline ML/CV intake and Colab worker preparation | Root owns bounded source work; offline byte preparation/inspection DONE at component scope after non-author review and15 paired captured tests. Concrete transport and question-to-results workflow remain incomplete. Reuse existing owners; no new authority or live spending. |
+| Colab consumer CLI | Official automation CLI exists; `colab` is absent from PATH. Exact installed release/runtime, auth, plan entitlement, and live balance are unknown. No install, account access, allocation, or spending occurred. Pin reviewed source; require explicit auth mode. CU balance/rate visibility is not a hard per-job or cumulative spending cap. |
+| COLAB-001 | Awaiting owner triage; no defect conclusion or implementation claim. |
+| D082 / E0 / legacy CLI | Admission implementation, E0 changes, and stronger upgraded-CLI legacy restriction remain unapproved. |
+| gates67 / Claude | The 7,200-second gates67 capture ended TIMEOUT; cause, cancellation, cleanup, and all67 outcomes remain UNKNOWN. No retry. Claude credential-lock was not retried. |
+| Remaining original obligations | Continue the finite lifecycle/recovery/reproduction/package work, architecture packet and validators, qualified recovered-baseline history, and final capability/docs/Git report and audit after changed-source verification closes. Preserve all safety stops and unresolved external/scientific gates. |
+
+The published review checkpoint remains `431c1fd3368a854f19188854619468b26a5f2eda`;
+`main` remains `bba9ec5`. This development checkpoint does not claim a final
+release or Goal completion. Detailed dated V9 and earlier checkpoints below
+remain historical evidence; their former “remaining192 NOT_STARTED” statements
+are superseded by the current result above.
+
+### Finite remaining sequence — existing obligations, not new scope
+
+Root owns integration and evidence closure. After bounded D083 changes reach a
+stable source freeze, run only the affected checks and retain exact outcomes.
+Then continue the original final lifecycle/recovery/reproduction/package work,
+architecture packet and four structural validators, qualified recovered-baseline
+history, and requirement-by-requirement capability/docs/Git report with the
+canonical audit last. Failures, timeouts, stopped work, and external blockers
+remain explicit; none is waived by the completed Python3.11 selection.
+
+| Deliverable / root owner | Dependency | Observable exit |
 | --- | --- | --- |
-| Harness interpretation / root — DONE | Existing private evidence and ledger only; read-only runner review | Report delivered; timeout cause/outcomes/cleanup unknown. Repair or further diagnostic remains awaiting owner triage. |
-| Permutation correctness / root + non-author reviewer — DONE | `statistics.py`, new test module and comparison-v2 documentation | Reproduced defect; exact rational oracle,18 focused tests both runtimes and complete non-author review accepted; published71b3ddb. Historical results preserved. |
-| CLI consistency / root — DONE at conservative scope | `pyproject.toml`, supported-entry documentation, six startup/exit-contract tests | Unsupported console declaration removed; guarded launcher unchanged; published84f045c. Fresh source smoke proves help and truthful refusal, not successful initialized onboarding. |
-| Local onboarding / root — D082 design and non-author review DONE, implementation AWAITING_OWNER_TRIAGE | One local-mode packet in existing runbook; no production code or experiments | Proposed init/status/check-config only; E0 unchanged. Explicit approval needed for implementation and stronger upgraded-CLI legacy restriction. Host assessment complete; no issuer search. Actual configurable research remains separately incomplete. |
-| Verify / publish / root | Existing evidence/docs/handoff and coherent commits on current review branch | Focused checks during development, exact affected-evidence reconciliation, coherent source freeze and applicable final checks. Outgoing-content audit before each push; remote SHA verified; main unchanged, no final release. |
+| Colab offline byte preparation — DONE; publication pending | Existing frozen request/spec/output contracts, no authority edits | Complete non-author patch review and15 paired captured input/hash/schema/negative-result/failure checks; root raw/source joins closed. No live or collection authority claim. |
+| Question/configuration path | Existing admitted workspace and original scientific/controller owners; topic-independent inputs only | Exact supported intake path and first actual blocked stage documented; no fixed fixture mislabeled user research. Any consequential expanded repair is queued, not implemented. |
+| Source freeze and current synthetic lifecycle | Accepted bounded patches and no writers | Existing guarded vNext3/legacy8 ladders retain statuses, registry/ledger checks, recovery, architecture-control reproduction and package readback, or explicit unresolved outcomes. No fresh admission or scientific validation inferred. |
+| Architecture packet / four structural checks | Applicable frozen-source evidence reconciled | Provisional15-criterion packet and ADR0002; historical ADR0001 unchanged, stopped criterion BLOCKED. No invented15/15. |
+| Qualified recovered-baseline history | Existing47-file candidate, preserved source and disclosure checks | Transparent import and `v0.1.0-recovered-baseline` tag with original146 reconstructed scope; no new recovery campaign, original364 claim or main rewrite. |
+| Accepted development publication and final report/audit | Stable workspace, exact staged/outgoing content checked | Coherent review-branch commits, normal push and remote SHA verification; main unchanged. Final capability/Git report and canonical audit only after last applicable input mutation. |
 
-Numerical source changes invalidate claims that previous V9 full-source captures
-are validation of the new source; those captures remain valid historical V9
-evidence. Trace actual callers before selecting affected integration checks;
-do not rerun safety-stopped `test_scientific_core` or historical studies.
-Original final lifecycle/recovery/reproduction/architecture/Git requirements
-remain pending, not waived. New consequential findings outside D-080 go to
-owner triage under D-079. No broad refactor, security campaign or harness rewrite.
-
-Installed `test_vnext_operations` now passes the same18 distinct IDs on
-Python3.14.6 and3.11.15, with source/raw/worker closures `81afed5d` and `dd1c58a6`.
-Exact303-source identity and input fingerprints match. Do not repeat this
-completed selection. At the safe documentation publication boundary, continue
-the existing192-module/3294-ID Python3.11 selection at current D080 source (not
-exact-source pairing with historical V9 Python3.14). Any failure/timeout retains
-completed/unknown outcomes; new substantial diagnostics or repairs require
-owner triage, not an unchanged retry. Supported lifecycle, architecture packet,
-qualified baseline history and final audit remain finite original obligations.
-
-### Finite remaining sequence — existing checks, not new scope
-
-Root owns integration and evidence closure for each row. A failed, incomplete or
-blocked exit is recorded as such; it is not a passing completion. No new repair
-or substantial diagnostic follows without the applicable owner authorization.
-
-| Remaining item | Dependency | Observable exit |
-| --- | --- | --- |
-| Operations18 cross-runtime — DONE | Both original captures terminal; unchanged303 inputs | Same18 IDs/input fingerprint, raw/worker/loaded joins closed;18 distinct, not36. Evidence remains scoped and non-scientific. |
-| D082 documentation checkpoint — PREPARED, not pushed | No active capture depends on Git/workspace state; exact outgoing-content and history review | Coherent documentation-only commit on existing review branch, non-force push and remote SHA verification; main unchanged. No admission implementation implied. |
-| Remaining192 modules /3294 IDs, Python3.11 — NOT_STARTED | Current attempt closed; serial scheduling; frozen source and unchanged original permitted selection | First current-source capture and reviewed retained-data closure. Older V9 Python3.14 evidence stays a different source identity, not an exact-source pair. Do not begin against source known to be about to change. |
-| Current synthetic lifecycle — NOT_STARTED | Source stable and preceding shared-root captures terminal | Existing guarded vNext3-command and legacy8-command ladders retain exact run IDs, statuses, registry/ledger verification, architecture-control reproduction, packaging and post-package verification. Private historical admission is not fresh-user onboarding; expected reproduction exit1 remains distinct from failure or scientific reproduction. |
-| Architecture packet and4 structural validators — PENDING | Applicable test/lifecycle evidence closed or explicitly unresolved | Current15-criterion provisional packet with exact evidence and ADR0002 references; historical ADR0001 unchanged. Stopped criterion remains BLOCKED, no proxy assessment or invented15/15. Structural success alone is not behavioral acceptance. |
-| Qualified recovered-baseline history — PENDING | Stable preserved workspace, existing verified47-file candidate and publication checks | Transparent recovered-source import and authorized `v0.1.0-recovered-baseline` tag; preserve published ancestry/main and document actual branch structure. Reuse146 reconstructed-test evidence only at its exact scope; do not reconstruct again or claim original364 recovered. |
-| Final capability/docs/Git report and canonical audit — PENDING | All permitted preceding work reconciled; original blockers retained | Requirement-by-requirement evidence report, final Git facts and exact public-source identity; canonical audit after the last audited input mutation. No final-release, E4 or full Goal-completion claim while required work remains. |
-
-The question-driven research workflow remains INCOMPLETE. D082 implementation
-and its compatibility choice await owner triage; this affects admission work,
-not the unrelated rows above. Gates67 TIMEOUT, isolation verification limits,
-external access/data/custody, safety stops and historical uncertainty remain
-separate unresolved entries in the existing ledger; this checklist waives none.
+The question-driven research workflow remains INCOMPLETE. D082 admission
+implementation and compatibility choices are unapproved. gates67 TIMEOUT,
+isolation verification limits, external access/data/custody, safety stops, and
+historical uncertainty remain distinct unresolved entries in the existing
+ledger. Do not infer an experiment, E0 authority, hard spend cap, or final
+release from the current development checkpoint.
 
 ## Preserved V9 verification checkpoint
 
@@ -91,7 +91,7 @@ the safe V9 push and remote verification have completed, if ready. No automatic
 rerun or repair follows it; owner triage is next. The initial bounded Claude
 diagnosis is complete; the later credential-lock denial is not being retried.
 
-The [current handoff](OVERNIGHT_REPORT.md#development--review-checkpoint-september-23-2026)
+The [current handoff](OVERNIGHT_REPORT.md#current-handoff--owner-d083-september-24-2026)
 controls current evidence and ordering; historical plans below do not authorize
 stopped tests, unchanged retries, budget increases or new implementation work.
 

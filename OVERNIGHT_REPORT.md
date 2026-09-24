@@ -2,9 +2,92 @@ DEVELOPMENT / REVIEW — NOT FINAL RELEASE OR SCIENTIFIC APPROVAL
 
 # Scientist-One vNext Handoff
 
+## Current handoff — owner D083, September 24, 2026
+
+### MORNING ACTIONS
+
+| Action / recommended option | Why / blocked feature | Completed without it |
+| --- | --- | --- |
+| Confirm consumer Colab plan, approved CLI authentication route, remaining balance and renewal using local account controls; then approve a pinned installation/dependency scope if needed | No installed CLI or verified account/runtime; blocks live worker setup. Do not provide secrets in chat. | Official interface and existing transport boundaries reviewed; offline preparation is in development. |
+| Set explicit per-job and cumulative live CU caps after usable balance and interface limits are known; recommend a tiny staged smoke ceiling, not the monthly allowance | Chargeable GPU work is not authorized; account balance/rate is not a hard per-job cutoff | Unit/accounting gaps identified; no runtime or spending initiated. |
+| Approve a bounded Colab input/log-retention assessment for COLAB-001 before live activation; recommend public/non-sensitive inputs only meanwhile | Official CLI history can retain executed code/output; actual host behavior untested. Blocks confidential/live activation review, not offline engineering. | Concern recorded before repair; no CLI installation, private upload or log modification. |
+| Decide D082's reviewed local-mode implementation and explicit legacy compatibility tradeoff; recommend the documented stronger separation if approved, with E0 unchanged | Fresh standalone onboarding remains unimplemented; no hidden fallback or copied receipt | Local-mode design and independent review complete. |
+| Supply the first CVPR question, permitted inputs and disclosure scope | Topic-specific planning/novelty/experiments are AWAITING_OWNER_TOPIC | Topic-independent interfaces and clearly labeled engineering tests may proceed. |
+
+No automatic morning notification or resumption time is promised. These manual
+items do not block unrelated authorized work; no new consequential repair is
+implemented before owner triage.
+
+### Current evidence and limits
+
+The owner-directed priority is Generic ML with a first-class CV profile, then
+ML+OR, ML+Management Science & Engineering using existing capabilities, and
+offline-only quantitative-finance ML. First CVPR topic is
+`AWAITING_OWNER_TOPIC`; no topic-specific novelty, experiment, or result is
+claimed. D083 offline byte preparation/inspection now passes15 focused captured
+tests on both runtimes after non-author review. It binds existing frozen code,
+configuration and data hashes, rejects incomplete/mismatched return artifacts,
+and preserves successful, negative, null and failed seed outcomes. It performs
+no I/O, execution, spending or collection and is not a working cloud transport
+or question-to-results workflow. Source `f154a439` and tests `4ca1e3f5` bind
+results `6374701c` (3.11.15) and `309477c7` (3.14.6); root rechecked raw/worker,
+all298 captured inputs, loaded-module joins and the same15 IDs. Older full-source
+captures are not silently credited to this two-file source extension.
+
+The original192-module / 3,294-distinct-ID Python3.11.15 selection completed
+under parent `58644`, exit0. Reviewed closure is
+`68f0a148cd8f623f9f12d53477cbe04dae64db525536ee1f111b38446acaa749`, result is
+`395aeae17a4777313b2dfa01a2a1f95fe7711821abb4101512e7860464dc5783`, and 885
+files were reviewed. Source freeze is
+`8f5b36693b67312a181c3fa0f87491623b48a2b85f1ec12e90027890767db973`. This is
+enclosing-scope verification only, not full-suite, nested/helper, scientific,
+E4, live, or cleanup evidence and not a paired V9 Python3.14 result. Existing24
+focused and18 operations checks are separate and non-additive. gates67 remains
+TIMEOUT; cause, cancellation, cleanup, and all67 outcomes are UNKNOWN. Do not
+retry. Claude credential-lock was not retried.
+
+Google's [official consumer Colab CLI](https://github.com/googlecolab/google-colab-cli)
+documents headless allocation and `colab run`; this supersedes the earlier manual-only inference. It is absent
+from `PATH`, and exact CLI release/runtime, authentication, entitlement, and
+balance are unknown. No install, account access, live runtime, or spending has
+occurred. Require explicit auth mode; `colab auth` is VM-side GCP access, not
+CLI login. A reported owner entitlement is private ledger context and is not
+published here. No hard CU cap is promised; Enterprise APIs are not assumed.
+The [automation documentation](https://github.com/googlecolab/google-colab-cli/blob/main/docs/04_automation_and_utility.md)
+describes local history and aggregate usage; these are source-level observations,
+not runtime validation. The Colab evidence request specified Luna/medium;
+actual runtime is `UNVERIFIED`.
+
+D082 admission implementation, E0 changes, and stronger legacy-CLI restriction
+remain unapproved. The official Colab CLI finding COLAB-001 awaits owner triage.
+Remaining finite work: publish the accepted bounded D083 preparation, then
+close the dependent lifecycle/recovery/reproduction/package, architecture,
+qualified baseline history, and final capability/docs/Git audit obligations.
+Preserve scientific, confidentiality, safety, external-validation, and E4
+gates.
+
+Engineering check (trusted selected interpreter; not a research or GPU command):
+
+```sh
+python3 -I -S -B scripts/scientist_one_cli.py __captured-test-module__ tests.test_colab_preparation
+```
+
+The existing `start --brief question.md` preserves user text in an admitted
+workspace but is not question-to-plan execution. Source trace confirms that
+non-synthetic `CHARTER` explicitly stops for supplied external evidence/providers.
+No new experiment or research result is claimed. See the runbook for the earlier
+fresh-admission refusal, unchanged legacy exits and D082's proposed-only route.
+
 ## Development / review checkpoint September 23, 2026
 
-Current: the bounded permutation correction is integrated after non-author
+Latest verified published checkpoint:
+`review/vnext-checkpoint` at `431c1fd3368a854f19188854619468b26a5f2eda`.
+Fresh remote-ref query and fetch confirmed the documentation/source/test tree;
+main remains `bba9ec5`, upstream tracking is set, and the tracked tree was clean
+at push verification. This local post-push handoff line is not yet published.
+Private captures remain excluded; this is DEVELOPMENT / REVIEW only.
+
+Historical September23 status: the bounded permutation correction is integrated after non-author
 review, with 18 focused numerical tests passing on both Python 3.14.6 and
 3.11.15. New comparisons use exact represented-value ties and retain all tail,
 enumeration and seeded Monte Carlo conventions. The scaled example returns
