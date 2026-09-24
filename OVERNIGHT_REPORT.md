@@ -4,11 +4,18 @@ DEVELOPMENT / REVIEW — NOT FINAL RELEASE OR SCIENTIFIC APPROVAL
 
 ## Current handoff — owner D083, September 24, 2026
 
+Published development checkpoint:
+`review/vnext-checkpoint` → `0c48e60d2a7ca05a00bb223c39abe7777b99c108`.
+Fresh remote-ref query and fetch verified354 files,74 source files,219 test files
+and exact new component/test bytes. Upstream is set; main remains `bba9ec5`.
+The tracked tree/index was clean at verification. Whole reachable-history audit
+covered10 commits/404 blobs; private evidence stays excluded. No final release.
+
 ### MORNING ACTIONS
 
 | Action / recommended option | Why / blocked feature | Completed without it |
 | --- | --- | --- |
-| Confirm consumer Colab plan, approved CLI authentication route, remaining balance and renewal using local account controls; then approve a pinned installation/dependency scope if needed | No installed CLI or verified account/runtime; blocks live worker setup. Do not provide secrets in chat. | Official interface and existing transport boundaries reviewed; offline preparation is in development. |
+| Confirm consumer Colab plan, approved CLI authentication route, remaining balance and renewal using local account controls; then approve a pinned installation/dependency scope if needed | CLI not found on PATH, no verified account/runtime; blocks live worker setup. Do not provide secrets in chat. | Official interface and existing transport boundaries reviewed; offline preparation is published with15 paired checks. |
 | Set explicit per-job and cumulative live CU caps after usable balance and interface limits are known; recommend a tiny staged smoke ceiling, not the monthly allowance | Chargeable GPU work is not authorized; account balance/rate is not a hard per-job cutoff | Unit/accounting gaps identified; no runtime or spending initiated. |
 | Approve a bounded Colab input/log-retention assessment for COLAB-001 before live activation; recommend public/non-sensitive inputs only meanwhile | Official CLI history can retain executed code/output; actual host behavior untested. Blocks confidential/live activation review, not offline engineering. | Concern recorded before repair; no CLI installation, private upload or log modification. |
 | Decide D082's reviewed local-mode implementation and explicit legacy compatibility tradeoff; recommend the documented stronger separation if approved, with E0 unchanged | Fresh standalone onboarding remains unimplemented; no hidden fallback or copied receipt | Local-mode design and independent review complete. |
@@ -60,8 +67,8 @@ actual runtime is `UNVERIFIED`.
 
 D082 admission implementation, E0 changes, and stronger legacy-CLI restriction
 remain unapproved. The official Colab CLI finding COLAB-001 awaits owner triage.
-Remaining finite work: publish the accepted bounded D083 preparation, then
-close the dependent lifecycle/recovery/reproduction/package, architecture,
+Remaining finite work after the accepted D083 checkpoint: complete the dependent
+lifecycle/recovery/reproduction/package checks, architecture packet,
 qualified baseline history, and final capability/docs/Git audit obligations.
 Preserve scientific, confidentiality, safety, external-validation, and E4
 gates.
