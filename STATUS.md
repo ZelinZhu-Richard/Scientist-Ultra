@@ -7,7 +7,7 @@ Colab input/result preparation passes15 focused captured tests on both runtimes
 after non-author review; live transport/CU authority and question-to-results
 execution remain incomplete. The D0803294-ID Python3.11 selection and paired18
 operations checks are closed at their exact prior source scope. See the
-[current handoff](OVERNIGHT_REPORT.md#current-handoff--owner-d083-september-24-2026)
+[current handoff](OVERNIGHT_REPORT.md#current-handoff--owner-d085-september-24-2026)
 for evidence, exclusions and queued manual actions. D082 implementation remains
 unapproved; no host-issuer search, gates67 retry or live GPU action is pending.
 

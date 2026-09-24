@@ -18,6 +18,7 @@ from .git_audit import (
     GitAuditFile,
     GitAuditFinding,
     GitAuditSession,
+    is_reviewed_synthetic_fixture,
 )
 from .security import (
     INVALID_UTF8_SECRET_SCAN_LABEL,
@@ -72,6 +73,18 @@ class AuditFinding:
     detail: str
 
 
+@dataclass(frozen=True)
+class ReviewedDisposition:
+    """One exact observation; never a caller-configurable scanning exemption."""
+
+    finding: AuditFinding
+    classification: str
+    content_sha256: str
+    field_pointer: str | None = None
+    blob_oid: str | None = None
+    target_access: str = "NOT_PERMITTED"
+
+
 @dataclass
 class _InventoryState:
     records: list[FileRecord]
@@ -104,15 +117,44 @@ class ProjectAudit:
     lockfiles: tuple[str, ...]
     git: GitAuditCoverage | None = None
     _binding: _AuditBinding | None = field(default=None, repr=False, compare=False)
+    reviewed_dispositions: tuple[ReviewedDisposition, ...] = ()
+
+    def _dispositions_eligible(self) -> bool:
+        return bool(
+            self.git is not None and self.git.passed and self._binding is not None
+            and self.reviewed_dispositions
+            and not any(item.check == "changed_during_audit" for item in self.findings)
+            and all(self.findings.count(item.finding) == 1 for item in self.reviewed_dispositions)
+            and len({item.finding for item in self.reviewed_dispositions}) == len(self.reviewed_dispositions)
+        )
+
+    def _dispositions_effective(self) -> bool:
+        if not self._dispositions_eligible():
+            return False
+        assert self._binding is not None
+        # The proposed classification participates in the *existing* report
+        # seal. Dataclass replacement or a deserialized report is not authority.
+        return hashlib.sha256(self._report_json(True).encode("utf-8")).hexdigest() == self._binding.report_sha256
+
+    def _unresolved(self, effective: bool) -> tuple[AuditFinding, ...]:
+        classified = {item.finding for item in self.reviewed_dispositions} if effective else set()
+        return tuple(item for item in self.findings if item not in classified)
+
+    @property
+    def unresolved_finding_count(self) -> int:
+        return len(self._unresolved(self._dispositions_effective()))
 
     @property
     def passed(self) -> bool:
         return (
-            not self.findings and not self.lockfiles
+            not self._unresolved(self._dispositions_effective()) and not self.lockfiles
             and (self.git is None or self.git.passed)
         )
 
     def as_json(self) -> str:
+        return self._report_json(self._dispositions_effective())
+
+    def _report_json(self, effective: bool) -> str:
         # Preserve the exact historical wire format when no Git exists. The
         # private live-identity seal is not a second provenance inventory.
         value = {
@@ -126,7 +168,17 @@ class ProjectAudit:
         }
         if self.git is not None:
             value["git"] = self.git.to_dict()
-        value["passed"] = self.passed
+            if self.reviewed_dispositions:
+                value["disposition_policy"] = "AUDIT001_REVIEWED_DISPOSITIONS_V1"
+                value["reviewed_dispositions"] = [
+                    {**asdict(item), "nonblocking": effective}
+                    for item in self.reviewed_dispositions
+                ]
+                value["unresolved_finding_count"] = len(self._unresolved(effective))
+        value["passed"] = bool(
+            not self._unresolved(effective) and not self.lockfiles
+            and (self.git is None or self.git.passed)
+        )
         payload = canonical_json_bytes(value)
         if len(payload) > MAX_AUDIT_REPORT_BYTES:
             raise UnsafeSerializationError("audit report exceeds output size limit")
@@ -709,9 +761,66 @@ def _strings(value: Any) -> Iterable[str]:
             yield from _strings(child)
 
 
-def _outside_root_paths_in_payload(payload: bytes, root: Path) -> list[str]:
+_REVIEWED_MANIFEST_PATH = "reports/final_functional_source_inventory.json"
+_REVIEWED_MANIFEST_SHA256 = "912835d3dc91f4e9cab26b46d7aeb7e55b5f2a049284632e68fdc5351b205abe"
+_SHA256 = re.compile(r"[0-9a-f]{64}\Z")
+
+
+def _reviewed_interpreter_provenance(relative: str, payload: bytes, data: Any) -> str | None:
+    """Classify only reviewed bytes; never resolve or access the recorded target."""
+    if relative != _REVIEWED_MANIFEST_PATH or hashlib.sha256(payload).hexdigest() != _REVIEWED_MANIFEST_SHA256:
+        return None
+    keys = {
+        "schema_version", "generated_at", "interpreter_path", "interpreter_version",
+        "selection_rule", "file_count", "total_bytes", "aggregate_sha256", "entries",
+    }
+    if type(data) is not dict or data.keys() != keys:
+        return None
+    if data["schema_version"] != "scientist-one-functional-source-inventory/v1":
+        return None
+    for key in ("generated_at", "interpreter_path", "interpreter_version", "selection_rule", "aggregate_sha256"):
+        value = data[key]
+        if type(value) is not str or not 1 <= len(value) <= 4096 or any(ord(c) < 32 or ord(c) == 127 for c in value):
+            return None
+    target = data["interpreter_path"]
+    if not Path(target).is_absolute() or not _SHA256.fullmatch(data["aggregate_sha256"]):
+        return None
+    if any(type(data[key]) is not int or data[key] < 0 for key in ("file_count", "total_bytes")):
+        return None
+    entries = data["entries"]
+    if type(entries) is not list or len(entries) > MAX_AUDIT_FILES or len(entries) != data["file_count"]:
+        return None
+    paths: set[str] = set()
+    total = 0
+    for entry in entries:
+        if type(entry) is not dict or entry.keys() != {"path", "size", "sha256"}:
+            return None
+        path = entry["path"]
+        if (
+            type(path) is not str or not 1 <= len(path) <= 4096
+            or any(ord(c) < 32 or ord(c) == 127 for c in path)
+            or "\\" in path or any(part in {"", ".", ".."} for part in path.split("/"))
+            or path in paths
+            or type(entry["size"]) is not int or not 0 <= entry["size"] <= MAX_AUDIT_FILE_BYTES
+            or type(entry["sha256"]) is not str or not _SHA256.fullmatch(entry["sha256"])
+        ):
+            return None
+        paths.add(path)
+        total += entry["size"]
+        if total > MAX_AUDIT_TOTAL_BYTES:
+            return None
+    return target if total == data["total_bytes"] else None
+
+
+def _outside_root_paths_in_payload(payload: bytes, root: Path, *, relative: str = "") -> list[str]:
     data = safe_json_loads(payload)
     outside: list[str] = []
+    provenance = _reviewed_interpreter_provenance(relative, payload, data)
+    if provenance is not None:
+        # Keep the raw observation (also in strict no-Git reports), but do not
+        # follow the recorded target. Only this root field changes treatment.
+        outside.append(provenance)
+        data = {key: value for key, value in data.items() if key != "interpreter_path"}
     for value in _strings(data):
         candidate = Path(value)
         if not candidate.is_absolute():
@@ -737,7 +846,7 @@ def outside_root_paths_in_json(path: Path, root: Path) -> list[str]:
     )
     if payload is None:
         raise PathSecurityError("manifest disappeared during audit")
-    return _outside_root_paths_in_payload(payload, root)
+    return _outside_root_paths_in_payload(payload, root, relative=relative.as_posix())
 
 
 def _audit_before_record_validation(record: FileRecord) -> None:
@@ -946,6 +1055,7 @@ def audit_project(
     )
     records = state.records
     findings = list(state.findings)
+    dispositions: list[ReviewedDisposition] = []
     session, git = _start_git_audit(root, state, excludes=excludes, excluded_files=excluded_files)
     binding = _AuditBinding(
         tuple(state.records), tuple(state.findings),
@@ -986,6 +1096,11 @@ def audit_project(
                 )
                 continue
             findings.extend(_scan_text_secret_payload(record.path, payload))
+            if is_reviewed_synthetic_fixture(record.path, payload):
+                dispositions.append(ReviewedDisposition(
+                    AuditFinding("secret_pattern", record.path, "secret_assignment"),
+                    "REVIEWED_SYNTHETIC_REJECTION_FIXTURE", record.sha256,
+                ))
             if session is not None and record.path.startswith(".git/"):
                 try:
                     session.observe(record.path, payload)
@@ -998,13 +1113,20 @@ def audit_project(
                     git = _git_failure(records, "git_parser_observation_failure")
             if Path(record.path).suffix == ".json" and record.path.split("/", 1)[0] in set(manifest_directories):
                 try:
-                    outside = _outside_root_paths_in_payload(payload, root)
+                    outside = _outside_root_paths_in_payload(payload, root, relative=record.path)
+                    provenance = _reviewed_interpreter_provenance(record.path, payload, safe_json_loads(payload))
                 except (UnsafeSerializationError, UnicodeDecodeError) as exc:
                     findings.append(AuditFinding("invalid_manifest_json", record.path, type(exc).__name__))
                 else:
                     findings.extend(
                         AuditFinding("outside_root_manifest_path", record.path, value) for value in outside
                     )
+                    if provenance is not None:
+                        dispositions.append(ReviewedDisposition(
+                            AuditFinding("outside_root_manifest_path", record.path, provenance),
+                            "RECORDED_INTERPRETER_PROVENANCE", record.sha256,
+                            field_pointer="/interpreter_path",
+                        ))
         if session is not None:
             try:
                 git = session.finalize()
@@ -1045,6 +1167,14 @@ def audit_project(
                 and item.path in waivers
             )]
         findings.extend(AuditFinding("git_validation", item.path, item.code) for item in git.findings)
+        for item in git.reviewed_findings:
+            finding = AuditFinding("git_validation", item.path, item.code)
+            findings.append(finding)
+            dispositions.append(ReviewedDisposition(
+                finding, "REVIEWED_SYNTHETIC_REJECTION_FIXTURE",
+                "d0e59a5f285498633b98c7c152e62b0ae1e0ed856b9d3f910af997e6ffdfceab",
+                blob_oid=item.path.removeprefix(".git/decoded-objects/"),
+            ))
     for relative_directory in sorted(state.directory_identities):
         try:
             directory_fd = _open_bound_directory_fd(
@@ -1075,10 +1205,11 @@ def audit_project(
         tuple(lockfiles),
         git,
         binding,
+        tuple(dispositions) if git is not None else (),
     )
     if binding is not None:
         result = replace(result, _binding=replace(
-            binding, report_sha256=hashlib.sha256(result.as_json().encode("utf-8")).hexdigest(),
+            binding, report_sha256=hashlib.sha256(result._report_json(result._dispositions_eligible()).encode("utf-8")).hexdigest(),
         ))
     return result
 

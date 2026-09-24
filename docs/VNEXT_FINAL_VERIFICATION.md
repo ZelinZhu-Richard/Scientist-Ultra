@@ -32,7 +32,7 @@ raw/worker/loaded-source joins. Source `f154a439`, tests `4ca1e3f5`, non-author
 review `58b83207`. No live/worker/CU/scientific authority is established. Prior
 full-source captures remain at their recorded identities; current synthetic
 lifecycle is closed above; whole-architecture acceptance and final audit remain pending. See the
-[current handoff](../OVERNIGHT_REPORT.md#current-handoff--owner-d083-september-24-2026).
+[current handoff](../OVERNIGHT_REPORT.md#current-handoff--owner-d085-september-24-2026).
 
 The hash-bound architecture report061277c0 and ADR1818a4e2 were frozen before
 the structural checks and qualified-baseline publication. Their prospective

@@ -79,7 +79,7 @@ class ProjectGitAuditTests(unittest.TestCase):
         def forward(session, arguments, **kwargs):
             nonlocal changed
             output = original_run(session, arguments, **kwargs)
-            if arguments[0] == "fsck" and not changed:
+            if "fsck" in arguments and not changed:
                 target = self.root / ".git" / "config"
                 original = target.read_bytes()
                 target.write_bytes(original + b"\n")
@@ -151,7 +151,7 @@ class ProjectGitAuditTests(unittest.TestCase):
         def forward(session, arguments, **kwargs):
             nonlocal changed
             output = original_run(session, arguments, **kwargs)
-            if arguments[0] == "fsck" and not changed:
+            if "fsck" in arguments and not changed:
                 target = self.root / "README.md"
                 original = target.read_bytes()
                 target.write_bytes(original + b"\n")

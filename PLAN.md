@@ -91,7 +91,7 @@ the safe V9 push and remote verification have completed, if ready. No automatic
 rerun or repair follows it; owner triage is next. The initial bounded Claude
 diagnosis is complete; the later credential-lock denial is not being retried.
 
-The [current handoff](OVERNIGHT_REPORT.md#current-handoff--owner-d083-september-24-2026)
+The [current handoff](OVERNIGHT_REPORT.md#current-handoff--owner-d085-september-24-2026)
 controls current evidence and ordering; historical plans below do not authorize
 stopped tests, unchanged retries, budget increases or new implementation work.
 

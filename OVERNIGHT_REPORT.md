@@ -2,21 +2,57 @@ DEVELOPMENT / REVIEW — NOT FINAL RELEASE OR SCIENTIFIC APPROVAL
 
 # Scientist-One vNext Handoff
 
-## Current handoff — owner D083, September 24, 2026
+## Current handoff — owner D085, September 24, 2026
 
-Published implementation checkpoint on `review/vnext-checkpoint`:
-`0c48e60d2a7ca05a00bb223c39abe7777b99c108`, followed by verified handoff commit
-`1b1629ef631bb6acfa2a761b8d712b68809d389e`.
-Fresh remote-ref query and fetch verified354 files,74 source files,219 test files
-and exact new component/test bytes. Upstream is set; main remains `bba9ec5`.
-The tracked tree/index was clean at verification. Whole reachable-history audit
-covered11 commits/405 blobs through the handoff; private evidence stays excluded.
-Subsequent verification/documentation below is local until its next safe push.
-No final release. Qualified recovered baseline is separately published at
+This development checkpoint extends the previously verified public base
+`e29908728728a4f61a70e92bd77bfcf3d712f5fd` on `review/vnext-checkpoint`.
+The exact accepted implementation patch is SHA-256
+`2e7610e6fc19d04886ecded43b8ee0302e69d655605dd4bdbaaf0756ff8b6662`;
+publication/remote commit identities are recorded in the local run ledger and
+conversation after synchronization. Main stays `bba9ec5`; no final release.
+Qualified recovered baseline is separately published at
 `4762578f023da4c172c3f3eb69c90bf99950958f` on `codex/recovered-baseline`, tagged
 `v0.1.0-recovered-baseline`. Fresh fetch and remote peeled-tag identity agree;
 47 source/test/support files are visible, including146 explicitly reconstructed
 test methods. Main and the existing review history are unchanged.
+
+**AUDIT-001 implementation:** narrow Git-format compatibility plus native
+verification, exact synthetic-fixture classification, and typed/pinned interpreter
+provenance are installed. Raw classified observations remain in the report;
+nonblocking treatment requires successful Git coverage and the live publication
+seal. No-Git behavior stays strict. No scientific, custody or E4 authority changes.
+
+The same99 focused test IDs passed on Python3.11.15 and3.14.6. After removing one
+unused test import, the affected11 were rerun on both runtimes; the other88 retain
+unchanged actual loaded dependencies. Closure `b2bf7d65` binds that scoped reuse
+to the prior99-paired closure `f046b130`; this is not a new full-suite pass or110
+distinct tests. Focused six-file lint passes. Two earlier APFS test-fixture
+failures remain retained; separate malformed-ref fixtures resolved the accidental
+case-insensitive ancestor reuse without weakening refusal assertions. Non-author
+review examined the complete immutable patch and focused evidence. The original
+unavailable/stopped reviews remain separately unresolved.
+
+The exact513 generated cache files (41,973,903 bytes) were preserved privately,
+all contents/hash/identity and durability barriers verified, then only those
+original files removed. No directories or Git metadata were removed. Original
+stat metadata is retained; ACL/xattrs were not captured. Recovery requires an
+explicit conflict-refusing restoration, not automatic overwrite. Eighteen private
+inert transfer tests pass on both runtimes, separately from the99 product tests.
+Non-author review caught and closed an unexecuted-helper durability defect before
+transfer: destination readback now binds the inode/metadata actually synchronized.
+
+**Historical audit:** the previous final audit ended non-PASS,
+exit1,545 findings; report SHA-256
+`ebac97243f61b36115fa4ee1d0db93f9d9a6f2dd90dda29e628445c0e10cca58` remains
+unchanged in the durable private evidence location. Its original report and the
+17 private-cache pattern records remain unresolved historical evidence, not a
+retrospective PASS. The [reviewed packet](docs/GIT_AUDIT_BOUNDARY.md#audit-001-decision-packet--proposed-not-implemented)
+is retained as historical design. The first refusal was MIDX, not app refs; two
+historical app refs are absent for an unknown reason. Cache absence does not
+prove harmlessness. The next audit covers changed implementation and inventory.
+One final audit is authorized only after publication and all bookkeeping; its
+actual outcome/digest will be reported in the conversation without modifying
+the audited repository afterward. No result is assumed here. No test is active.
 
 ### MORNING ACTIONS
 
@@ -27,15 +63,14 @@ test methods. Main and the existing review history are unchanged.
 | Approve a bounded Colab input/log-retention assessment for COLAB-001 before live activation; recommend public/non-sensitive inputs only meanwhile | Official CLI history can retain executed code/output; actual host behavior untested. Blocks confidential/live activation review, not offline engineering. | Concern recorded before repair; no CLI installation, private upload or log modification. |
 | Decide D082's reviewed local-mode implementation and explicit legacy compatibility tradeoff; recommend the documented stronger separation if approved, with E0 unchanged | Fresh standalone onboarding remains unimplemented; no hidden fallback or copied receipt | Local-mode design and independent review complete. |
 | Supply the first CVPR question, permitted inputs and disclosure scope | Topic-specific planning/novelty/experiments are AWAITING_OWNER_TOPIC | Topic-independent interfaces and clearly labeled engineering tests may proceed. |
-| Decide AUDIT-001: recommend one bounded Git-metadata compatibility design after the retained final-audit result, not automatic repair | Existing auditor's supported metadata grammar omits app-managed refs; source-level refusal predicted, runtime outcome pending. Blocks full audit acceptance, not separately audited public development source. | No app refs deleted, exclusions widened or audit code changed; normal temporary baseline worktree removed after remote verification. |
 
 No automatic morning notification or resumption time is promised. These manual
 items do not block unrelated authorized work; no new consequential repair is
 implemented before owner triage.
 
-### Current evidence and limits
+### Earlier D083 evidence and continuing limits
 
-Both planned current-source lifecycle sequences are complete on Python3.14.6,
+Both planned D083-source lifecycle sequences completed on Python3.14.6,
 with all305 frozen inputs unchanged (`8204cca1`). VNext fixture/status/verify
 passed technically:342 artifacts,67 events, scientific outcome
 `MORE_EXPERIMENTS_REQUIRED`, paper/release blocked. Closure `ddf4f878` binds the
@@ -51,7 +86,8 @@ architecture packet is independently reviewed, not fully accepted: report061277c
 review64020b29,5 scopedPASS/8PARTIAL/1BLOCKED/1PENDING. The same four unchanged
 structural validators pass3.11.15/3.14.6 (results510c1181/093445be), not eight
 distinct tests or15 behavioral passes. All78 source/launcher files compile on
-both runtimes without execution. Final audit remains; its outcome is not assumed.
+both runtimes without execution. Those historical identities are not overwritten
+by the bounded D085 audit changes; no research lifecycle was rerun for this patch.
 
 The owner-directed priority is Generic ML with a first-class CV profile, then
 ML+OR, ML+Management Science & Engineering using existing capabilities, and
@@ -93,8 +129,10 @@ actual runtime is `UNVERIFIED`.
 
 D082 admission implementation, E0 changes, and stronger legacy-CLI restriction
 remain unapproved. The official Colab CLI finding COLAB-001 awaits owner triage.
-Remaining finite work: finish current evidence/capability documentation, publish the safe documentation
-checkpoint and run the last-mutation project audit. Completed synthetic lifecycle checks do not
+Remaining finite D085 work: publish the accepted audit implementation and safe
+documentation, verify the remote identity, finish bookkeeping, then run the one
+last-mutation project audit. A non-PASS result must be retained and reported, not
+automatically repaired or retried. Completed synthetic lifecycle checks do not
 resolve stopped crash/isolation work or the real-data/external requirements.
 Preserve scientific, confidentiality, safety, external-validation, and E4
 gates.

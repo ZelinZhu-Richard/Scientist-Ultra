@@ -1584,6 +1584,7 @@ def _run_project_audit(
     print(f"file_count={audit.file_count}")
     print(f"total_bytes={audit.total_bytes}")
     print(f"findings={len(audit.findings)}")
+    print(f"unresolved_findings={audit.unresolved_finding_count}")
     print(f"lockfiles={len(audit.lockfiles)}")
     print(f"report={target.relative_to(root)}")
     return 0 if audit.passed else 1
