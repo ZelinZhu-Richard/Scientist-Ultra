@@ -1,0 +1,107 @@
+# Conservative public-content defaults; effective Git behavior is not yet
+# verified. See docs/PUBLIC_RELEASE_POLICY.md. Select files explicitly; never
+# force-add to bypass review. These rules do not alter scientific audit inputs.
+
+# Local orchestration, runs, evidence, custody, state and locks.
+/.run/
+/.scientist-one-build/
+/runs/
+/artifacts/
+/reports/
+/state/
+/.scientist-one-*.lock
+
+# Local app/agent/editor configuration.
+/.agents/
+/.codex/
+/.idea/
+/.vscode/
+
+# Credentials/private configuration. The example exception only permits review.
+.env
+.env.*
+!.env.example
+.envrc
+.secrets/
+.credentials/
+credentials.json
+credentials.*.json
+token.json
+tokens.json
+cookies.txt
+cookies.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+
+# Caches, environments, dependencies and generated builds.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.cache/
+.tox/
+.nox/
+.venv/
+venv/
+env/
+node_modules/
+*.egg-info/
+/build/
+/dist/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Generated local output and editor/OS files.
+/tmp/
+/temp/
+*.tmp
+*.temp
+*.log
+*.dmp
+*.core
+*.crash
+*.ips
+core
+core.[0-9]*
+*.swp
+*.swo
+*~
+.DS_Store
+._*
+
+# Unreviewed data/literature/model stores and binary/package outputs.
+# Essential redistributable assets need narrow, documented reviewed exceptions.
+/data/
+/datasets/
+/literature/
+/models/
+*.[zZ][iI][pP]
+*.tar
+*.tar.*
+*.tgz
+*.gz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.whl
+*.[pP][dD][fF]
+*.db
+*.sqlite
+*.sqlite3
+*.parquet
+*.arrow
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.pt
+*.pth
+*.onnx
+*.safetensors

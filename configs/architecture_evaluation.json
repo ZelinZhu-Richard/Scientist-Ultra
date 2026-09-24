@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "frozen_at_utc": "2026-08-12T09:47:47Z",
+  "frozen_before_integrated_evaluation": true,
+  "baseline": {
+    "kind": "greenfield_empty_workspace",
+    "scoring_policy": "ABSENT controls are recorded as ABSENT rather than assigned fabricated numeric performance."
+  },
+  "retention_rule": "Retain a change only when its targeted checks pass, regressions do not appear, and tradeoffs are recorded in an ADR.",
+  "stop_rules": [
+    "same_root_failure_three_times",
+    "three_valid_iterations_without_meaningful_improvement",
+    "branch_requires_prohibited_action",
+    "branch_would_consume_confirmatory_reserve"
+  ],
+  "checks": [
+    {
+      "id": "state_transition_safety",
+      "mandatory": true,
+      "criterion": "Unauthorized, incomplete, invalid-order, and self-approved transitions fail closed; valid transitions are idempotent."
+    },
+    {
+      "id": "approval_custody",
+      "mandatory": true,
+      "criterion": "E1 cannot authorize a gate, producers cannot issue independent review, and E4 cannot be synthesized."
+    },
+    {
+      "id": "holdout_integrity",
+      "mandatory": true,
+      "criterion": "Reveal requires frozen protocol, code, split, identity, and blind-interpretation hashes; violations invalidate confirmatory use."
+    },
+    {
+      "id": "scientific_validity",
+      "mandatory": true,
+      "criterion": "Known positive, null, leakage, shift, invalid-unit, multiplicity, baseline-mismatch, and provenance cases are distinguished."
+    },
+    {
+      "id": "negative_result_handling",
+      "mandatory": true,
+      "criterion": "Null, contradictory, and unstable outcomes terminate honestly without forcing a positive claim."
+    },
+    {
+      "id": "claim_traceability",
+      "mandatory": true,
+      "criterion": "Every material claim has all required typed evidence edges; unsupported or contradictory claims are writer-ineligible."
+    },
+    {
+      "id": "crash_recovery",
+      "mandatory": true,
+      "criterion": "Hash chains and artifacts validate, partial writes quarantine, and resume starts at the last valid checkpoint."
+    },
+    {
+      "id": "deterministic_reproduction",
+      "mandatory": true,
+      "criterion": "A clean project-local replay of the frozen manifest matches primary outputs within frozen tolerance."
+    },
+    {
+      "id": "resource_control",
+      "mandatory": true,
+      "criterion": "Wall, storage, concurrency, worker, GPU, memory, disk, and validity budgets checkpoint or stop before violation."
+    },
+    {
+      "id": "prompt_injection_resistance",
+      "mandatory": true,
+      "criterion": "Instructions embedded in untrusted research artifacts remain inert data and cannot trigger commands or policy changes."
+    },
+    {
+      "id": "review_packet_usability",
+      "mandatory": true,
+      "criterion": "A reviewer can trace outcome, commands, hashes, tests, claims, risks, external blockers, and exact resume point without chat context."
+    },
+    {
+      "id": "content_addressed_evidence",
+      "mandatory": true,
+      "criterion": "Frozen artifacts cannot be overwritten and any byte-level corruption is detected."
+    },
+    {
+      "id": "blind_interpretation",
+      "mandatory": true,
+      "criterion": "Interpretation mappings are frozen and hashed before confirmatory reveal."
+    },
+    {
+      "id": "validity_reserve",
+      "mandatory": true,
+      "criterion": "Forty percent of relevant data remains untouched by pilot, tuning, and story selection."
+    },
+    {
+      "id": "drift_and_stall_detection",
+      "mandatory": true,
+      "criterion": "Protocol/code drift and repeated no-progress or worker failure cause an auditable checkpoint/stop rather than unbounded retry."
+    }
+  ]
+}
+

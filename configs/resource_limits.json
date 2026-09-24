@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "maximum_wall_clock_seconds": 28800,
+  "maximum_artifact_bytes": 2147483648,
+  "maximum_concurrent_experiments": 2,
+  "cpu_worker_limit": 7,
+  "gpu_job_limit": 1,
+  "memory_soft_fraction": 0.60,
+  "memory_hard_fraction": 0.70,
+  "minimum_free_disk_bytes": 26843545600,
+  "minimum_free_disk_fraction": 0.10,
+  "checkpoint_interval_seconds": 300,
+  "validity_reserve_fraction": 0.40,
+  "worker_crash_limit": 3,
+  "default_device": "auto",
+  "default_dtype": "float32"
+}
+

@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "fixture_type": "scientist_one.synthetic_workflow_tasks",
+  "description": "Frozen generator contract for the deterministic six-scenario scientific-workflow benchmark.",
+  "generator": "scientist_one.calibration.generate_synthetic_workflow_tasks:v3",
+  "seed": 20260812,
+  "scenarios": [
+    "signal",
+    "null",
+    "reversal",
+    "leakage",
+    "invalid-analysis",
+    "corrupted-evidence"
+  ],
+  "expected_decisions": {
+    "signal": "POSITIVE_SIGNAL",
+    "null": "NEGATIVE_RESULT",
+    "reversal": "SIGN_REVERSAL",
+    "leakage": "INVALID_LEAKAGE",
+    "invalid-analysis": "INVALID_ANALYSIS",
+    "corrupted-evidence": "CORRUPTED_EVIDENCE"
+  },
+  "expected_terminal_states": {
+    "signal": "DEMO_RESEARCH_PACKAGE",
+    "null": "NEGATIVE_RESULT",
+    "reversal": "INCONCLUSIVE",
+    "leakage": "STOP_SCIENTIFIC_INVALIDITY",
+    "invalid-analysis": "STOP_SCIENTIFIC_INVALIDITY",
+    "corrupted-evidence": "STOP_SCIENTIFIC_INVALIDITY"
+  },
+  "task_set_sha256": "01b7a02de53e12b91cfdfe47d8dda8270c6aaca2fe91d5ecbb2f9a87d5ea1ff0",
+  "generator_contract_sha256": "4c548989189e9f91f48be2b7f6d03216bba375904cd93140633a29cf5d4188ff"
+}
