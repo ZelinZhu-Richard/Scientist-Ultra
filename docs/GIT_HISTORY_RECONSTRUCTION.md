@@ -1,7 +1,40 @@
 # Git history reconstruction
 
-Status: **published V8 review checkpoint preserved; local V9 installed;
-qualified recovered-baseline import/tag and final history integration pending**.
+Status: **D083 development checkpoint published; qualified recovered-baseline
+import and tag published separately; final vNext release remains incomplete**.
+
+On September24,2026, transparent import
+`4762578f023da4c172c3f3eb69c90bf99950958f` was created at actual time on additive
+`codex/recovered-baseline`, sole parent `bba9ec5b652e78b5f4bfda6a101d640f0e07869e`.
+Remote branch and annotated tag `v0.1.0-recovered-baseline` were fetched and
+verified to resolve to that exact47-file source/test/support tree. Annotation
+object: `b7d6d027b3ece23cf76930ebc0933b8f46de215b`. It is not a final release.
+The published review history through component0c48e60/handoff1b1629e and main's
+README bootstrap were not moved, merged or rewritten. The baseline is not an
+invented ancestor of already published development commits.
+
+One import preserves the joint recovered31-input state and eight explicitly
+semantic-reconstruction modules (146 methods). Retained scoped tests are reused
+at unchanged bytes; no historical364/15 recovery or fresh146 rerun is claimed.
+Seven inherited whitespace warnings were retained to preserve recovered bytes.
+Date-qualified baseline metadata retains its pre-publication observations;
+this section and actual refs record the later operation. Private evidence,
+raw payloads and generated archives are excluded, limiting public replication.
+
+A fresh complete private preservation verified333,254 entries/213,021 regular
+files/nine links with zero exclusions before import. Archive95c1e9c3 and
+inventory1acf4c66 were independently rehashed; ACLs/xattrs/external link target
+bytes are not attested. Exact staged and reachable-history audits covered47
+files/two commits/48 blobs, final audit60c39de2; no credential, private-data,
+machine-home-path, generated-artifact, large-file or specific redistribution
+blocker was identified. MIT and dependency-content reviews remain scoped, not
+legal certification or security/scientific approval. No force-push or visibility
+change occurred. Both development branches have explicit upstream tracking.
+
+## Preserved earlier reconstruction checkpoints
+
+The pending/future statements below describe their dated stages. They do not
+authorize moving main, repeating recovery or reconstructing published history.
 
 The prior verified V8 checkpoint is `f6b3d92` on
 `review/vnext-checkpoint`. Publication identities and observed Git status for

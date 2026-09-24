@@ -4,12 +4,19 @@ DEVELOPMENT / REVIEW — NOT FINAL RELEASE OR SCIENTIFIC APPROVAL
 
 ## Current handoff — owner D083, September 24, 2026
 
-Published development checkpoint:
-`review/vnext-checkpoint` → `0c48e60d2a7ca05a00bb223c39abe7777b99c108`.
+Published implementation checkpoint on `review/vnext-checkpoint`:
+`0c48e60d2a7ca05a00bb223c39abe7777b99c108`, followed by verified handoff commit
+`1b1629ef631bb6acfa2a761b8d712b68809d389e`.
 Fresh remote-ref query and fetch verified354 files,74 source files,219 test files
 and exact new component/test bytes. Upstream is set; main remains `bba9ec5`.
 The tracked tree/index was clean at verification. Whole reachable-history audit
-covered10 commits/404 blobs; private evidence stays excluded. No final release.
+covered11 commits/405 blobs through the handoff; private evidence stays excluded.
+Subsequent verification/documentation below is local until its next safe push.
+No final release. Qualified recovered baseline is separately published at
+`4762578f023da4c172c3f3eb69c90bf99950958f` on `codex/recovered-baseline`, tagged
+`v0.1.0-recovered-baseline`. Fresh fetch and remote peeled-tag identity agree;
+47 source/test/support files are visible, including146 explicitly reconstructed
+test methods. Main and the existing review history are unchanged.
 
 ### MORNING ACTIONS
 
@@ -20,12 +27,31 @@ covered10 commits/404 blobs; private evidence stays excluded. No final release.
 | Approve a bounded Colab input/log-retention assessment for COLAB-001 before live activation; recommend public/non-sensitive inputs only meanwhile | Official CLI history can retain executed code/output; actual host behavior untested. Blocks confidential/live activation review, not offline engineering. | Concern recorded before repair; no CLI installation, private upload or log modification. |
 | Decide D082's reviewed local-mode implementation and explicit legacy compatibility tradeoff; recommend the documented stronger separation if approved, with E0 unchanged | Fresh standalone onboarding remains unimplemented; no hidden fallback or copied receipt | Local-mode design and independent review complete. |
 | Supply the first CVPR question, permitted inputs and disclosure scope | Topic-specific planning/novelty/experiments are AWAITING_OWNER_TOPIC | Topic-independent interfaces and clearly labeled engineering tests may proceed. |
+| Decide AUDIT-001: recommend one bounded Git-metadata compatibility design after the retained final-audit result, not automatic repair | Existing auditor's supported metadata grammar omits app-managed refs; source-level refusal predicted, runtime outcome pending. Blocks full audit acceptance, not separately audited public development source. | No app refs deleted, exclusions widened or audit code changed; normal temporary baseline worktree removed after remote verification. |
 
 No automatic morning notification or resumption time is promised. These manual
 items do not block unrelated authorized work; no new consequential repair is
 implemented before owner triage.
 
 ### Current evidence and limits
+
+Both planned current-source lifecycle sequences are complete on Python3.14.6,
+with all305 frozen inputs unchanged (`8204cca1`). VNext fixture/status/verify
+passed technically:342 artifacts,67 events, scientific outcome
+`MORE_EXPERIMENTS_REQUIRED`, paper/release blocked. Closure `ddf4f878` binds the
+three actual commands and raw outputs. The separate legacy eight-command ladder
+also passed its expected exit contract, closure `a236376b`:75 artifacts,
+22 events and238 private package files. Synthetic reproduction matched exactly
+at tolerance1e-12; `reproduce` correctly returned exit1 with
+`ARCHITECTURE_CONTROL_REPLAY_PASS`. Resume reported `SKIP_COMPLETED`, not recovery
+from an OS crash; later reproduction/package readbacks reused the demo's receipts.
+No live service, scientific reproduction, E4 or release is established.
+No regression/lifecycle check remains running at this checkpoint. The existing
+architecture packet is independently reviewed, not fully accepted: report061277c0,
+review64020b29,5 scopedPASS/8PARTIAL/1BLOCKED/1PENDING. The same four unchanged
+structural validators pass3.11.15/3.14.6 (results510c1181/093445be), not eight
+distinct tests or15 behavioral passes. All78 source/launcher files compile on
+both runtimes without execution. Final audit remains; its outcome is not assumed.
 
 The owner-directed priority is Generic ML with a first-class CV profile, then
 ML+OR, ML+Management Science & Engineering using existing capabilities, and
@@ -67,9 +93,9 @@ actual runtime is `UNVERIFIED`.
 
 D082 admission implementation, E0 changes, and stronger legacy-CLI restriction
 remain unapproved. The official Colab CLI finding COLAB-001 awaits owner triage.
-Remaining finite work after the accepted D083 checkpoint: complete the dependent
-lifecycle/recovery/reproduction/package checks, architecture packet,
-qualified baseline history, and final capability/docs/Git audit obligations.
+Remaining finite work: finish current evidence/capability documentation, publish the safe documentation
+checkpoint and run the last-mutation project audit. Completed synthetic lifecycle checks do not
+resolve stopped crash/isolation work or the real-data/external requirements.
 Preserve scientific, confidentiality, safety, external-validation, and E4
 gates.
 
@@ -425,30 +451,26 @@ The separate [reconstruction record](docs/BASELINE_TEST_RECONSTRUCTION.md) gives
 146 semantic reconstruction results and11 scopedPASS/3PARTIAL/1BLOCKED
 architecture dispositions; missing historical coverage remains explicit.
 
-## Final verification still required
+## Current finalization checklist
 
-1. Maintain the installed V9 source/test/configuration freeze and its 300-input inventory; retain mandatory review gates, exact safety stops and permissible targeted checks. A stopped platform investigation must not be retried or rerouted.
+1. Maintain the current D083305-input freeze8204cca1; retain older evidence at its own identity and all safety stops.
 2. Full captured regression remains required. While unrestricted `test-suite` would select exact stopped probes, run permissible whole modules through the existing captured interface and report mixed stopped modules, fixture prerequisites, failures and timeouts separately. Do not suppress tests or present the selected total as a full-suite pass.
-3. Refresh and independently validate architecture-control bindings against the captured report.
-4. Run `/opt/homebrew/bin/python3 -I -S -B scripts/scientist_one_cli.py research-os-fixture` once on the frozen tree and reverify its registry, ledger, canonical state, operation receipt, literature/novelty chain, bounded autonomy, plan custody, discovery boundaries, terminal outcome, Local Mac rerun, negative/null history, 15/14 gates, and blocked paper outcome.
-5. Rerun legacy demo/verify/reproduce/verify/package/verify and recovery checks. Treat the semantic reproduction's expected CLI exit `1` as valid only when its parsed status is exactly `ARCHITECTURE_CONTROL_REPLAY_PASS`.
-6. Complete only permissible remaining failure-injection and dependency/network-boundary checks, retaining the sealed PARTIAL Standard scan and exact exclusions; finalize this documentation, the architecture report, and `.run`; verify the frozen source inventory again; then quarantine caches and run the architecture validator.
+3. DONE at structural scope: provisional report061277c0, review64020b29, same four validators pass both runtimes510c1181/093445be. This is not15 behavioral PASS.
+4. DONE: current guarded vNext3, closureddf4f878. Preserve technical PASS and MORE_EXPERIMENTS_REQUIRED separately; no rerun.
+5. DONE: current legacy8, closurea236376b, including expected reproduction exit1. Completed-run skip is not actual crash recovery; no rerun.
+6. Retain completed permissible failure-injection/dependency checks at their exact scopes, the sealed PARTIAL Standard scan and all exclusions. Source compilation and architecture4 are DONE; no unchanged rerun is scheduled. Finalize this documentation and `.run`, verify the frozen source identity, and publish the documentation checkpoint. Do not remove evidence or app metadata to obtain audit acceptance.
 7. Generate `reports/final_audit.json` with `/opt/homebrew/bin/python3 -I -S -B scripts/scientist_one_cli.py audit-project` as the last repository mutation.
 8. Parse/hash the final reports read-only and report their identities externally. Do not mutate this file after the audit to insert its digest.
 
-## Pending final evidence
+## Current evidence index
 
 | Evidence | Value |
 |---|---|
-| Final vNext run ID | **PENDING** |
-| Artifact count and registry closure | **PENDING** |
-| Event count, ledger head, and digest | **PENDING** |
-| Canonical-state count and snapshot digest | **PENDING** |
-| Integrated summary SHA-256 | **PENDING** |
-| Full-suite count/report SHA-256 | **PENDING** |
-| Architecture-control/validator identities | **PENDING** |
+| Current synthetic run | `vnext-final-current-20260924T042350Z-ac8bcf3968d00c17`;342 artifacts/67 events/40 canonical objects; measured hashes in [current verification table](docs/VNEXT_FINAL_VERIFICATION.md#current-d083-checkpoint--september24-2026) |
+| Whole-suite acceptance | UNRESOLVED; selected current and historical captures are not one full-suite pass |
+| Architecture | Pre-audit provisional061277c0/review64020b29;5 scopedPASS/8PARTIAL/1BLOCKED/1PENDING; same four structural validators pass both runtimes510c1181/093445be |
 | Final audit snapshot/report SHA-256 | **PENDING**; after the last mutation, read from `reports/final_audit.json` and report externally |
-| Final legacy regression/reproduction/package identities | **PENDING** |
+| Current legacy lifecycle | `run-20260924T044518Z-166217a8bd`, closurea236376b;75 artifacts/22 events/238 private package files; only synthetic technical scope |
 
 ## Human and external decisions
 

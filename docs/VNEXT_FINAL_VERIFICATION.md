@@ -3,6 +3,24 @@
 Status: **D083 OFFLINE PREPARATION INTEGRATED; FINAL VERIFICATION INCOMPLETE**
 Capability ceiling: **`AUTONOMOUS_EXPLORATION_READY`**
 
+Current305-input synthetic lifecycle is now technically verified on Python3.14.6.
+Source freeze `8204cca1` preserves all prior303 bytes plus only the Colab source/
+test addition. VNext fixture/status/verify has closure `ddf4f878`, report
+`52e14228`:342 artifacts/67 events, `MORE_EXPERIMENTS_REQUIRED`, no scientific
+writing/release approval. Command times were1107.06,46.07 and45.93seconds,
+within unchanged7200/600/600 bounds. Legacy demo/verify/resume/verify/reproduce/
+verify/package/verify has closure `a236376b`, report `48db98f3`:75 artifacts/
+22 events,238 private package files. Reproduction returned the expected legacy
+exit1/`ARCHITECTURE_CONTROL_REPLAY_PASS`, difference0 at tolerance1e-12.
+Resume skipped an already complete run; this is not an actual interruption/crash
+test. Demo already generated the same reproduction/package receipts, so later
+readbacks are not additional experiments. Root rejoined all raw outputs, exact
+commands,305 current inputs,85 lifecycle before/after entries and unchanged
+original receipt bytes. This does not authenticate a new host/user or confer
+live, scientific, E4 or public-release authority. Architecture remains provisional;
+qualified history is published, four structural checks pass both runtimes, and
+final audit remains pending.
+
 September24 current reconciliation: original192 modules/3294 IDs pass on
 Python3.11.15 at D080 source303 `8f5b3669`, closure `68f0a148`, result `395aeae1`,
 885 retained files. Operations18 is separately paired; focused numerical/CLI24
@@ -12,9 +30,16 @@ two-file extension has15 focused tests on both runtimes, results `6374701c` and
 `309477c7`, unchanged298 captured Python inputs and matching15 IDs; root checked
 raw/worker/loaded-source joins. Source `f154a439`, tests `4ca1e3f5`, non-author
 review `58b83207`. No live/worker/CU/scientific authority is established. Prior
-full-source captures remain at their recorded identities; required current
-lifecycle/architecture/final audit obligations remain pending. See the
+full-source captures remain at their recorded identities; current synthetic
+lifecycle is closed above; whole-architecture acceptance and final audit remain pending. See the
 [current handoff](../OVERNIGHT_REPORT.md#current-handoff--owner-d083-september-24-2026).
+
+The hash-bound architecture report061277c0 and ADR1818a4e2 were frozen before
+the structural checks and qualified-baseline publication. Their prospective
+“when run” and pending-history statements describe that earlier preparation
+boundary. The later checks/publication are recorded here without rewriting
+those bytes or retroactively promoting the report's5 scopedPASS/8PARTIAL/
+1BLOCKED/1PENDING dispositions.
 
 The ceiling remains provisional, based on earlier bounded synthetic fixtures,
 not a fresh-user deployment claim. The owner-approved permutation correction
@@ -243,6 +268,47 @@ The supported integrated run is deliberately a synthetic system fixture. It may 
 
 ## Final measured evidence
 
+### Current D083 checkpoint — September24, 2026
+
+These values supersede the dated table below, without changing historical
+measurements. Raw evidence, bootstrap material and generated packages remain
+private. Public hashes are scoped evidence locators, not downloadable independent
+replication or host/scientific approval.
+
+| Evidence | Current measured value / limitation |
+| --- | --- |
+| Current functional freeze | 305 inputs; proof `8204cca17d76b7de2a7960b79b8ec8deff287eeb566d6d75aad0badbde5d0e1b`; all303 predecessor inputs unchanged, only Colab source/test added |
+| Prior303 selected regression | 192 modules /3,294 distinct IDs on Python3.11.15, zero bad outcomes; result `395aeae17a4777313b2dfa01a2a1f95fe7711821abb4101512e7860464dc5783`, closure `68f0a148cd8f623f9f12d53477cbe04dae64db525536ee1f111b38446acaa749`; not paired with older V9 Python3.14 or a full current305 suite |
+| Separate affected checks | Same15 Colab IDs pass3.11.15/3.14.6; same18 operations IDs pass both; focused24 includes numerical18 plus CLI6. Do not add runtime repetitions or overlapping historical selections |
+| Whole-suite acceptance | UNRESOLVED: exact stops, gates67TIMEOUT, isolation38 timeout error and lint33 non-PASS remain; enclosing evidence is not nested/helper verification |
+| Architecture | Pre-audit provisional report `061277c090e8fe989c6e8dcf49a0b23f59a9c210befdb33ec30394c955f6c93d`, non-author review `64020b29fd234ddbcf23b13888b38574431a99bf504961f3de5194bd0d1be187`:5 scopedPASS/8PARTIAL/1BLOCKED/1PENDING. Same four structural methods pass3.11.15/3.14.6, results `510c1181b280b813caec268a097dad58d0c35859f60788fcdb78e964723ca69c` / `093445beb4362ad33f241fb0c238bdbe6fd948a7b104e375f0b6351be6404d4d`;298 captured inputs and raw/worker bindings rechecked. Not15 behavioral passes |
+| Syntax compilation | All78 current source/launcher files compile on both runtimes; input-map `4aa12488cddb6e36e2c71f2c327f1b94f95333427ebf0ae8d4410b440db06540`; no subject import/execution or bytecode files |
+| Current vNext run | `vnext-final-current-20260924T042350Z-ac8bcf3968d00c17`; three guarded commands, Python3.14.6, technicalPASS; closure `ddf4f8781b6a0da699f3e11ed33ef224d76c43500ae33540d90326c3ebada118` |
+| Operation and registry | COMPLETE; operation file `7bb76c202e931824aeb10c09a4cb23082ae3365bd098ad257dd0762d30db0b25`;342 records, registry/ledger/receipt binding verified |
+| VNext ledger | 67 events; head `57c07145914f1b6e9b8f4dcf2de4bf970d33c144393d2144a06c224784dde8f2`; file `cb6eef867c6adf0182d7361958a8b3b039cc848e03cad43b0ff9f20325e80a2f` |
+| Canonical state | 40 objects/21 types; final snapshot `e06e27988305914be7a2b916b2b27e532d7c93381e71d6d4c0e50a7c46254278`; existing guarded verifier confirms binding |
+| Integrated summary | `0a5802c1f74f515ef16713516df80d4b22718821f4cc33b74386762561a18eec`; scientific MORE_EXPERIMENTS_REQUIRED, writer false, paper BLOCKED, venue NOT_READY, no E4 |
+| Current legacy run | `run-20260924T044518Z-166217a8bd`; eight-command expected exit contract; READY_FOR_HUMAN_REVIEW/COMPLETE_DEMO_ONLY;75 artifacts/22 events; manifest `e92402b6d3cc14c22cb2cc600afe0a78642c107fb8025769b6141c9c3465c0f7`; closure `a236376b7a2e64638d0b6c919ecdfef0e2f94fc8ab523019e705da0407635b69` |
+| Synthetic reproduction | Exact1.0 vs1.0, difference0, tolerance1e-12; expected CLI exit1/ARCHITECTURE_CONTROL_REPLAY_PASS; manifest `957cfba5edf5a99e6abbd6cdfbb671de1565b9db4430a2bcb731fef0cd0baec3`, result `cb78bf96eb409f609aa238f952f0a1476ac01e0e8343ac3d47d8d7e9b0779366` |
+| Private legacy package | 238 files; ZIP `8cb4cb087225fd004b0de35bf71d332f2f6c44026c4109183829a10582329f32`, envelope `6ad2f9661be3cb6fd2ae1d0beca93b840c9faf876ade7185e660c295208aa96c`; byte-hashed and post-package verificationPASS; never public, E4 required |
+| Recovery/repeated commands | Resume SKIP_COMPLETED/zero replay events. Demo already created the same reproduction/package receipts; later readbacks are not additional studies or actual OS-crash recovery |
+| Qualified history | `codex/recovered-baseline` and `v0.1.0-recovered-baseline` resolve remotely to `4762578f023da4c172c3f3eb69c90bf99950958f`;47 reviewed files,31 recovered inputs,146 reconstructed methods. Main unchanged |
+| Final audit | PENDING last mutation; its result must be reported from `reports/final_audit.json` externally, not anticipated as PASS |
+
+AUDIT-001 is awaiting owner triage: current `git_audit.py::_classify` excludes
+app-managed ref namespaces present in the repository. This predicts fail-closed
+metadata refusal, not an exploit or completed runtime failure. No deletion of
+app history, audit exemption, production change or repair campaign is authorized.
+The already-required audit will retain its actual outcome. This whole-project
+check is distinct from the scoped outgoing-content checks used for development
+publication. The pre-audit architecture report predates the later qualified tag;
+its pending final-packet row is not retroactively promoted by publication.
+
+### Historical pre-D083 measured table
+
+The following original values and pending statements describe the earlier
+checkpoint only. They neither replace the current table nor authorize reruns.
+
 | Evidence | Final value |
 |---|---|
 | Frozen post-vNext captured suite | `PENDING` |
@@ -404,7 +470,7 @@ All 20 mandatory adversarial classes are mapped in `vnext_failure_injection_matr
 
 ## Capability verdict
 
-The conservative final level is **`AUTONOMOUS_EXPLORATION_READY`** unless materially stronger final evidence—not a fixture label—clears every missing prerequisite. The system can autonomously exercise a bounded research representation while keeping evidence, soundness, paper, venue, and release gates fail closed. It is not `REAL_EXPERIMENT_PIPELINE_READY`, `RESEARCH_GRADE`, or `SUBMISSION_PIPELINE_READY`.
+The provisional capability ceiling is **`AUTONOMOUS_EXPLORATION_READY`**, not an achieved whole-system or fresh-user readiness verdict. The system can autonomously exercise a bounded synthetic research representation while keeping evidence, soundness, paper, venue, and release gates fail closed. The actual question-to-results workflow, standalone admission, live Colab/provider/literature and scientific requirements remain unfinished. It is not `REAL_EXPERIMENT_PIPELINE_READY`, `RESEARCH_GRADE`, or `SUBMISSION_PIPELINE_READY`.
 
 Architectural comparison with `UPSTREAM_SCIENTISTONE` is reported separately from empirical performance. No comparable local ADRS, MLE-Bench, Parameter Golf, or real research study has run, so empirical superiority is **`NOT_YET_ESTABLISHED`**.
 

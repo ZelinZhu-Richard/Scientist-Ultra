@@ -11,6 +11,14 @@ operations checks are closed at their exact prior source scope. See the
 for evidence, exclusions and queued manual actions. D082 implementation remains
 unapproved; no host-issuer search, gates67 retry or live GPU action is pending.
 
+Current305-input freeze8204cca1 now has closed synthetic vNext3 and legacy8
+lifecycles, closuresddf4f878/a236376b. They establish technical fixture integrity,
+not scientific reproduction or crash recovery. The qualified recovered baseline
+is published separately at4762578 with `v0.1.0-recovered-baseline`; main remains
+the bootstrap. Pre-audit architecture is5 scopedPASS/8PARTIAL/1BLOCKED/1PENDING,
+reviewed64020b29; the same four structural checks pass both runtimes510c1181/
+093445be. Final audit remains pending, with AUDIT-001 compatibility triage queued.
+
 Preserved numerical/CLI follow-up: the independently reviewed permutation correction
 and its 18 focused tests are integrated and pass on Python 3.14.6 and 3.11.15.
 Historical results are unchanged; new analysis results name comparison v2.
@@ -280,15 +288,14 @@ Neither evidence set establishes final vNext acceptance.
 
 | Authority | Current value |
 |---|---|
-| Final vNext run ID | **PENDING** |
-| ArtifactRegistry count and closure digest | **PENDING** |
-| EventLedger count, head, and file digest | **PENDING** |
-| Canonical-state object count and snapshot digest | **PENDING** |
-| Integrated summary SHA-256 | **PENDING** |
-| Final captured suite count/report SHA-256 | **PENDING** |
-| Final architecture-control report/validator result | **PENDING** |
+| Current synthetic vNext run ID | `vnext-final-current-20260924T042350Z-ac8bcf3968d00c17` |
+| Registry and ledger |342 records/67 events; guarded status/verify PASS; closure `ddf4f878`; exact head/file hashes in [current measured table](docs/VNEXT_FINAL_VERIFICATION.md#current-d083-checkpoint--september24-2026) |
+| Canonical state |40 objects/21 types; snapshot `e06e27988305914be7a2b916b2b27e532d7c93381e71d6d4c0e50a7c46254278` |
+| Integrated summary SHA-256 | `0a5802c1f74f515ef16713516df80d4b22718821f4cc33b74386762561a18eec`; scientific MORE_EXPERIMENTS_REQUIRED |
+| Full captured suite | UNRESOLVED; separately scoped selected captures are not full-suite PASS |
+| Architecture report/validator | Provisional report061277c0;5 scopedPASS/8PARTIAL/1BLOCKED/1PENDING; four structural checks pass both runtimes510c1181/093445be, not15 behavioral passes |
 | Final project audit snapshot/report SHA-256 | **PENDING**; after the last mutation, read from `reports/final_audit.json` and report externally |
-| Final legacy regression/reproduction/package evidence | **PENDING** |
+| Current synthetic legacy lifecycle | `run-20260924T044518Z-166217a8bd`;75 artifacts/22 events/238 private package files; expected reproduction exit1, completed-run skip; closurea236376b. Not scientific reproduction or OS-crash recovery |
 | Final upstream empirical comparison | **NOT ESTABLISHED** |
 
 ## Hard limitations

@@ -225,7 +225,19 @@ The full baseline, including reproduction, custody, packaging, repair, and audit
 
 ## Final verification freeze
 
-The exact final vNext run ID, artifact count, event count and head, canonical-object count, summary digest, test count and digest, audit digest, architecture-control digest, and final reproduction identities are **PENDING** until the repository is frozen and the final verification sequence completes. No provisional run ID or count is authoritative.
+Current305-input technical fixtures are closed: vNext run
+`vnext-final-current-20260924T042350Z-ac8bcf3968d00c17` has342 artifacts/67 events/
+40 canonical objects; legacy run `run-20260924T044518Z-166217a8bd` has75 artifacts/
+22 events and238 private package files. Exact hashes and independently scoped
+selected tests are in the [current measured table](docs/VNEXT_FINAL_VERIFICATION.md#current-d083-checkpoint--september24-2026).
+Four architecture-packet validators pass both runtimes, but architecture remains
+5 scopedPASS/8PARTIAL/1BLOCKED/1PENDING. Whole-suite, scientific and final-audit
+acceptance remain unresolved. No source-dependent lifecycle rerun is pending.
+
+The qualified recovered31-input baseline and146 reconstructed methods are
+published separately on `codex/recovered-baseline`, tagged
+`v0.1.0-recovered-baseline` at4762578. This is not the missing historical364-test
+suite or a current vNext release. Main stays at the owner's README bootstrap.
 
 The final audit is intentionally self-producing and must be the last repository mutation. Its authoritative machine result will be `reports/final_audit.json`; this documentation does not attempt to backfill that report's digest after the audit.
 

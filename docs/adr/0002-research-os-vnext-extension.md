@@ -171,3 +171,56 @@ D-079 requires owner reporting/triage before any new consequential repair or
 expensive campaign, with no delegated repair. Conditional diagnostic permission
 and current verification/Git ordering are recorded in the current handoff; this
 ADR adds no implementation or execution authorization.
+
+## September 24, 2026 scoped architecture reconciliation
+
+This section supersedes the preceding checkpoint's scheduling statements, not
+its historical evidence. D080's 192 modules / 3,294 selected IDs passed on
+Python 3.11.15 at the 303-input freeze `8f5b3669`; operations18 and focused24
+are separately cross-runtime. The subsequent two-file Colab addition has15
+cross-runtime component tests. These scopes are not a current full-suite total
+or a paired V9/D080 aggregate. The current305-input inventory is `8204cca1`.
+
+The current guarded vNext fixture/status/verify sequence passed on Python3.14.6
+(retained closure `ddf4f878`):342 artifacts,67 events, and scientific outcome
+`MORE_EXPERIMENTS_REQUIRED`. Scientific writing/release remained blocked.
+The separate legacy demo/verify/resume/verify/reproduce/verify/package/verify
+sequence passed its existing exit contract (closure `a236376b`):75 artifacts,
+22 events, and a238-file private `DEMO_RESEARCH_PACKAGE` requiring E4.
+The synthetic replay returned `ARCHITECTURE_CONTROL_REPLAY_PASS`, expected
+exit1, difference0 at tolerance1e-12. Resume reported `SKIP_COMPLETED`, not
+recovery from an actual OS crash. Demo already created the same replay/package
+receipts; later readbacks are not additional independent experiments.
+
+The existing private architecture report uses the following bounded dispositions.
+PASS below is only the frozen local criterion at its stated tested scope—not
+scientific, security, independent-custody, platform, live-deployment or release
+approval. PARTIAL preserves demonstrated local support and the named missing
+evidence; PENDING does not instruct removal of existing source. Report evidence
+is hash-bound to retained local records; private raw records/packages are not
+distributed with the public engine. Four structural packet checks, when run,
+validate bindings and totals rather than independently proving these criteria.
+
+| Frozen criterion ID | Disposition and retained scope / limitation |
+| --- | --- |
+| `state_transition_safety` | PASS: retained ordinary invalid-order/self-approval/incomplete-calibration refusal and exact-replay tests; current guarded fixture and legacy verification. No coherent trusted-authority rewrite claim. |
+| `approval_custody` | PASS: typed E1 refusal, producer/reviewer separation and human-only E4 construction refusal. Genuine independent custody/review and actual E4 remain unavailable; this is logical-role support only. |
+| `holdout_integrity` | PARTIAL: ordinary frozen-input/pre-reveal refusal support and synthetic verification; independent custody and stopped mechanisms are not verified. |
+| `scientific_validity` | PASS: the frozen known-answer/trap criterion and independently oracle-tested permutation correction. Synthetic calibration is not external scientific validity. |
+| `negative_result_handling` | PARTIAL: synthetic six-scenario outcomes and discovery retention are verified; complete current-source negative CLI endpoint evidence is not supplied by the remaining192 selection. |
+| `claim_traceability` | PARTIAL: ordinary source/asset/qualifier refusals and scientific-writer exclusion are supported; whole gates67 remains TIMEOUT with unknown outcomes, not replaced by wrapper counts. |
+| `crash_recovery` | PARTIAL: retained controlled corruption/quarantine/checkpoint tests and completed-run resume; actual OS-crash collection remains stopped and no new interruption experiment was performed. |
+| `deterministic_reproduction` | PASS: fresh synthetic demo's frozen local replay matches its primary result within tolerance; explicit reproduce/readback preserves non-evidentiary status and legacy exit1. No scientific reproduction is claimed. |
+| `resource_control` | PARTIAL: retained bounded accounting/admission tests and current technical verification; OS isolation, live GPU capacity and CU accounting/enforcement remain unverified or unimplemented. |
+| `prompt_injection_resistance` | BLOCKED: SAFETY_STOPPED; no new assessment, proxy evidence, substitute or inherited historical PASS. |
+| `review_packet_usability` | PENDING: current final capability/Git report, qualified baseline history and last audit remain unfinished. Existing handoff and byte bindings are only partial support. |
+| `content_addressed_evidence` | PASS: retained immutable-registration/corruption tests and current registry/package verification. Local hashes are not an independent witness against coherent same-authority rewriting. |
+| `blind_interpretation` | PARTIAL: retained typed binding refusals and simulated workflow; no new independent confirmation or complete current chronology assessment is inferred. |
+| `validity_reserve` | PARTIAL: integer partition/charge refusals are supported, but accounting does not prove40% of actual relevant data remained untouched. Historical second-reserve25 is not replaced. |
+| `drift_and_stall_detection` | PARTIAL: retained source/config drift and controlled stall/charge tests; seeded crash counters are not actual crashes and the full current CLI endpoint scope is not newly verified. |
+
+The report therefore remains provisional, not15/15 or FINAL. Earlier failures,
+gates67 TIMEOUT, isolation38's unresolved error, lint debt, sealed PARTIAL scan,
+safety stops, protected-data/confidentiality/external-access/custodian limits and
+human E4 remain open. This reconciliation introduces no source change, repair,
+new authority or permission to repeat a stopped investigation.

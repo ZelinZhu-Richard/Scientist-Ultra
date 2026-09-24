@@ -1,9 +1,11 @@
 # Scientist-One vNext Verification Checklist
 
-Checked implementation items describe the current source. They are not substitutes for the final frozen test and audit evidence, which remains unchecked and **PENDING**.
+Checked items describe only their stated implementation or measured scope. They
+do not substitute for unresolved full-suite, scientific, security or final-audit
+acceptance. Current evidence is the D083305-input freeze and scoped results below.
 
 Current status is **DEVELOPMENT / REVIEW**, not final release or E4 approval.
-See the [checkpoint handoff](OVERNIGHT_REPORT.md#development--review-checkpoint-september-23-2026).
+See the [current handoff](OVERNIGHT_REPORT.md#current-handoff--owner-d083-september-24-2026).
 
 ## Historical trusted-kernel baseline
 
@@ -24,7 +26,7 @@ See the [checkpoint handoff](OVERNIGHT_REPORT.md#development--review-checkpoint-
 - [x] Structured research state is authoritative; Markdown remains derived
 - [x] Phase checkpoints validate registered artifact readback before downstream consumption
 - [x] Exact 11-outcome terminal vocabulary and fail-closed derivation adapters are implemented; materialized outcomes are registry-backed, evidence-parented canonical decisions that do not mutate the legacy macro-state machine
-- [ ] Final canonical-object count, type coverage, snapshot SHA-256, registry count/closure, and ledger count/head frozen (**PENDING**)
+- [x] Current synthetic canonical state:40 objects/21 types,342 registry records/67 events, exact hashes in the current measured table; no scientific approval
 
 ## Guarded operation and recovery semantics
 
@@ -136,18 +138,19 @@ See the [checkpoint handoff](OVERNIGHT_REPORT.md#development--review-checkpoint-
 
 ## Final frozen verification
 
-- [ ] All vNext modules compile on the frozen source snapshot
+- [x] All78 current source/launcher files compile on3.11.15/3.14.6; same pinned input map4aa12488, no subject execution/import
 - [ ] Targeted provider, literature, state, design, discovery, experiment, domain, gate, paper, CLI, and end-to-end tests pass
 - [ ] `/opt/homebrew/bin/python3 -I -S -B scripts/scientist_one_cli.py test-suite` passes; exact test count and report SHA-256 recorded (**PENDING**)
-- [ ] Architecture evaluation and targeted validator pass against the frozen test report; exact identities recorded (**PENDING**)
-- [ ] `/opt/homebrew/bin/python3 -I -S -B scripts/scientist_one_cli.py research-os-fixture` passes system-integrity checks; exact run ID and summary SHA-256 recorded (**PENDING**)
-- [ ] Final vNext registry count/closure, ledger count/head, canonical-state count, and operation receipt recorded (**PENDING**)
-- [ ] Legacy demo/verify/reproduce/verify/package/post-package verify regression path passes with exact identities; semantic reproduce is accepted only with parsed `ARCHITECTURE_CONTROL_REPLAY_PASS` and expected CLI exit `1` (**PENDING**)
+- [x] Four unchanged architecture packet validators pass both runtimes510c1181/093445be; provisional report061277c0
+- [ ] All15 behavioral architecture criteria pass (currently5 scopedPASS/8PARTIAL/1BLOCKED/1PENDING; not waived)
+- [x] Current guarded vNext fixture/status/verify passes technical system checks; run identity and summary frozen in closureddf4f878
+- [x] Current synthetic registry/ledger/canonical-state/operation bindings recorded in the measured table
+- [x] Legacy eight-command ladder passes its expected exit contract, closurea236376b; synthetic reproduction exit1/ARCHITECTURE_CONTROL_REPLAY_PASS, no scientific or actual interrupted-recovery claim
 - [ ] Recovery and deceptive failure-injection matrix passes with no hidden blocker
 - [ ] Dependency declarations, lockfiles, network primitives, secrets, and path confinement rechecked
 - [ ] `/opt/homebrew/bin/python3 -I -S -B scripts/scientist_one_cli.py audit-project` generated after every other audited mutation; exact snapshot/report SHA-256 read from `reports/final_audit.json` and reported externally (**PENDING**)
 - [ ] `reports/final_audit.json` is the last-mutated machine authority; after it is written, only read-only `-B` parsing/hashing occurs and no document is edited to backfill its digest (**PENDING**)
-- [ ] Final upstream comparison separates architectural findings from unestablished empirical superiority
+- [x] Existing upstream/FARS comparisons separate architectural coverage from unestablished empirical superiority; no new comparison run
 - [ ] `.run/STATE.json`, `.run/DECISIONS.md`, `.run/ISSUES.md`, and all top-level docs match the frozen evidence
 
 ## Final classification guard

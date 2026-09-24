@@ -25,9 +25,9 @@ operations checks remain separate; do not add their historical/private counts.
 | COLAB-001 | Awaiting owner triage; no defect conclusion or implementation claim. |
 | D082 / E0 / legacy CLI | Admission implementation, E0 changes, and stronger upgraded-CLI legacy restriction remain unapproved. |
 | gates67 / Claude | The 7,200-second gates67 capture ended TIMEOUT; cause, cancellation, cleanup, and all67 outcomes remain UNKNOWN. No retry. Claude credential-lock was not retried. |
-| Remaining original obligations | Continue the finite lifecycle/recovery/reproduction/package work, architecture packet and validators, qualified recovered-baseline history, and final capability/docs/Git report and audit after changed-source verification closes. Preserve all safety stops and unresolved external/scientific gates. |
+| Remaining original obligations | Current-source synthetic lifecycles, architecture structural checks, source compilation and qualified recovered-baseline publication are closed at their stated scopes. Finish evidence reconciliation, capability/docs/Git report and final audit; preserve every safety stop and unresolved external/scientific gate. |
 
-The published review checkpoint remains `431c1fd3368a854f19188854619468b26a5f2eda`;
+The published implementation checkpoint is `0c48e60d2a7ca05a00bb223c39abe7777b99c108`;
 `main` remains `bba9ec5`. This development checkpoint does not claim a final
 release or Goal completion. Detailed dated V9 and earlier checkpoints below
 remain historical evidence; their former “remaining192 NOT_STARTED” statements
@@ -35,21 +35,21 @@ are superseded by the current result above.
 
 ### Finite remaining sequence — existing obligations, not new scope
 
-Root owns integration and evidence closure. After bounded D083 changes reach a
-stable source freeze, run only the affected checks and retain exact outcomes.
-Then continue the original final lifecycle/recovery/reproduction/package work,
-architecture packet and four structural validators, qualified recovered-baseline
-history, and requirement-by-requirement capability/docs/Git report with the
-canonical audit last. Failures, timeouts, stopped work, and external blockers
-remain explicit; none is waived by the completed Python3.11 selection.
+Root owns integration and evidence closure. The305-input source is frozen;
+both synthetic lifecycle ladders are closed and the qualified baseline is
+published. Four unchanged architecture structural checks pass both runtimes.
+Remaining work is existing-evidence reconciliation, capability/docs/Git report and development
+publication, followed by the canonical audit. Do not repeat completed selections
+or lifecycles. Failures, timeouts, stopped work and external blockers remain
+explicit; none is waived by the completed Python3.11 selection.
 
 | Deliverable / root owner | Dependency | Observable exit |
 | --- | --- | --- |
-| Colab offline byte preparation — DONE; publication pending | Existing frozen request/spec/output contracts, no authority edits | Complete non-author patch review and15 paired captured input/hash/schema/negative-result/failure checks; root raw/source joins closed. No live or collection authority claim. |
+| Colab offline byte preparation — DONE and published | Existing frozen request/spec/output contracts, no authority edits | Complete non-author patch review and15 paired captured input/hash/schema/negative-result/failure checks; root raw/source joins closed. No live or collection authority claim. |
 | Question/configuration path | Existing admitted workspace and original scientific/controller owners; topic-independent inputs only | Exact supported intake path and first actual blocked stage documented; no fixed fixture mislabeled user research. Any consequential expanded repair is queued, not implemented. |
-| Source freeze and current synthetic lifecycle | Accepted bounded patches and no writers | Existing guarded vNext3/legacy8 ladders retain statuses, registry/ledger checks, recovery, architecture-control reproduction and package readback, or explicit unresolved outcomes. No fresh admission or scientific validation inferred. |
-| Architecture packet / four structural checks | Applicable frozen-source evidence reconciled | Provisional15-criterion packet and ADR0002; historical ADR0001 unchanged, stopped criterion BLOCKED. No invented15/15. |
-| Qualified recovered-baseline history | Existing47-file candidate, preserved source and disclosure checks | Transparent import and `v0.1.0-recovered-baseline` tag with original146 reconstructed scope; no new recovery campaign, original364 claim or main rewrite. |
+| Source freeze and current synthetic lifecycle — DONE at technical scope | Frozen305 proof8204cca1, no source changes | Guarded vNext3 closureddf4f878 and legacy8 closurea236376b retain raw/source/status bindings. Scientific outcome remains blocked; completed-run skip is not crash recovery. No repeat is needed for unchanged inputs. |
+| Architecture packet / four structural checks — DONE at structural scope | Report061277c0/review64020b29, inputs unchanged | Same4 pass both runtimes510c1181/093445be;5 scopedPASS/8PARTIAL/1BLOCKED/1PENDING, historical ADR0001 unchanged. No invented15/15. |
+| Qualified recovered-baseline history — DONE | Fresh complete private preservation, exact47 candidate and all reachable-content checks | Import4762578 and qualified tag remotely verified on additive `codex/recovered-baseline`;146 reconstructed methods, not original364. Main/review history unchanged. |
 | Accepted development publication and final report/audit | Stable workspace, exact staged/outgoing content checked | Coherent review-branch commits, normal push and remote SHA verification; main unchanged. Final capability/Git report and canonical audit only after last applicable input mutation. |
 
 The question-driven research workflow remains INCOMPLETE. D082 admission
@@ -220,15 +220,15 @@ D071 source reconciliation found remaining working-path gaps. Persisted Evaluati
 
 The following retained final-verification obligations remain subject to the current handoff, D-079 owner triage, closed evidence and exact safety exclusions. They are not authorization for a new campaign or a stopped mechanism:
 
-1. Maintain the installed V9 source/test/configuration freeze and its 300-input inventory; recheck identity against final evidence and at the last mutation boundary.
-2. Preserve the sealed PARTIAL Standard scan, three LOW findings, installed correction/scoped-test evidence, and exact exclusions; this is not full security PASS. Do not retry or substitute for a safety-stopped platform investigation. Compile all vNext modules and run permissible provider, literature, state, design, discovery, experiment, domain, gate, paper, CLI, and end-to-end checks.
+1. Maintain the current D083305-input freeze8204cca1. Retain older V9/D080 evidence at its own source identity; recheck current identity at the last mutation boundary.
+2. Preserve the sealed PARTIAL Standard scan, three LOW findings, installed correction/scoped-test evidence, and exact exclusions; this is not full security PASS. Do not retry or substitute for a safety-stopped platform investigation. Source compilation is DONE for78 source/launcher files on both runtimes (159424); retain completed permissible selections at their own input identities rather than rerunning them.
 3. Full captured regression remains mandatory, but do not invoke unrestricted `test-suite` while it would select exact safety-stopped probes. Use the existing whole-module captured interface for permissible modules; explicitly retain mixed stopped modules, fixture prerequisites, failures and timeouts as unresolved. Do not add a selector or suppress assertions to claim a full-suite pass.
-4. Refresh architecture-report bindings only to that verified captured report and rerun the independent architecture validator.
-5. Execute one fresh guarded vNext fixture with `/opt/homebrew/bin/python3 -I -S -B scripts/scientist_one_cli.py research-os-fixture`, then use authority-aware `status` and `verify` to rehydrate its receipt, registry, ledger, canonical state, literature/novelty chain, bounded autonomy, plan custody, discovery boundaries, terminal outcome, Local Mac clean rerun, negative/null retention, 15/14 gates, paper, and venue outcomes.
-6. Rerun legacy `demo`, `verify`, semantic `reproduce`, post-reproduction `verify`, `package`, and post-package `verify`. The expected architecture-control reproduction JSON uses `status=ARCHITECTURE_CONTROL_REPLAY_PASS`, so the generic CLI intentionally exits `1`; validate that exact status rather than letting `set -e` misclassify it.
+4. DONE at structural scope: report061277c0/review64020b29 and four unchanged validators on both runtimes510c1181/093445be. Preserve the frozen report/ADR bindings; this does not turn partial behavioral criteria into PASS.
+5. DONE: current guarded vNext fixture/status/verify, closureddf4f878. Preserve technical PASS and scientific MORE_EXPERIMENTS_REQUIRED, blocked paper and absent E4 separately; no unchanged rerun.
+6. DONE: current legacy eight-command ladder, closurea236376b. Synthetic reproduction returns expected exit1/ARCHITECTURE_CONTROL_REPLAY_PASS; completed-run resume skips work and package readback is verified. This is not actual interrupted recovery or scientific reproduction; no unchanged rerun.
 7. Exercise recovery and the exact failure-injection matrix, including malformed, substituted, raced, partial, stale, dishonest, authority-confused, transformed-credential-reflection, and deceptive-offline-transport cases; recheck zero dispatch/request-count/egress-artifact behavior, dependencies, lockfiles, network confinement, secrets, and root-path safety.
 8. Finalize all narrative documentation, the architecture report, and the compact `.run` ledger using only measured pre-audit evidence. Leave the final-audit digest out of repository documents and point readers to `reports/final_audit.json`.
-9. Recompute the functional-source inventory and require it to match the pre-verification inventory; quarantine generated caches without broad deletion; rerun the architecture validator.
+9. Reconcile the functional-source inventory at the final boundary and require it to match the305-input freeze. Architecture validation is already complete at the recorded scope; do not rerun unchanged inputs or delete/quarantine evidence to obtain audit acceptance.
 10. Run `/opt/homebrew/bin/python3 -I -S -B scripts/scientist_one_cli.py audit-project` as the **last repository mutation**.
 11. After the audit, perform read-only `-B` parsing/hashing only. Report the audit result and report digest from `reports/final_audit.json` in the external handoff; do not edit a document to backfill it.
 
@@ -245,4 +245,4 @@ These blockers do not prevent verification of the system fixture, but they do pr
 
 ## Evidence fields awaiting freeze
 
-Final vNext run identity, ArtifactRegistry count, EventLedger count/head, canonical-state count, summary SHA-256, full-suite count/report SHA-256, architecture-control identities, final audit identity, and legacy regression/reproduction identities are all **PENDING**. Historical pre-vNext identities must not be relabeled as final vNext evidence. Pre-audit values may be inserted before the final audit; the audit identity itself is read from `reports/final_audit.json` afterward and reported externally without mutating this plan.
+Current synthetic vNext/legacy identities, counts and digests are measured in the current table in `docs/VNEXT_FINAL_VERIFICATION.md`; they are no longer pending. Whole-suite acceptance remains unresolved, architecture is provisional and the last-mutation audit remains pending. Historical pre-vNext identities remain unchanged. Read the final audit identity from `reports/final_audit.json` afterward and report it externally without mutating this plan.
