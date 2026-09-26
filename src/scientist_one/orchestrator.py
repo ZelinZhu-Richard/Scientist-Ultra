@@ -9493,6 +9493,46 @@ class ScientistOneOrchestrator:
         return {"status": "PASS", "runs": summaries, "count": len(summaries)}
 
     @_project_command
+    def paper_review_status(
+        self,
+        run_id: str,
+        *,
+        decision_artifact_hash: str,
+        revision_artifact_hash: str,
+    ) -> dict[str, Any]:
+        """Read a retained internal decision under the existing admission guard.
+
+        This does not start reviewers, create a run, consume a budget, grant
+        fresh-workspace admission, or issue release/submission authority.
+        """
+
+        from .manuscript_review import manuscript_review_status
+
+        # A status request consumes an existing run, not an initializer for
+        # missing review storage. Normal admitted-command locking is unchanged.
+        self._run_dir(run_id)
+        for name in ("objects", "metadata"):
+            _secure_directory(
+                self.root, Path("runs") / run_id / "registry" / name,
+                create=False,
+            )
+        read_confined_bytes(
+            self.root, Path("runs") / run_id / "events.jsonl",
+            reject_hardlinks=True, max_bytes=MAX_LEDGER_BYTES,
+        )
+        registry = self._registry(run_id)
+        ledger = EventLedger(self.root, Path("runs") / run_id / "events.jsonl")
+        result = manuscript_review_status(
+            registry,
+            ledger,
+            decision_artifact_hash=decision_artifact_hash,
+            revision_artifact_hash=revision_artifact_hash,
+        )
+        if result.get("run_id") != run_id:
+            raise OrchestrationError("paper review differs from the requested run")
+        return result
+
+    @_project_command
     def research_os_fixture(
         self,
         run_id: str | None = None,

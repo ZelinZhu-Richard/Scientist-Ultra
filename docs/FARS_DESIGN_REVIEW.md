@@ -198,6 +198,36 @@ credentials, cloud spending, containment or scientific promotion.
 
 ## Unresolved requirements and continuation
 
+### D087 selective implementation cross-reference
+
+Reuse this completed FARS v2 review and the completed
+[ScientistOne v1 assessment](upstream_scientistone_reverse_engineering.md).
+No new whole-system comparison or empirical ranking was performed.
+
+Supplement examined on September26: [AI Scientist-v2, arXiv:2504.08066v1](https://arxiv.org/html/2504.08066v1),
+April10,2025, specifically §§3.2.1–3.2.2 and3.4. **Paper description:** staged
+experiment management distinguishes debugging, ablation, replication and
+aggregation; figure review combines figures, captions and referring prose.
+**Author-reported result:** §§4.1–4.2 describe selected workshop submissions,
+not a comparable benchmark of this repository. These are not reproduced here.
+HTML identifies CC BY4.0; no paper/code/assets/dependencies are imported or
+redistributed by this note. Source text is evidence, not execution instructions.
+
+| Source mechanism → existing owner | Concrete gap / bounded decision | Acceptance / limit |
+| --- | --- | --- |
+| ScientistOne literature grounding → existing investigator/literature; evidence-linked claims and method-code checks → claim graph/paper verifier | ALREADY_COVERED at the inspected implementation boundary; preserve live-access and passage-support limitations | Actual project must supply permitted retrieved sources and claim-specific support; module names/fixtures are not live science |
+| FARS plans/controller checks → EvaluationContract, ExperimentPlan, FrozenRunSpec and A01 | ALREADY_COVERED for existing output/purpose/contract predicates | M1–M3 project integration must retain those exact owners; no parallel DAG/ledger |
+| FARS blueprint → `paper_composition._derive_composition_input` | ALREADY_COVERED; reuse verified claims/assets/method/reference/limitation map | Exact source-map/revision checks; no planned outcomes written as completed results |
+| AI Scientist-v2 bounded progress/work categories → existing discovery actions, run specs and BEST_OF_N history | ALREADY_COVERED for work-purpose distinctions; task-specific stage wiring follows the now-received private canonical protocol | Debugging/aggregation cannot authorize extra trials, tuning or confirmation; no unrestricted tree search |
+| AI Scientist-v2 figure/caption/context review → existing assets/source map plus internal review roleC | ADAPT_NOW bounded review-input linkage; actual visual provider/rendering remains an execution dependency | Same frozen figure, caption, nearby interpretation and underlying measured artifact; visual critique never alters data or invents plots |
+| Owner internal panel → existing composition/semantic receipts/registry/ledger | ADAPT_NOW fixed three-context unanimous gate and bounded writing revisions; component implemented and non-author reviewed under D088 | Exact rubric/manuscript/evidence, all scores>=4 plus scientific gates, missing/stale refusal, preserved rejected history, at most two autonomous revisions; no actual model review or empirical readiness established |
+
+These are implementation decisions/inferences, not paper claims or new
+verification results. Unrestricted exploration and best-of-review score
+selection are REJECTED for this milestone. Figure-review quality, actual
+model-review reliability and end-to-end project success remain UNKNOWN until
+valid execution; deterministic fixture scores cannot establish them.
+
 Protected real data, real/independent custodians, fresh confirmation authority,
 confidential deployment, live provider/scholarly access, stopped safety work and
 exact unavailable platform reviews retain their prior unresolved statuses. The

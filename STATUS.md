@@ -2,12 +2,30 @@
 
 **DEVELOPMENT / REVIEW, not final acceptance.**
 
-Current September24 status: D083 ML-first priorities are reconciled. Offline
+Current September26 status: exact-fixture patch `afdebc230eeac91937f333ba2972121f77b97b2f`
+is published and remotely verified on the existing review branch. Its 117
+distinct selected IDs pass on both supported runtimes, not 234 distinct tests.
+The prior audit remains NON-PASS and has not been rerun. PAPER-REVIEW-001 is
+repaired and accepted at component scope after non-author full-patch review:
+59 selected controls rerun on both runtimes;65 unchanged compatibility controls
+retain prior evidence, not a new whole-source test run. Safe publication is the
+next checkpoint. The prior105-test pre-repair evidence is historical. The first
+private topic and canonical protocol are received, fully read and hash verified;
+private first deliverables and nine paired-runtime scalar geometry checks are
+complete at engineering scope, not full G1 or tensor/backend validation.
+No real project experiment or manuscript review
+has run. See the [current handoff](OVERNIGHT_REPORT.md) for finite dependencies.
+D082, gates67, external access, confidential deployment, Colab setup/spending,
+custody and human-only E4 restrictions are unchanged.
+
+## Historical September24 checkpoint
+
+D083 ML-first priorities were reconciled. Offline
 Colab input/result preparation passes15 focused captured tests on both runtimes
 after non-author review; live transport/CU authority and question-to-results
 execution remain incomplete. The D0803294-ID Python3.11 selection and paired18
 operations checks are closed at their exact prior source scope. See the
-[current handoff](OVERNIGHT_REPORT.md#current-handoff--owner-d085-september-24-2026)
+[handoff](OVERNIGHT_REPORT.md)
 for evidence, exclusions and queued manual actions. D082 implementation remains
 unapproved; no host-issuer search, gates67 retry or live GPU action is pending.
 

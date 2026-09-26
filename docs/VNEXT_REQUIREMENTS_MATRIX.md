@@ -1,10 +1,23 @@
 # Research OS vNext Requirement-to-Evidence Matrix
 
-Status: **D083 priorities active; final verification and requirement reconciliation incomplete**
+Status: **D088 protocol received and narrow repair active; original Goal incomplete**
 Authoritative requirement source: `RESEARCH_OS_VNEXT_META_SPEC.md`  
-Current review checkpoint: 2026-09-24. The dated September23 snapshot below is
-preserved as historical evidence; the D083 status section below governs current
-priorities and superseding selection results.
+Current review checkpoint: 2026-09-26. The following table supersedes older
+priority/status prose; dated snapshots below remain historical evidence.
+
+| Requirement | Actual state / evidence | Next dependency and acceptance |
+| --- | --- | --- |
+| D086 exact fixture classifier | IMPLEMENTED / OFFLINE_TESTED / PUBLISHED `afdebc230eeac91937f333ba2972121f77b97b2f`;117distinct selected IDs across both runtimes, exact reviewed patch | Complete; retained full audit remains NON-PASS40, not cleared by scoped tests |
+| Owner scientific project | Complete canonical protocol received/read/hash-verified privately; missing-protocol blocker closed. Private config/preregistration/timing/correctness specifications and nine paired-runtime scalar geometry checks | Actual registry intake and protocol-bound task execution; tensor/backend correctness, pinned permitted data/model assets and real smoke remain unverified. No research content published |
+| Executable plans/completion | Existing EvaluationContract/ExperimentPlan/FrozenRunSpec, FARS A01 output checks retained | M1–M4 actual question/configuration/experiment/uncertainty/cost/decision path remains incomplete |
+| Manuscript blueprint | Existing authority-derived `paper_composition` and historical-replay checks | No duplicate blueprint; project prose requires actual valid artifacts |
+| Three-context internal review | PAPER-REVIEW-001 implemented, non-author accepted;59 review/CLI controls rerun both runtimes,65 unchanged controls retained separately. Prior105 controls remain pre-repair evidence | Safe publication; no live calibration, provider dispatcher, scientific readiness or complete-workflow claim |
+| Colab pilot | Offline15-test preparation retained; monthly capacity200CU/pilot<=20CU are ceilings | Account/setup, operational per-job/cumulative spending, inputs/confidentiality/live validation remain blocked; no chargeable job |
+| Final audit | Historical545 and40-finding NON-PASS reports immutable | At mostONE further audit after coherent final bookkeeping/preservation; no retry/repair inferred |
+
+No row is upgraded by a similarly named module, fixture score, development-agent
+review or published engine source. Admission/E0, protected data/custody, live
+provider/confidential deployment, gates67 and safety-stopped paths remain open.
 
 Historical September 23, 2026 checkpoint, incorporating the Python 3.14 terminal observation at 16:19:20 UTC: V9 was installed and frozen with 300 functional inputs.
 The same 125 selected IDs pass on Python 3.14.6 and 3.11.15 at enclosing scope;

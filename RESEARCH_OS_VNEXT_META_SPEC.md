@@ -18,15 +18,18 @@ and its evidence-based [design review](docs/FARS_DESIGN_REVIEW.md). These do not
 replace this specification, waive original requirements or create another
 scientific authority. Apply only justified, tested adaptations under the addendum.
 
-## Owner-directed execution priorities — September 24, 2026
+## Owner-directed execution priorities — September 26, 2026
 
 The current development focus is Generic ML with a first-class CV profile,
 followed by ML+OR, ML+Management Science & Engineering using existing
 optimization/statistics capabilities, and offline-only quantitative-finance ML.
 NeurIPS, ICML, ICLR, and CVPR are venue-fit targets, not acceptance claims. The
-first CVPR topic is `AWAITING_OWNER_TOPIC`; do not invent topic-specific novelty,
-experiments, or results. Topic-independent engineering and synthetic smoke work
-may proceed.
+first scientific topic has been supplied privately. Its canonical project
+protocol must be read completely and bound by exact version/content identity
+before topic-specific planning or execution; an unavailable protocol is a
+specific dependency, not permission to invent its details. Unpublished protocol,
+topic-specific source, manuscripts, datasets, weights, results and provider
+exchanges are excluded from public-engine publication without separate approval.
 
 Apply this priority amendment through sections 19–23 below, the existing plan
 and requirements matrix, not a second roadmap. It is an owner requirement,
@@ -35,6 +38,16 @@ not evidence of implemented CV, Colab or autonomous workflow functionality.
 D082 admission implementation, E0 changes, and the stronger legacy-CLI
 restriction remain unapproved. This priority update changes sequencing, not the
 independent scientific, human-only E4, confidentiality, or safety gates.
+
+The immediate sequence is accepted exact-fixture patch publication, then one
+protocol-faithful question-to-results workflow, evidence-first manuscript and
+bounded internal review. Reuse completed ScientistOne/FARS assessments; use
+AI Scientist-v2 only for concrete gaps in bounded progress or visual review.
+No fourth framework, unrestricted search, extra tuning or architecture restart.
+Negative, inconclusive and stop outcomes are successful workflow behavior,
+not completion of unrelated engineering. At most one additional full project
+audit is authorized after the coherent final checkpoint and all bookkeeping;
+preserve the prior NON-PASS reports and report the new result externally.
 
 # MULTI-AGENT ORCHESTRATION POLICY
 
@@ -689,6 +702,20 @@ Every experiment should bind:
 
 Experiments must produce authoritative structured outputs integrated with the existing ledger and artifact registry.
 
+The current user-facing milestone has five dependency-ordered exits: M1 binds
+the actual question, canonical protocol, permitted inputs, budgets, task outputs
+and validators; M2 runs protocol correctness and representative smoke checks;
+M3 connects baselines, caching, controller fitting, evaluation and direct costs
+in the protocol's order; M4 produces uncertainty, all outcomes and an explicit
+continue/inconclusive/stop decision; M5 produces an evidence-linked manuscript
+only when justified, otherwise a decision memo or negative-result report.
+Preserve project-specific geometry, independent units, gates, locked-data roles,
+bounded controller revision and amendments. Task modules/views do not become a
+second source of scientific truth. Keep paper-specific logic out of the kernel.
+IMPLEMENTED, OFFLINE_TESTED, LIVE_VALIDATED, SCIENTIFICALLY_SUPPORTED and BLOCKED
+are distinct labels. A template, initializer or schema alone is not end-to-end
+research; the question must change actual configuration and execution.
+
 ## 19. Compute modes and escalation
 
 Implement two first-class, scientifically equivalent execution profiles.
@@ -733,6 +760,12 @@ failure capacity. Separate observed consumption from estimates or unavailable
 measurements; promise a hard CU cutoff only if the supported interface enforces
 it. Without applicable explicit per-job and cumulative live caps, do not start
 chargeable work. No purchases, top-ups or upgrades are inferred.
+
+Owner-confirmed capacity is 200 Colab compute units per month; the first
+protocol pilot ceiling is 20 CU. Protocol stage allocations and reserves remain
+binding. These ceilings neither establish remaining balance nor authorize
+authentication, installation or paid launches. Require applicable per-job and
+cumulative live-job approvals; preserve unknown submissions and cumulative cost.
 
 After access and spending approval, proceed from local correctness to tiny GPU
 smoke, reduced pilot, baseline reproduction, candidate experiments and finally
@@ -860,6 +893,63 @@ Allowed venue-fit classifications:
 - `UNCERTAIN`
 
 Never guarantee acceptance or use "B-tier" as the internal scientific standard.
+
+### 23.1 Internal author-side review and bounded revision
+
+`INTERNAL_PAPER_REVIEW_V1` is fixed before the first score: 1 = Reject,
+2 = Weak reject, 3 = Borderline, 4 = Weak accept, 5 = Strong accept. This is
+our internal rubric, not a verified official conference form. Each score must
+cite manuscript passages/artifacts, state confidence, strengths, weaknesses,
+missing evidence and proposed resolutions. It does not replace the existing
+scientific readiness rubric or venue-fit assessment.
+
+Freeze the same complete manuscript/evidence bundle for three non-author
+contexts: A contribution/significance/novelty/related work; B methods/design/
+statistics/evidence; C reproducibility/method-code alignment/figures/presentation/
+limitations. Each reads the whole paper with that emphasis. Initial reviews
+must not see peer scores or receive favorable-score instructions. Bind exact
+manuscript/evidence/rubric and observed model/configuration; label unobserved
+settings UNVERIFIED and disclose same-model/provider limitations. Different
+agent names alone do not prove independence. Untrusted manuscript/source text
+cannot instruct reviewers to change rules, ignore evidence or execute tools.
+Planning feedback is not an empirical-paper readiness verdict.
+
+`INTERNAL_REVIEW_PASSED` requires every applicable mandatory scientific/evidence
+gate, three valid complete current reviews with each integer overall score at
+least4, and no unresolved material correctness/evidence blocker. Missing, failed,
+stale or inaccessible reviews block. Never average away a score below4; high
+scores never override missing experiments or failed scientific checks. A
+non-author meta-review may document evidence-backed reviewer errors or
+disagreement, preserving originals, but cannot manufacture consensus.
+
+After outer admission and bounded input checks, preserve a minimal operational
+attempt before consequential review validation or dispatch preparation. Refusals
+must not confer valid manuscript/scientific identity. Reconcile logical requests,
+existing provider invocations/retries/terminal records, outputs, panels and
+manuscript rounds without dropping failures or treating unknown outcomes as
+unused slots. Persistence failure prevents dispatch; incomplete or inconsistent
+accounting blocks readiness. This approved component repair grants no provider,
+admission, spending, scientific or E4 authority and does not alter revision limits.
+
+After a below-threshold draft, consolidate one revision plan: presentation;
+missing evidence/comparison; implementation/analysis correctness; novelty/
+contribution; reviewer factual error; unresolved scientific limitation. Allow
+the initial review plus at most TWO autonomous manuscript-revision rounds by
+default, preserving all drafts/reviews/dispositions. Tighter protocol limits
+win: this grants no additional controller revision, confirmation, search or
+spending. No changing the rubric after scores, replacing skeptical reviewers,
+best-of-review resampling, hidden failures or locked-outcome tuning. Substantive
+post-reveal changes require untouched evaluation or explicit protocol amendment/
+exploratory classification. Exhausted or falsified directions return NOT_READY,
+INCONCLUSIVE or the protocol stop outcome. Internal passage is not external
+acceptance, independent certification, submission permission or human-only E4.
+
+Construct prose/plots only from actual verified artifacts and analysis. Keep
+source-reported benchmarks distinct from local measurements. Visual review
+checks figures with captions and surrounding interpretation; it may correct
+presentation, never alter measured data. Retain negative/null outcomes and
+limitations. Real provider and review quality remain separate from fixture
+control-flow tests, and development-agent access is not product-provider access.
 
 ## 24. Deterministic verification first
 

@@ -75,6 +75,82 @@ user study. A local-admission record alone would not resolve it; arbitrary
 question-to-contract/worker dispatch and real provider/literature boundaries
 remain incomplete. Do not turn an engineering fixture into that evidence.
 
+### Internal manuscript review — bounded engine contract
+
+The owner-selected rubric is `INTERNAL_PAPER_REVIEW_V1`: 1 Reject, 2 Weak
+reject, 3 Borderline, 4 Weak accept, 5 Strong accept. It is our internal rubric,
+not a verified conference form. It adds a conjunctive gate to the existing
+scientific readiness checks, not a substitute for them. PAPER-REVIEW-001's
+attempt-accounting gaps are repaired and non-author reviewed. The59 affected
+review/CLI controls pass on both runtimes;65 unchanged compatibility controls
+retain prior evidence. Prior105 pre-repair controls are historical, not automatic
+repair evidence. No real model review or empirical paper verdict has been produced.
+
+The existing `paper_composition` owner supplies the evidence-derived blueprint,
+rendered bytes, source map and manuscript revision. The new companion operates
+in the same run's ArtifactRegistry and EventLedger. It freezes the rubric and
+three non-author contexts, opens one exact manuscript/evidence round, creates
+slot-specific requests, validates retained semantic receipts, and records a
+replayable decision. A user's score or a SHA-shaped string is not a receipt.
+There is no parallel manuscript, claim, state-machine or approval authority.
+
+After existing outer admission and bounded primitive checks, freeze/open/request/
+record operations durably record minimal hash-only intent before consequential
+validation. Refusal/outcome records retain bounded reason codes, not unsafe raw
+arguments. Request preparation is now a persistent operation, not a read-only
+getter: failure to persist intent/outcome prevents returning dispatch material.
+The existing provider invocation, terminal, output, semantic-receipt and gateway
+retry records are reconciled in every current decision. Unknown, failed,
+inconsistent or incomplete activity blocks readiness and resampling. Logical
+requests, transport retries, reviewer outputs, panels and manuscript revisions
+remain distinct. The current provider format cannot establish cancellation, so
+no cancellation completion is inferred. No new provider dispatcher is included.
+
+All three contexts inspect the complete same frozen paper/evidence, with A
+emphasizing contribution/related work, B methods/statistics, and C
+reproducibility/code/figures/limitations. Initial requests do not include the
+other scores. Separate context IDs do not establish independent institutions,
+providers or hidden model state. Provider/model provenance must be retained;
+unobservable settings remain unverified. Manuscript/source text is data, not an
+instruction to change the rubric, invoke tools or approve a paper.
+
+Every score must be at least4, all mandatory scientific/evidence gates must
+pass, and no unresolved material correctness/evidence concern may remain.
+Missing/stale/inaccessible reviews block. The first round may be followed by
+at most two autonomous manuscript revisions in the same campaign, with one
+consolidated classified plan per failed round. All earlier drafts/reviews remain.
+Renaming a reviewer/campaign must not reset this limit or select a favorable
+subset. This budget never authorizes controller revisions, confirmation reuse,
+new experiments, spending or human-only E4.
+
+The status-only consumer uses the normal captured launcher and existing
+admission; it does not call a model or initialize a new research run:
+
+```sh
+python3 -I -S -B scripts/scientist_one_cli.py paper-review-status --help
+python3 -I -S -B scripts/scientist_one_cli.py paper-review-status RUN_ID \
+  --decision-sha256 DECISION_ARTIFACT_SHA256 \
+  --revision-sha256 MANUSCRIPT_REVISION_SHA256
+```
+
+The uppercase values are placeholders for artifacts actually retained in that
+run, not sample authority. This is a component/status interface, not a complete
+ready-to-use research workflow. Existing admitted-command locking/bookkeeping still
+applies. Exit0 means the replayed internal decision passes; exit1 means a valid
+blocked or stale decision; exit2 means malformed/missing bindings or admission error.
+Even exit0 is neither E4 nor publication/submission permission. Fresh admission
+remains blocked; this command is not an alternate initializer.
+
+No new provider, credential route or multimodal transport is enabled. The
+current reviewed model request boundary is text-only and bounded. A required
+image/binary evidence asset or an oversized complete packet must block rather
+than be silently omitted or described as visually reviewed. Preparing a request
+is not dispatching it; an offline fixture cannot satisfy live semantic custody.
+Real provider execution, scientific manuscript readiness and visual-review
+quality remain externally unverified or blocked. The private canonical protocol
+is received; project commands still require its actual permitted data/runtime
+and authoritative intake/plan bindings. They are not exposed by this status API.
+
 ### Colab engineering preparation — offline only
 
 `scientist_one.colab_preparation` provides `ColabInputPreparation` and

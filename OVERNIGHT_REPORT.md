@@ -2,7 +2,61 @@ DEVELOPMENT / REVIEW — NOT FINAL RELEASE OR SCIENTIFIC APPROVAL
 
 # Scientist-One vNext Handoff
 
-## Current handoff — owner D085, September 24, 2026
+## Current handoff — owner D088, September 26, 2026
+
+Published engine checkpoint:
+[`afdebc230eeac91937f333ba2972121f77b97b2f`](https://github.com/ZelinZhu-Richard/Scientist-Ultra/commit/afdebc230eeac91937f333ba2972121f77b97b2f)
+on `review/vnext-checkpoint`; normal push and remote SHA verified. Four files:
+two audit sources, directly related test module and audit documentation. The
+staged patch exactly matched reviewed `8aa01ad2`; all300 captured inputs and
+three retained result identities matched, so117 distinct selected tests retain
+their Python3.11.15/3.14.6 evidence without rerunning. Outgoing356-file candidate
+and14-commit/430-blob history checked with unchanged disclosure rules. Main and
+the qualified recovered-baseline tag remain unchanged. No raw private evidence,
+private blob payload or research content published. This is not audit clearance.
+
+The current preserved audit is NON-PASS40, SHA-256
+`01b5348066e1851063401d80eb70bcc3007e3b6aa72a6bebc25c4d834c907150`.
+No new full audit has run. At most one is authorized after the final coherent
+source/docs/Git checkpoint; historical545/cache evidence remains preserved.
+
+The complete canonical protocol has now been received, read and hash-verified;
+its byte-identical private copy and prospective project views are excluded from
+public Git. The missing-protocol dependency is closed. Private deliverables include
+configuration/preregistration mapping, timing and correctness specifications,
+and scalar coordinate code with nine tests passing on both runtimes. These are
+engineering checks only: no tensor/backend G1 clearance, downloaded assets,
+research experiment, measured pilot, manuscript result or real model review.
+
+The owner approved PAPER-REVIEW-001. The local repair records bounded operational
+attempts/refusals before consequential manuscript validation or request
+preparation, and reconciles existing invocation/terminal/output/receipt/retry
+records in readiness. It adds no provider dispatcher, admission, spending,
+scientific eligibility or E4 authority. All55 manuscript-review controls plus
+four CLI controls passed on Python3.11.15 and3.14.6 with unchanged captured inputs;
+this is59 distinct selected IDs, not118. Non-author full-patch review accepts the
+bounded repair; root verified raw captures, IDs and unchanged inputs.65 unchanged
+composition/evaluator/venue/onboarding controls retain prior evidence; they were
+not rerun against the changed whole-source capture. The prior105-test pre-repair evidence and original
+source findings remain historical, not automatic evidence for this repair.
+The fixed rubric/panel/two-revision policy is not a completed research workflow.
+No real research experiment, manuscript score or live Colab run has occurred.
+
+### OWNER ACTIONS
+
+| Action / recommendation | Reason / blocked stage | Completed without it |
+| --- | --- | --- |
+| Confirm Colab account/interface/authentication and pinned installation scope through local controls; never paste secrets | Live worker setup; offline preparation does not prove access | Published offline15-test component retained |
+| Approve operational per-job/cumulative CU caps after balance is known | Chargeable pilot/smoke;200CU monthly and20CU pilot are ceilings only | No spending, top-ups or reserve consumption |
+| Decide existing COLAB-001 input/log-retention and D082 compatibility proposals when those paths are needed | Confidential live deployment and fresh-user admission remain blocked | No admission/E0 changes or hidden launcher fallback |
+
+Next: publish the accepted engine changes,
+and continue permitted private M1–M5 stages through the existing owners. No new
+repair or protocol-supply decision is required. Only after relevant accepted changes and final
+bookkeeping may the one additional audit run; it has not been consumed.
+gates67 TIMEOUT and existing safety/external/scientific/E4 boundaries unchanged.
+
+## Historical D085 handoff — September 24, 2026
 
 This development checkpoint extends the previously verified public base
 `e29908728728a4f61a70e92bd77bfcf3d712f5fd` on `review/vnext-checkpoint`.

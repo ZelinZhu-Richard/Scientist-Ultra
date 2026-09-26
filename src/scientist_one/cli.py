@@ -76,6 +76,13 @@ def build_parser() -> argparse.ArgumentParser:
     )
     status = subparsers.add_parser("status", help="show all runs or one run")
     status.add_argument("run_id", nargs="?")
+    paper_review_status = subparsers.add_parser(
+        "paper-review-status",
+        help="revalidate one retained internal paper-review decision (no model call)",
+    )
+    paper_review_status.add_argument("run_id")
+    paper_review_status.add_argument("--decision-sha256", required=True)
+    paper_review_status.add_argument("--revision-sha256", required=True)
     for name, description in (
         ("resume", "validate and resume a run from its safe checkpoint"),
         ("verify", "validate ledger, artifacts, and state"),
@@ -111,6 +118,11 @@ def _dispatch(orchestrator: "ScientistOneOrchestrator", arguments: argparse.Name
         except (OSError, ValueError):
             brief_label = arguments.brief.name
         provenance.extend(("--brief", brief_label))
+    if command == "paper-review-status":
+        provenance.extend((
+            "--decision-sha256", arguments.decision_sha256,
+            "--revision-sha256", arguments.revision_sha256,
+        ))
     orchestrator.set_command_context(provenance)
     if command == "preflight":
         return orchestrator.preflight()
@@ -127,6 +139,12 @@ def _dispatch(orchestrator: "ScientistOneOrchestrator", arguments: argparse.Name
         )
     if command == "status":
         return orchestrator.status(arguments.run_id)
+    if command == "paper-review-status":
+        return orchestrator.paper_review_status(
+            arguments.run_id,
+            decision_artifact_hash=arguments.decision_sha256,
+            revision_artifact_hash=arguments.revision_sha256,
+        )
     if command == "resume":
         return orchestrator.resume(arguments.run_id)
     if command == "verify":

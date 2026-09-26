@@ -1,11 +1,37 @@
 # Scientist-One vNext Execution Plan
 
-## Current bounded milestone — owner D083, September 24
+## Current bounded milestone — owner D088, September 26
+
+The target is one usable, protocol-faithful question-to-results workflow, with
+honest negative/inconclusive outcomes and evidence-linked author-side review.
+The first topic and complete canonical protocol are supplied privately; the
+original bytes are hash verified. Do not publish private research content.
+Generic ML/CV remains the shared core; no expansion of unrelated domains.
+
+| Work / owner | Dependency | Observable exit / next action |
+| --- | --- | --- |
+| Exact-fixture publication / root — DONE | Reviewed patch and retained117-ID paired evidence | `afdebc230eeac91937f333ba2972121f77b97b2f` normal-pushed to existing review branch; remote SHA verified; four exact reviewed files. Main/tag unchanged; audit remains NON-PASS. |
+| M1 protocol intake / root — ACTIVE | Verified original received; writer-free ordinary intake path | Complete read/hash DONE. Private configuration, timing and correctness specs drafted; bind original through existing admitted registry/ledger at source freeze. |
+| M2 correctness/smoke / root — ACTIVE engineering | M1 and permitted inputs/runtime | Nine scalar coordinate controls pass both runtimes; full tensor/backend G1 and representative real execution remain unverified. Synthetic checks are engineering only. |
+| M3 pilot / root — BLOCKED_EXTERNAL | M2, protocol order, data/access and operational compute approval | Baselines/caching/controller/evaluation/direct-cost evidence, no failed-gate advance or blind resubmission. Monthly/pilot ceilings do not authorize paid launch. |
+| M4 analysis / root — NOT_STARTED | Actual experiment artifacts | Independent-unit uncertainty, all positive/negative/null outcomes, cost and explicit continue/inconclusive/stop decision. |
+| M5 manuscript / root — accepted component, project BLOCKED | Actual valid project artifacts, live provider/custody and visual evidence | Reuse evidence-derived blueprint, exact numerical/method/citation sources; no planned-result prose. Component acceptance is not a completed scientific workflow. |
+| Internal review / root integrator — accepted component | D088 owner approval | Bounded repair and non-author review complete;59 affected controls rerun both runtimes,65 unchanged controls retained separately. Publish after outgoing checks. No live provider/admission/scientific authority change. |
+| Final checkpoint / root — NOT_STARTED | Accepted source, affected evidence, docs/Git bookkeeping | Scoped safe engine publication, remote identity, preserve prior audit, at mostONE final audit. No automatic repair/retry; report digest externally without mutating audited source. |
+
+D082/E0/legacy admission restrictions remain unapproved. Use only the genuinely
+admitted environment. Colab setup/authentication/per-job/cumulative spending,
+confidentiality, protected data/custody, live-provider and safety boundaries stay
+explicit. gates67 is TIMEOUT with recorded unknowns and no further action.
+Retain valid completed checks; rerun only changed dependencies or mandatory
+final checks. This is not another full-source review or verification campaign.
+
+## Historical D083 checkpoint — superseded priorities, retained evidence
 
 The D083 amendment makes ML-first development the current priority: Generic ML
 with a first-class CV profile, then ML+OR, ML+Management Science & Engineering,
-and offline-only quantitative-finance ML. The first CVPR topic remains
-`AWAITING_OWNER_TOPIC`. The amendment authorizes bounded offline request/worker
+and offline-only quantitative-finance ML. The first CVPR topic then remained
+`AWAITING_OWNER_TOPIC` (superseded by D087). The amendment authorized bounded offline request/worker
 preparation, not live experiments or scientific authority.
 
 Latest verification closes the original192-module / 3,294-distinct-ID
@@ -33,7 +59,7 @@ release or Goal completion. Detailed dated V9 and earlier checkpoints below
 remain historical evidence; their former “remaining192 NOT_STARTED” statements
 are superseded by the current result above.
 
-### Finite remaining sequence — existing obligations, not new scope
+### Historical D083 remaining sequence — superseded by D087 above
 
 Root owns integration and evidence closure. The305-input source is frozen;
 both synthetic lifecycle ladders are closed and the qualified baseline is

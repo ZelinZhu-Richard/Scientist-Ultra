@@ -2,7 +2,7 @@
 
 Scientist-One vNext extends an existing research-control kernel into a provenance-first Research OS. This is an unfinished **DEVELOPMENT / REVIEW** checkpoint, not a final release. `AUTONOMOUS_EXPLORATION_READY` is a provisional ceiling supported by earlier bounded synthetic fixtures, not current whole-system acceptance. Known regression errors, timeouts and unverified paths remain. It is not research-grade, submission-ready, independently validated science, or evidence of superiority over upstream ScientistOne.
 
-The [current checkpoint handoff](OVERNIGHT_REPORT.md#current-handoff--owner-d085-september-24-2026) distinguishes installed tests from private candidates and historical/reconstructed evidence. Private run state, credentials, reports and captured runtime/bootstrap evidence are intentionally excluded from GitHub; a fresh clone does not reproduce those private captures merely by containing the same source. Do not enable live credentials, protected data or external workloads from this checkpoint.
+The [current checkpoint handoff](OVERNIGHT_REPORT.md) distinguishes installed tests from private candidates and historical/reconstructed evidence. Private run state, credentials, reports and captured runtime/bootstrap evidence are intentionally excluded from GitHub; a fresh clone does not reproduce those private captures merely by containing the same source. Do not enable live credentials, protected data or external workloads from this checkpoint.
 
 The integrated `research-os-fixture` is deliberately nonpublishable. A top-level `status: PASS` means only that the bounded system fixture completed with internally consistent registry, ledger, state, and gate evidence. Scientific soundness, external validation, paper readiness, and human release authority remain separate outcomes and fail closed.
 
@@ -20,9 +20,26 @@ for passing selections, original failures and unresolved safety/external gates.
 The owner-directed focus is one ML core: Generic ML/CV, ML+OR, ML+Management
 Science & Engineering and offline-only quantitative-finance research. NeurIPS,
 ICML, ICLR and CVPR are fit targets, not readiness or acceptance claims. The
-first CVPR topic is still owner-supplied. Existing domain code/tests remain.
+first CVPR topic and complete canonical protocol have been supplied privately;
+the exact protocol identity is verified and its first implementation views are
+being prepared. No dataset, model identity or scientific outcome is invented.
+Private project artifacts are not included in this engine repository. Existing
+domain code/tests remain.
 Autonomous execution is the intended default only within approved scientific,
 data/tool and budget scope; optional human gates and human-only E4 remain.
+
+The exact-fixture audit-classifier extension is published at `afdebc230eeac91937f333ba2972121f77b97b2f`.
+Its 117 distinct selected tests passed on both supported Python runtimes at that
+source. This did not rerun or clear the preserved NON-PASS audit. The bounded
+engine addition is an evidence-bound internal paper-review gate with three fixed
+non-author contexts, a versioned 1–5 rubric, a score floor of4 for every reviewer,
+scientific-gate conjunction and at most two autonomous manuscript revisions.
+PAPER-REVIEW-001 is repaired and accepted at component scope after non-author
+review:59 distinct selected controls were rerun on both runtimes, with65
+unchanged compatibility controls retaining earlier evidence. Attempt persistence
+and provider-history reconciliation do not establish a working live dispatcher.
+The prior105-test pre-repair evidence remains separate historical evidence.
+No empirical manuscript has been scored and no scientific readiness is claimed.
 
 Colab is the first concrete cloud-worker target, not yet a working integration.
 The new offline preparation component binds existing frozen input hashes and

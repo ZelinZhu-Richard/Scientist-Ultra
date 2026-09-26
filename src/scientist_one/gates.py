@@ -511,6 +511,7 @@ class ChallengeResolutionOutcome(StrEnum):
 
 
 class JudgmentSubjectKind(StrEnum):
+    MANUSCRIPT_REVIEW = "MANUSCRIPT_REVIEW"
     RESEARCH_QUESTION = "RESEARCH_QUESTION"
     NOVELTY = "NOVELTY"
     DATASET_USAGE = "DATASET_USAGE"

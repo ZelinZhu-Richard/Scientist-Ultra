@@ -1,9 +1,12 @@
 # Public-release policy
 
-Status: **development-checkpoint disclosure review in progress; not final-release clearance**. The owner
+Status: **published development checkpoints; not final-release clearance**. The owner
 published a README-only bootstrap (`bba9ec5`) before agent release work; it is not
-a verified kernel import or completed vNext release. No agent implementation
-commit or push has occurred. The canonical destination is the existing
+a verified kernel import or completed vNext release. Subsequent development
+commits, most recently the exact-fixture extension `afdebc230`, have been pushed
+and remotely verified on `review/vnext-checkpoint`; main is unchanged. The
+qualified recovered source is on its separate branch/tag. These publications
+do not clear the preserved NON-PASS project audit. The canonical destination is the existing
 [Scientist-Ultra repository](https://github.com/ZelinZhu-Richard/Scientist-Ultra).
 Treat it as public unless its actual visibility is independently verified
 otherwise. Do not change its visibility or create a substitute repository.
@@ -13,6 +16,14 @@ final scientific validation or qualified historical import. Known disclosed
 software/test failures are not alone disclosure blockers. All outgoing-file and
 reachable-history checks below still apply; unknown/confidential content stays
 excluded. This changes checkpoint sequencing, not the final definition of done.
+
+The September26 continuation authorizes accepted generic engine updates only.
+It does not authorize publication of the privately supplied topic/protocol,
+topic-specific implementation, manuscripts, data, weights, experiment results
+or provider exchanges. Keep those outside the public candidate until the owner
+approves their exact disclosure scope. One additional full project audit may run
+only after relevant implementation, evidence, documentation and Git bookkeeping;
+preserve the previous report first. No automatic repair or second audit follows.
 
 ## Candidate contents
 

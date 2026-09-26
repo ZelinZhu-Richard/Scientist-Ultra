@@ -15,14 +15,19 @@ Scientist-One vNext is an extension of an existing trusted research kernel, not 
 
 The integrated `research-os-fixture` is a supported system path, but it is deliberately synthetic and nonpublishable. Its top-level `PASS` means that the integrated fixture completed and its local authorities validated. It does not mean that a scientific result, live provider, scholarly source, GPU job, external validation, paper, venue, independent review, or E4 release passed.
 
-Final post-vNext captured-suite, architecture-control, and audit counts are still pending. The previously reproduced `364/364` test and `15/15` architecture-control results are the frozen pre-vNext baseline documented in `baseline_before_vnext.md`; they must not be presented as final verification of the current source tree.
+Final post-vNext verification remains incomplete. Historical reported `364/364`
+and `15/15` are not current independently recovered full-suite evidence;
+the qualified reconstructed baseline and each current selected verification
+scope remain separate in `baseline_before_vnext.md` and the final-verification
+report. The current historical audit remains NON-PASS, not cleared by the
+published exact-fixture component tests.
 
 ## Supported entry path
 
 The supported vNext launcher is:
 
 ```sh
-/opt/homebrew/bin/python3 -I -S -B scripts/scientist_one_cli.py research-os-fixture --run-id UNIQUE_RUN_ID
+python3 -I -S -B scripts/scientist_one_cli.py research-os-fixture --run-id UNIQUE_RUN_ID
 ```
 
 `--run-id` is optional, but an explicit value must be unique because an existing run directory is never overwritten. The launcher descriptor-captures its own bytes and the `scientist_one` package before import, installs the exclusive in-memory loader, reattests the source tree before dispatch, and supplies the admitted project root to the CLI. Direct `PYTHONPATH` imports, `python -m scientist_one`, direct calls to `run_research_os_fixture`, or the test-only import capability are useful development paths but are not substitutes for captured-launcher evidence.
