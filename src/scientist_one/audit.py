@@ -19,6 +19,7 @@ from .git_audit import (
     GitAuditFinding,
     GitAuditSession,
     is_reviewed_synthetic_fixture,
+    reviewed_synthetic_fixture_sha256,
 )
 from .security import (
     INVALID_UTF8_SECRET_SCAN_LABEL,
@@ -1170,11 +1171,17 @@ def audit_project(
         for item in git.reviewed_findings:
             finding = AuditFinding("git_validation", item.path, item.code)
             findings.append(finding)
-            dispositions.append(ReviewedDisposition(
-                finding, "REVIEWED_SYNTHETIC_REJECTION_FIXTURE",
-                "d0e59a5f285498633b98c7c152e62b0ae1e0ed856b9d3f910af997e6ffdfceab",
-                blob_oid=item.path.removeprefix(".git/decoded-objects/"),
-            ))
+            blob_oid = item.path.removeprefix(".git/decoded-objects/")
+            content_sha256 = reviewed_synthetic_fixture_sha256(blob_oid)
+            if (
+                item.code == "secret_pattern_secret_assignment"
+                and item.path == ".git/decoded-objects/" + blob_oid
+                and content_sha256 is not None
+            ):
+                dispositions.append(ReviewedDisposition(
+                    finding, "REVIEWED_SYNTHETIC_REJECTION_FIXTURE",
+                    content_sha256, blob_oid=blob_oid,
+                ))
     for relative_directory in sorted(state.directory_identities):
         try:
             directory_fd = _open_bound_directory_fd(

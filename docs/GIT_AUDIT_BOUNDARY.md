@@ -1,5 +1,28 @@
 # Git-aware project audit
 
+## D086 exact decoded-fixture extension (September 26, 2026)
+
+The owner approved one additional decoded-only observation: blob
+`eed1d57e7b1645f7498dbab679859d95e37a54e9`, 135099 bytes, SHA-256
+`de1d966155aec9441bf3c0c4bd3a0227ff433c927aaa333571932ff5350f0b7e`.
+It must match the existing rule, line584 / byte span `[21865,21889)`, exact
+matched bytes, and the reviewed1421-byte rejection-test context `[20808,22229)`
+with SHA-256 `cc3084799e4e6efbb0589a1f836c70983a387edbed187aa3ac62454914227967`.
+Decoded type and Git object hash are verified before recognition. This is not a
+new working-tree exemption or a classification of other content in the blob.
+Its originating version/author/chronology remain unknown. Exact source tests
+reconstruct the bytes from already-public source and never execute that payload.
+
+Raw findings and `REVIEWED_SYNTHETIC_REJECTION_FIXTURE` rationale remain retained;
+the disposition records this blob's own content hash, not the older fixture's.
+Complete successful Git coverage and the live report/publication seal still
+govern nonblocking treatment. No-Git, malformed/changed/additional matches,
+unrecognized identities, failed coverage and stale publication remain strict.
+The historical D084 packet below is not rewritten by this bounded extension.
+The retained D085 audit remains NON-PASS40; this change does not rerun or clear
+it. Publication, another audit and any further classification require separate
+owner authorization.
+
 The project audit includes raw Git metadata in the same file inventory and
 snapshot digest as the working tree. It does not exclude `.git` to accommodate
 compressed objects. Git-specific coverage is an additional section of the

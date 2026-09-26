@@ -196,28 +196,25 @@ def _scan(payload: bytes, path: str, *, binary: bool = False) -> None:
         )
 
 
-def is_reviewed_synthetic_fixture(
-    path: str, payload: bytes, *, blob_oid: str | None = None,
-) -> bool:
-    """Recognize only the indivisible owner-reviewed AUDIT-001 fixture.
+_REVIEWED_SYNTHETIC_BLOBS = (
+    ("bce2eed606bb7eed19f902167a60a9e9248fe5a1", 139_137,
+     "d0e59a5f285498633b98c7c152e62b0ae1e0ed856b9d3f910af997e6ffdfceab"),
+    ("eed1d57e7b1645f7498dbab679859d95e37a54e9", 135_099,
+     "de1d966155aec9441bf3c0c4bd3a0227ff433c927aaa333571932ff5350f0b7e"),
+)
 
-    This classifies an observation, not a publication waiver. The caller must
-    separately establish complete Git coverage and seal the live report. A
-    decoded caller must verify the actual object is a blob before calling.
-    """
-    reviewed_oid = "bce2eed606bb7eed19f902167a60a9e9248fe5a1"
-    expected_path = (
-        "tests/test_external_providers.py" if blob_oid is None
-        else ".git/decoded-objects/" + reviewed_oid
-    )
-    if (
-        type(path) is not str or path != expected_path
-        or (blob_oid is not None and blob_oid != reviewed_oid)
-        or type(payload) is not bytes or len(payload) != 139_137
-        or hashlib.sha256(payload).hexdigest()
-        != "d0e59a5f285498633b98c7c152e62b0ae1e0ed856b9d3f910af997e6ffdfceab"
-    ):
-        return False
+
+def reviewed_synthetic_fixture_sha256(blob_oid: str) -> str | None:
+    """Describe an already classified blob; this lookup grants no disposition."""
+    if type(blob_oid) is str:
+        for oid, _size, digest in _REVIEWED_SYNTHETIC_BLOBS:
+            if blob_oid == oid:
+                return digest
+    return None
+
+
+def _has_reviewed_rejection_match(payload: bytes) -> bool:
+    """Check the exact match and context, not object identity or audit authority."""
     if detect_secret_patterns_in_bytes(payload) != ("secret_assignment",):
         return False
     text = payload.decode("utf-8")
@@ -232,6 +229,37 @@ def is_reviewed_synthetic_fixture(
         and payload[:start].count(b"\n") + 1 == 584
         and hashlib.sha256(payload[start:end]).hexdigest()
         == "2c66730fbffaa076361f7c3d291251c8243143bbd4c2e462e0386a026cc295df"
+        and hashlib.sha256(payload[20808:22229]).hexdigest()
+        == "cc3084799e4e6efbb0589a1f836c70983a387edbed187aa3ac62454914227967"
+    )
+
+
+def is_reviewed_synthetic_fixture(
+    path: str, payload: bytes, *, blob_oid: str | None = None,
+) -> bool:
+    """Recognize only the indivisible owner-reviewed AUDIT-001 observations.
+
+    Decoded callers first verify blob type, object hash and framing. The second
+    identity is decoded-only: it grants no new working-tree path classification.
+    An observation is pending, never a waiver; complete successful Git coverage
+    and the existing live report/publication seal are still required.
+    """
+    if blob_oid is None:
+        _oid, size, digest = _REVIEWED_SYNTHETIC_BLOBS[0]
+        expected_path = "tests/test_external_providers.py"
+    elif type(blob_oid) is str:
+        identity = next((item for item in _REVIEWED_SYNTHETIC_BLOBS if item[0] == blob_oid), None)
+        if identity is None:
+            return False
+        _oid, size, digest = identity
+        expected_path = ".git/decoded-objects/" + blob_oid
+    else:
+        return False
+    return (
+        type(path) is str and path == expected_path
+        and type(payload) is bytes and len(payload) == size
+        and hashlib.sha256(payload).hexdigest() == digest
+        and _has_reviewed_rejection_match(payload)
     )
 
 
@@ -985,4 +1013,4 @@ class GitAuditSession:
         )
 
 
-__all__ = ["GitAuditCoverage", "GitAuditError", "GitAuditFile", "GitAuditFinding", "GitAuditSession", "is_reviewed_synthetic_fixture"]
+__all__ = ["GitAuditCoverage", "GitAuditError", "GitAuditFile", "GitAuditFinding", "GitAuditSession", "is_reviewed_synthetic_fixture", "reviewed_synthetic_fixture_sha256"]
