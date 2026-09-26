@@ -2,17 +2,21 @@
 
 **DEVELOPMENT / REVIEW, not final acceptance.**
 
-Current September26 status: exact-fixture patch `afdebc230eeac91937f333ba2972121f77b97b2f`
-is published and remotely verified on the existing review branch. Its 117
-distinct selected IDs pass on both supported runtimes, not 234 distinct tests.
+Current September26 engine checkpoint `7d42f7b3d3ed172bc186294ef74af70fd0c01614`
+is published and remotely verified on the existing review branch. The preceding
+exact-fixture checkpoint and117-ID evidence remain separately retained.
 The prior audit remains NON-PASS and has not been rerun. PAPER-REVIEW-001 is
 repaired and accepted at component scope after non-author full-patch review:
 59 selected controls rerun on both runtimes;65 unchanged compatibility controls
-retain prior evidence, not a new whole-source test run. Safe publication is the
-next checkpoint. The prior105-test pre-repair evidence is historical. The first
+retain prior evidence, not a new whole-source test run. The prior105-test
+pre-repair evidence is historical. The first
 private topic and canonical protocol are received, fully read and hash verified;
-private first deliverables and nine paired-runtime scalar geometry checks are
-complete at engineering scope, not full G1 or tensor/backend validation.
+private first deliverables and16 paired-runtime scalar reference checks are
+complete at engineering scope, not full G1 or tensor/backend validation. Raw
+protocol bytes are registered in the existing admitted registry/ledger; scientific
+contract/task binding is still pending actual inputs/runtime and integration.
+The next real tensor check needs a separately approved isolated worker dependency
+installation and permitted model/data acquisition. No installation has occurred.
 No real project experiment or manuscript review
 has run. See the [current handoff](OVERNIGHT_REPORT.md) for finite dependencies.
 D082, gates67, external access, confidential deployment, Colab setup/spending,

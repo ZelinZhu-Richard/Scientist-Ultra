@@ -1,6 +1,6 @@
 # Research OS vNext Requirement-to-Evidence Matrix
 
-Status: **D088 protocol received and narrow repair active; original Goal incomplete**
+Status: **D088 protocol registered privately and narrow repair published; original Goal incomplete**
 Authoritative requirement source: `RESEARCH_OS_VNEXT_META_SPEC.md`  
 Current review checkpoint: 2026-09-26. The following table supersedes older
 priority/status prose; dated snapshots below remain historical evidence.
@@ -8,10 +8,10 @@ priority/status prose; dated snapshots below remain historical evidence.
 | Requirement | Actual state / evidence | Next dependency and acceptance |
 | --- | --- | --- |
 | D086 exact fixture classifier | IMPLEMENTED / OFFLINE_TESTED / PUBLISHED `afdebc230eeac91937f333ba2972121f77b97b2f`;117distinct selected IDs across both runtimes, exact reviewed patch | Complete; retained full audit remains NON-PASS40, not cleared by scoped tests |
-| Owner scientific project | Complete canonical protocol received/read/hash-verified privately; missing-protocol blocker closed. Private config/preregistration/timing/correctness specifications and nine paired-runtime scalar geometry checks | Actual registry intake and protocol-bound task execution; tensor/backend correctness, pinned permitted data/model assets and real smoke remain unverified. No research content published |
+| Owner scientific project | Complete canonical protocol received/read/hash-verified and raw bytes registered privately; missing-protocol blocker closed. Private config/preregistration/timing/correctness specifications and16 paired-runtime scalar reference controls | Scientific contract/task binding and execution still incomplete; approved isolated worker dependencies and permitted data/model acquisition required for real tensor/smoke checks. No research content published |
 | Executable plans/completion | Existing EvaluationContract/ExperimentPlan/FrozenRunSpec, FARS A01 output checks retained | M1–M4 actual question/configuration/experiment/uncertainty/cost/decision path remains incomplete |
 | Manuscript blueprint | Existing authority-derived `paper_composition` and historical-replay checks | No duplicate blueprint; project prose requires actual valid artifacts |
-| Three-context internal review | PAPER-REVIEW-001 implemented, non-author accepted;59 review/CLI controls rerun both runtimes,65 unchanged controls retained separately. Prior105 controls remain pre-repair evidence | Safe publication; no live calibration, provider dispatcher, scientific readiness or complete-workflow claim |
+| Three-context internal review | PAPER-REVIEW-001 implemented, non-author accepted and published7d42f7b;59 review/CLI controls rerun both runtimes,65 unchanged controls retained separately. Prior105 controls remain pre-repair evidence | No live calibration, provider dispatcher, scientific readiness or complete-workflow claim; actual manuscript/evidence and permitted provider execution required |
 | Colab pilot | Offline15-test preparation retained; monthly capacity200CU/pilot<=20CU are ceilings | Account/setup, operational per-job/cumulative spending, inputs/confidentiality/live validation remain blocked; no chargeable job |
 | Final audit | Historical545 and40-finding NON-PASS reports immutable | At mostONE further audit after coherent final bookkeeping/preservation; no retry/repair inferred |
 

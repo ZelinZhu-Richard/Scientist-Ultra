@@ -5,15 +5,16 @@ DEVELOPMENT / REVIEW — NOT FINAL RELEASE OR SCIENTIFIC APPROVAL
 ## Current handoff — owner D088, September 26, 2026
 
 Published engine checkpoint:
-[`afdebc230eeac91937f333ba2972121f77b97b2f`](https://github.com/ZelinZhu-Richard/Scientist-Ultra/commit/afdebc230eeac91937f333ba2972121f77b97b2f)
-on `review/vnext-checkpoint`; normal push and remote SHA verified. Four files:
-two audit sources, directly related test module and audit documentation. The
-staged patch exactly matched reviewed `8aa01ad2`; all300 captured inputs and
-three retained result identities matched, so117 distinct selected tests retain
-their Python3.11.15/3.14.6 evidence without rerunning. Outgoing356-file candidate
-and14-commit/430-blob history checked with unchanged disclosure rules. Main and
-the qualified recovered-baseline tag remain unchanged. No raw private evidence,
-private blob payload or research content published. This is not audit clearance.
+[`7d42f7b3d3ed172bc186294ef74af70fd0c01614`](https://github.com/ZelinZhu-Richard/Scientist-Ultra/commit/7d42f7b3d3ed172bc186294ef74af70fd0c01614)
+on `review/vnext-checkpoint`; normal push, remote SHA and actual source/test
+visibility verified. Six implementation/test files and ten public documents
+introduce the bounded internal-review component and accepted attempt-accounting
+repair. Outgoing359-file candidate and15-commit/446-blob history were checked
+with unchanged disclosure rules. Main and the qualified recovered-baseline tag
+remain unchanged. No raw private evidence, private blob payload, protocol or
+project-specific source was published. This is not audit clearance. The preceding
+exact-fixture checkpoint `afdebc230eeac91937f333ba2972121f77b97b2f` and its117-ID
+paired-runtime evidence remain separately recorded; these are not new tests.
 
 The current preserved audit is NON-PASS40, SHA-256
 `01b5348066e1851063401d80eb70bcc3007e3b6aa72a6bebc25c4d834c907150`.
@@ -24,11 +25,14 @@ The complete canonical protocol has now been received, read and hash-verified;
 its byte-identical private copy and prospective project views are excluded from
 public Git. The missing-protocol dependency is closed. Private deliverables include
 configuration/preregistration mapping, timing and correctness specifications,
-and scalar coordinate code with nine tests passing on both runtimes. These are
-engineering checks only: no tensor/backend G1 clearance, downloaded assets,
+and scalar reference code with16 distinct tests passing on both runtimes
+(nine coordinate controls and seven separate exact-neighbor controls). Ordinary
+admitted intake registered the original bytes in the existing artifact registry
+and ledger. This is raw input registration, not a frozen scientific contract or
+executable experiment. These are engineering checks only: no tensor/backend G1 clearance, downloaded assets,
 research experiment, measured pilot, manuscript result or real model review.
 
-The owner approved PAPER-REVIEW-001. The local repair records bounded operational
+The owner approved PAPER-REVIEW-001. The published repair records bounded operational
 attempts/refusals before consequential manuscript validation or request
 preparation, and reconciles existing invocation/terminal/output/receipt/retry
 records in readiness. It adds no provider dispatcher, admission, spending,
@@ -46,13 +50,19 @@ No real research experiment, manuscript score or live Colab run has occurred.
 
 | Action / recommendation | Reason / blocked stage | Completed without it |
 | --- | --- | --- |
+| Approve a separate pinned Python3.11 tensor-worker dependency installation, not a global/controller install | Real CPU-fp32/tensor correctness checks; narrow standard-package metadata inspection found no tensor stack, without claiming all environments were searched | Private scalar controls and full correctness specifications; no packages installed |
+| Confirm permitted model/data acquisition and its local storage/access scope | Actual model/data identities, scientific contract/task binding and representative smoke; no assets or splits have been invented | Exact private protocol intake and prospective implementation mapping |
 | Confirm Colab account/interface/authentication and pinned installation scope through local controls; never paste secrets | Live worker setup; offline preparation does not prove access | Published offline15-test component retained |
 | Approve operational per-job/cumulative CU caps after balance is known | Chargeable pilot/smoke;200CU monthly and20CU pilot are ceilings only | No spending, top-ups or reserve consumption |
 | Decide existing COLAB-001 input/log-retention and D082 compatibility proposals when those paths are needed | Confidential live deployment and fresh-user admission remain blocked | No admission/E0 changes or hidden launcher fallback |
 
-Next: publish the accepted engine changes,
-and continue permitted private M1–M5 stages through the existing owners. No new
-repair or protocol-supply decision is required. Only after relevant accepted changes and final
+Next: obtain the specific worker/input permissions above, then continue private
+tensor correctness and protocol-bound task integration through the existing owners.
+The legacy non-synthetic brief workflow still stops before research execution;
+its generic intake metadata is not the project's scientific design. No live
+provider dispatcher or complete question-to-results workflow is claimed. No new
+repair or protocol-supply decision is required. No tests or writers remain active.
+Only after relevant accepted changes and final
 bookkeeping may the one additional audit run; it has not been consumed.
 gates67 TIMEOUT and existing safety/external/scientific/E4 boundaries unchanged.
 
